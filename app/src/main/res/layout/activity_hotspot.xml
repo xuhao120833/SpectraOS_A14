@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_other"
+    android:id="@+id/rl_main"
+    tools:context=".activity.HotspotActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x_40"
+        android:text="@string/hotspot_settings"
+        android:layout_marginStart="@dimen/x_100"
+        android:layout_marginTop="@dimen/y_40"
+        android:id="@+id/title"
+        />
+
+    <RelativeLayout
+        android:layout_width="@dimen/x_1032"
+        android:layout_height="@dimen/y_80"
+        android:layout_below="@id/title"
+        android:id="@+id/rl_hotspot_switch"
+        android:layout_marginStart="@dimen/x_100"
+        android:layout_marginTop="@dimen/y_19"
+        android:background="@drawable/main_settings_bg"
+        style="@style/focusStyle"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x_50"
+            android:layout_centerVertical="true"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/x_27"
+            android:text="@string/hotspot_switch"
+            android:duplicateParentState="true"
+            />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="@dimen/x_98"
+            android:layout_height="@dimen/y_60"
+            android:id="@+id/hotspot_switch"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/x_50"
+            android:layout_centerVertical="true"
+            android:checked="true"
+            android:thumb="@drawable/switch_thumb"
+            app:track="@drawable/switch_bg"
+            app:switchMinWidth="@dimen/x_90"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="@dimen/x_1032"
+        android:layout_height="@dimen/y_6"
+        android:layout_below="@id/rl_hotspot_switch"
+        android:layout_marginStart="@dimen/x_100"
+        android:layout_marginTop="@dimen/y_15"
+        android:background="@drawable/corner_line"
+        />
+
+    <com.htc.spectraos.widget.CustomScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_hotspot_switch"
+        android:layout_marginTop="@dimen/y_40">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_hotspot_msg"
+            >
+            <com.htc.spectraos.widget.RL2Relativelayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:id="@+id/rl_hotspot_name"
+                android:layout_marginStart="@dimen/x_100"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27"
+                    android:text="@string/wifi_ssid"
+                    android:duplicateParentState="true"
+                    android:maxWidth="@dimen/x_400"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    />
+
+                <TextView
+                    android:layout_width="@dimen/x_368"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hotspot_name_tv"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/x_103"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_23"
+                    android:gravity="center"
+                    android:text="HTC"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    />
+
+            </com.htc.spectraos.widget.RL2Relativelayout>
+
+            <com.htc.spectraos.widget.RL2Relativelayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:id="@+id/rl_hotspot_password"
+                android:layout_below="@id/rl_hotspot_name"
+                android:layout_marginTop="@dimen/y_15"
+                android:layout_marginStart="@dimen/x_100"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27"
+                    android:text="@string/wifi_password"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:maxWidth="@dimen/x_400"
+                    />
+
+                <TextView
+                    android:layout_width="@dimen/x_368"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/password_tv"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/x_103"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_23"
+                    android:gravity="center"
+                    android:text="123456"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    />
+
+            </com.htc.spectraos.widget.RL2Relativelayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:layout_below="@id/rl_hotspot_password"
+                android:id="@+id/rl_show_password"
+                android:layout_marginStart="@dimen/x_100"
+                android:layout_marginTop="@dimen/y_19"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27"
+                    android:text="@string/wifi_show_password"
+                    android:duplicateParentState="true"
+                    />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="@dimen/x_98"
+                    android:layout_height="@dimen/y_60"
+                    android:id="@+id/show_password_switch"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/x_50"
+                    android:layout_centerVertical="true"
+                    android:checked="true"
+                    android:thumb="@drawable/switch_thumb"
+                    app:track="@drawable/switch_bg"
+                    app:switchMinWidth="@dimen/x_90"
+                    />
+            </RelativeLayout>
+
+            <com.htc.spectraos.widget.RL1Relativelayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:id="@+id/rl_hotspot_security"
+                android:layout_below="@id/rl_show_password"
+                android:layout_marginTop="@dimen/y_15"
+                android:layout_marginStart="@dimen/x_100"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27"
+                    android:text="@string/wifi_security"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:maxWidth="@dimen/x_400"
+                    />
+
+                <View
+                    android:layout_width="@dimen/x_53"
+                    android:layout_height="@dimen/y_53"
+                    android:id="@+id/hotspot_security_right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/x_50"
+                    android:background="@drawable/arrow_right_bg"
+                    android:duplicateParentState="true"
+                    />
+
+                <View
+                    android:layout_width="@dimen/x_53"
+                    android:layout_height="@dimen/y_53"
+                    android:id="@+id/hotspot_security_left"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/x_468"
+                    android:background="@drawable/arrow_left_bg"
+                    android:duplicateParentState="true"
+                    />
+
+                <TextView
+                    android:layout_width="@dimen/x_368"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/security_tv"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/x_103"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_23"
+                    android:gravity="center"
+                    android:text="123456"
+                    android:duplicateParentState="true"
+                    />
+
+            </com.htc.spectraos.widget.RL1Relativelayout>
+
+            <com.htc.spectraos.widget.RL1Relativelayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:id="@+id/rl_frequency"
+                android:layout_below="@id/rl_hotspot_security"
+                android:layout_marginTop="@dimen/y_15"
+                android:layout_marginStart="@dimen/x_100"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27"
+                    android:text="@string/select_ap"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:maxWidth="@dimen/x_400"
+                    />
+
+                <View
+                    android:layout_width="@dimen/x_53"
+                    android:layout_height="@dimen/y_53"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/x_50"
+                    android:background="@drawable/arrow_right_bg"
+                    android:duplicateParentState="true"
+                    />
+
+                <View
+                    android:layout_width="@dimen/x_53"
+                    android:layout_height="@dimen/y_53"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/x_468"
+                    android:background="@drawable/arrow_left_bg"
+                    android:duplicateParentState="true"
+                    />
+
+                <TextView
+                    android:layout_width="@dimen/x_368"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frequency_tv"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/x_103"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_23"
+                    android:gravity="center"
+                    android:text="123456"
+                    android:duplicateParentState="true"
+                    />
+
+            </com.htc.spectraos.widget.RL1Relativelayout>
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:id="@+id/rl_enter"
+                android:layout_below="@id/rl_frequency"
+                android:layout_marginTop="@dimen/y_30"
+                android:layout_marginStart="@dimen/x_100"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:duplicateParentState="true"
+                    android:text="@string/enter"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/x_1032"
+                android:layout_height="@dimen/y_80"
+                android:id="@+id/rl_cancel"
+                android:layout_below="@id/rl_enter"
+                android:layout_marginTop="@dimen/y_10"
+                android:layout_marginStart="@dimen/x_100"
+                android:background="@drawable/main_settings_bg"
+                style="@style/focusStyle"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/x_50"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/tv_color"
+                    android:textSize="@dimen/x_27"
+                    android:text="@string/cancel"
+                    android:duplicateParentState="true"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </com.htc.spectraos.widget.CustomScrollView>
+
+
+
+
+</RelativeLayout>

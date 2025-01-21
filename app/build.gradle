@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+
+ext.build_number = "debug";
+static def releaseTime() {
+    return new Date().format("yyMMddHHmm", TimeZone.getDefault());
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.htc.spectraos"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode getProperty("version.properties", "version_Code")
+        versionName releaseTime()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
+        ndk {
+            ldLibs "log"
+            moduleName "PxScale"         //生成的so名字
+            //abiFilters "armeabi"  //输出指定三种abi体系结构下的so库。目前可有可无。
+            abiFilters "arm64-v8a", "armeabi-v7a"  //输出指定三种abi体系结构下的so库。目前可有可无。
+        }
+    }
+
+
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+    ndkVersion '21.0.6113669'
+
+    buildTypes {
+        release {
+            minifyEnabled false  //混淆打开
+           // zipAlignEnabled true  //优化代码
+            //shrinkResources true  //优化资源
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 一定要写在android节点中
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                // 显示app名称+当前版本号
+                def fileName = "SpectraOS-V${variant.versionCode}"
+                // 如果有渠道，显示渠道名""
+                if (variant.flavorName!=""){
+                    fileName = fileName + "-${variant.flavorName}"
+                }
+                // 加入打包时间
+                fileName = fileName + "-${releaseTime()}"
+                // 如果是debug版本，加入beta版本号
+                if ('debug'.equals(variant.buildType.name)) {
+                    fileName = fileName + "-${build_number}.apk"
+                } else {
+                    // 如果是release版本，直接显示
+                    fileName = fileName + "-release.apk"
+                }
+                outputFileName =  fileName
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation files('libs/softwinner.jar')
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation files('libs\\Baidu_Mtj_android_4.0.10.9.jar')
+    compileOnly files('libs/classes.jar')
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.12'
+}
+
+/**
+ * @param filename 要打开的文件名字,保存版本信息的文件
+ * @param propName 文件里面的键名字，version_code,version_name
+ * @return 所选择的文件里面的propName对应的值
+ */
+def getProperty(String filename, String propName) {
+    def versionFile = file(filename)
+    print("versionFile.exists():" + versionFile.exists() + "\n");
+    if (versionFile.canRead()) {
+        def props = new Properties()
+        props.load(new FileInputStream(versionFile))
+        if ("version_Code" == propName) {
+            //获取versionCode对应的值
+            String versionCode = props[propName]
+            int code = Integer.valueOf(versionCode)
+            //判断是否是打包release版本程序
+            def runTasks = gradle.startParameter.taskNames
+            if (runTasks.toString().contains("assembleRelease")) {
+                //如果是release打包则版本号自增
+                props["version_Code"] = (++code).toString()
+                props.store(versionFile.newWriter(), null)
+            }
+            return code
+        }
+    } else {
+        print("can not read prop file:" + filename + "\n");
+    }
+}

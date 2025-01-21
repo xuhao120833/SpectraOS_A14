@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x_170"
+    android:layout_height="@dimen/y_165"
+    android:id="@+id/rl_item"
+    android:background="@drawable/home_sign_bg"
+    style="@style/focusStyle"
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y_1"
+        android:id="@+id/top"
+        android:background="@color/home_stroke_default_color"
+        android:visibility="gone"
+        />
+
+    <View
+        android:layout_width="@dimen/x_1"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/right"
+        android:background="@color/home_stroke_default_color"
+        android:visibility="gone"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y_1"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom"
+        android:background="@color/home_stroke_default_color"
+        android:visibility="gone"
+        />
+
+    <View
+        android:layout_width="@dimen/x_1"
+        android:layout_height="match_parent"
+        android:id="@+id/left"
+        android:background="@color/home_stroke_default_color"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:duplicateParentState="true">
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/x_54"
+            android:layout_height="@dimen/y_54"
+            android:layout_centerHorizontal="true"
+            android:duplicateParentState="true"
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:layout_below="@id/icon"
+            android:layout_marginTop="@dimen/y_10"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/x_23"
+            android:text="HDMI"
+            android:textColor="@color/tv_color"
+            android:duplicateParentState="true"
+            />
+    </RelativeLayout>
+
+    
+</RelativeLayout>

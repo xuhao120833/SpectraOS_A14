@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.htc.spectraos",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 41,
+      "versionName": "2501201742",
+      "enabled": true,
+      "outputFile": "SpectraOS-V41-2501201742-debug.apk"
+    }
+  ]
+}

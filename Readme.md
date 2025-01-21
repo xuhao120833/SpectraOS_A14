@@ -1,0 +1,1 @@
+桌面首次启动 快捷应用配置文件优先读取 /oem/shortcuts.config,文件不存在读取 /system/shortcuts.config
