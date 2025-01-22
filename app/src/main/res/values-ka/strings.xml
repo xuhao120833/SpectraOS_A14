@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SpectraOs</string>
     <string name="wifi_remembered">შენახულია</string>
@@ -173,23 +174,18 @@
     <string name="intelligent_obstacle">დაბრკოლებების გონივრული აცილება</string>
     <string name="calibration">ჭკვიანი კალიბრაცია</string>
     <string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> ავტომატური გათიშვა წამის შემდეგ]]></Data></string>
-
     <string name="connecting_ssid">მიმდინარეობს %1$s დაკავშირება…</string>
-
-
     <string name="resident_app">დაფიქსირდა მალსახმობი აპლიკაცია და მისი წაშლა შეუძლებელია</string>
     <string name="data_none">აპლიკაციის შესაბამისი მონაცემები ვერ მოიძებნა</string>
     <string name="network_setting">ქსელის პარამეტრები</string>
     <string name="hotspot_settings">Hotspot პარამეტრები</string>
     <string name="wired_network">სადენიანი ქსელი</string>
     <string name="hotspot_switch">Hotspot გადამრთველი</string>
-
     <string name="one_band">2.4 გჰც სიხშირის დიაპაზონი</string>
     <string name="two_band">5 გჰც დიაპაზონი</string>
     <string name="passwordmsglength">შეიყვანეთ პაროლი არ შეიძლება იყოს 8 ციფრზე ნაკლები!</string>
     <string name="empty_string">დაცლაზე დაყენება შეუძლებელია! </string>
     <string name="add_network">ქსელის დამატება</string>
-
     <string name="dhcp">DHCP</string>
     <string name="static_ip">სტატიკური</string>
     <string name="ip_settings">IP პარამეტრები</string>
@@ -204,7 +200,6 @@
     <string name="resolution">რეზოლუცია</string>
     <string name="display_settings">ჩვენების პარამეტრები</string>
     <string name="brightness">სიკაშკაშე</string>
-
     <string name="picture_mode_standard_name">სტანდარტული</string>
     <string name="picture_mode_cinema_name">კინო</string><!--ვიდეო-->
     <string name="picture_mode_vivid_name">ნათელი</string>
@@ -223,23 +218,19 @@
     <string name="picture_mode_sony_name">სონი</string>
     <string name="picture_mode_samsung_name">Samsung</string>
     <string name="picture_mode_custom_name">მორგებული</string>
-
     <string name="network_disconnect_tip">გთხოვთ, დაუკავშირდეთ ქსელს და სცადოთ ხელახლა! </string>
     <string name="data_err">გამონაკლისი მონაცემების მიღებისას! </string>
-
     <string name="fan_brightness_1">სტანდარტული რეჟიმი</string>
     <string name="fan_brightness_2">ენერგიის დაზოგვის რეჟიმი</string>
     <string name="fan_brightness_3">მონიშვნის რეჟიმი</string>
     <string name="fan_brightness_4">მაღალი ტემპერატურის რეჟიმი</string>
     <string name="power_on">ჩართვა</string>
-
     <string name="invalid_ip">არასწორი IP</string>
     <string name="invalid_netmask">ქვექსელის არასწორი ნიღაბი</string>
     <string name="invalid_gateway">არასწორი კარიბჭე</string>
     <string name="invalid_dns1">არასწორი DNS1</string>
     <string name="invalid_dns2">არასწორი DNS2</string>
     <string name="init_angle_correct">კუთხის საწყისი შესწორება</string>
-
     <string name="defaultcorrectionhint">გთხოვთ, მოათავსოთ მოწყობილობა ჰორიზონტალურ ზედაპირზე და შემდეგ დააჭიროთ [OK] შესწორებისას. </string>
     <string name="defaultcorrectionin">გამოსწორებულია, გთხოვთ დაელოდოთ…</string>
     <string name="hint">მინიშნება</string>
@@ -247,23 +238,18 @@
     <string name="adb_debug">adb გამართვა</string>
     <string name="device_mode">მოწყობილობის რეჟიმი</string>
     <string name="select_ap">აირჩიეთ AP band</string>
-
     <string name="refresh_network">ქსელის განახლება</string>
     <string name="auto_time_zone">ავტომატური დროის სარტყელი</string>
     <string name="auto_time_zone_hint">ავტომატური დროის სარტყელი გამოიყენება და მისი ხელით შეცვლა შეუძლებელია</string>
     <string name="hours_12">12 საათის ფორმატი</string>
     <string name="hours_24">24 საათის ფორმატი</string>
-
     <string name="find_local_update_msg">იპოვეს განახლების პაკეტი: \'%1$s\', გსურთ განახლების პაკეტის დაყენება?</string>
-
     <string name="reset_success">გადატვირთვა წარმატებით დასრულდა! </string>
-
     <string name="no_caalibrated">არ არის დაკალიბრებული</string>
     <string name="calibrated">დაკალიბრებული</string>
     <string name="calibrated_data_fail">დაკალიბრებული, მონაცემები ვერ მოხერხდა</string>
     <string name="calibrated_data_normal">დაკალიბრებული, მონაცემები ნორმალური</string>
     <string name="auto_four_corner_hint">ის ძალაში შედის ავტოფოკუსის ჩართვის შემდეგ</string>
-
     <string name="picture_mode">სურათის რეჟიმი</string>
     <string name="audio_mode">ხმის რეჟიმი</string>
     <string name="contrast">კონტრასტი</string>
@@ -273,18 +259,17 @@
     <string name="red">წითელი</string>
     <string name="green">მწვანე</string>
     <string name="blue">ლურჯი</string>
-
     <string name="standard">სტანდარტული</string>
     <string name="music">მუსიკა</string>
     <string name="movie">ფილმი</string>
     <string name="news">სიახლეები</string>
     <string name="account">ანგარიში</string>
-
     <string name="static_network_config_title">სტატიკური ქსელის კონფიგურაცია</string>
-
     <string name="follow_me">მიჰყევით შემდეგ ნაბიჯებს:</string>
     <string name="init_angle_tip1">1 გთხოვთ, მოათავსოთ მანქანა ჰორიზონტალურად მაგიდაზე და ეკრანი ვერტიკალურად კედელზე ან ფარდაზე. </string>
     <string name="init_angle_tip2">2 დაარეგულირეთ აპარატის მაღლა და ქვევით კუთხე, რათა დარწმუნდეთ, რომ ეკრანი სტანდარტული მართკუთხედი იქნება. </string>
     <string name="init_angle_tip3">3 დააწკაპუნეთ დაწყებაზე. </string>
     <string name="start">დაწყება</string>
+    <string name="wallpaper_text">ფონის შეცვლა</string>
+    <string name="wallpper_load">ფონის რესურსები იტვირთება...</string>
 </resources>

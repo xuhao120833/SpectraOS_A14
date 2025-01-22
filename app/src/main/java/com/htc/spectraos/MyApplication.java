@@ -1,11 +1,14 @@
 package com.htc.spectraos;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
+import androidx.lifecycle.MutableLiveData;
 
 import com.baidu.mobstat.StatService;
 import com.google.gson.Gson;
@@ -14,6 +17,7 @@ import com.htc.spectraos.utils.Contants;
 import com.htc.spectraos.utils.FileUtils;
 import com.htc.spectraos.utils.KeystoneUtils;
 import com.htc.spectraos.utils.ShareUtil;
+import com.htc.spectraos.utils.Utils;
 
 import java.io.File;
 
@@ -26,7 +30,14 @@ public class MyApplication extends Application {
 
     public static Config config = new Config();
     public static BitmapDrawable mainDrawable = null;
-    public static BitmapDrawable otherDrawable = null;
+
+    private static String TAG = "MyApplication";
+
+    private MutableLiveData<Boolean> isDataInitialized = new MutableLiveData<>(false);
+
+    public MutableLiveData<Boolean> getIsDataInitialized() {
+        return isDataInitialized; // 只暴露不可变的 LiveData
+    }
 
 
     @Override
@@ -39,11 +50,14 @@ public class MyApplication extends Application {
         editor.apply();
         if (new File(Contants.WALLPAPER_MAIN).exists())
             mainDrawable =new BitmapDrawable(BitmapFactory.decodeFile(Contants.WALLPAPER_MAIN));
-        if (new File(Contants.WALLPAPER_OTHER).exists())
-            otherDrawable = new BitmapDrawable(BitmapFactory.decodeFile(Contants.WALLPAPER_OTHER));
-
-        parseConfigFile();
+        try {
+            //json解析1
+            parseConfigFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initDisplaySize();
+        initWallpaperData();
 
         // 打开调试开关，可以查看logcat日志。版本发布前，为避免影响性能，移除此代码
         // 查看方法：adb logcat -s sdkstat
@@ -59,7 +73,7 @@ public class MyApplication extends Application {
     }
 
 
-    private void parseConfigFile(){
+    private void parseConfigFile() {
         String configContent;
         if (new File("/oem/shortcuts.config").exists()){
             configContent = FileUtils.readFileContent("/oem/shortcuts.config");
@@ -68,21 +82,61 @@ public class MyApplication extends Application {
         }
         if (configContent==null || configContent.equals(""))
             return;
-
         Gson gson = new Gson();
         config = gson.fromJson(configContent,Config.class);
-
     }
 
     private void initDisplaySize(){
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int screenWidth = dm.widthPixels;
         int screenHeight = dm.heightPixels;
-        Log.d("hzj","screenWidth "+screenWidth+" screenHeight "+screenHeight);
+        Log.d(TAG,"screenWidth "+screenWidth+" screenHeight "+screenHeight);
         KeystoneUtils.lcd_h = screenHeight;
         KeystoneUtils.lcd_w = screenWidth;
         KeystoneUtils.minH_size = config.manualKeystoneWidth;
         KeystoneUtils.minV_size = config.manualKeystoneHeight;
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void initWallpaperData() {
+        new Thread(() -> {
+            Utils.drawables.add(getResources().getDrawable(R.drawable.background0));
+            Utils.drawables.add(R.drawable.background_main);
+            Utils.drawables.add(R.drawable.background1);
+            Utils.drawables.add(R.drawable.background2);
+            Utils.drawables.add(R.drawable.background3);
+            Utils.drawables.add(R.drawable.background4);
+            Utils.drawables.add(R.drawable.background5);
+            Utils.drawables.add(R.drawable.background6);
+            Utils.drawables.add(R.drawable.background7);
+            Utils.drawables.add(R.drawable.background8);
+            Utils.drawables.add(R.drawable.background9);
+            copyMyWallpaper();
+            Utils.drawables.add(getResources().getDrawable(R.drawable.wallpaper_add));
+            // 数据加载完成后更新 LiveData
+            Log.d(TAG,"执行完initWallpaperData");
+            isDataInitialized.postValue(true);//UI线程用setValue
+        }).start();
+    }
+
+    private void copyMyWallpaper() {
+        String[] imageExtensions = {".jpg", ".jpeg", ".png", ".bmp", ".webp"};
+        File directory = new File("/sdcard/.mywallpaper");
+        if (directory.exists() && directory.isDirectory()) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isFile()) {
+                        for (String extension : imageExtensions) {
+                            if (file.getName().toLowerCase().endsWith(extension)) {
+                                Utils.drawables.add(file.getAbsolutePath());
+                                break; // 找到一个匹配后就跳出循环
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

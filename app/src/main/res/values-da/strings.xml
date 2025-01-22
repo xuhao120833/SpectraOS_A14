@@ -1,5 +1,4 @@
 <resources>
-
 	<string name="app_name">Spektre</string>
 	<string name="wifi_remembered">Gemt</string>
 	<string name="isconnected">(Tilsluttet)</string>
@@ -175,20 +174,17 @@
 	<string name="calibration">Intelligent kalibrering</string>
 	<string name="shutdown_tips"><Data><![CDATA[<skriftfarve=\"#ff0000\"><b>%1$d</b></font> sekunders automatisk nedlukning]]></Data></string>
 	<string name="connecting_ssid">forbinder %1$s ...</string>
-
 	<string name="resident_app">Fast genvejsapplikation, kan ikke slettes</string>
 	<string name="data_none">Der blev ikke fundet tilsvarende applikationsdata</string>
 	<string name="network_setting">Netværksindstillinger</string>
 	<string name="hotspot_settings">Indstillinger for hotspot</string>
 	<string name="wired_network">Kablet netværk</string>
 	<string name="hotspot_switch">Hotspot-kontakt</string>
-
 	<string name="one_band">2,4 GHz-båndet</string>
 	<string name="two_band">5 GHz-båndet</string>
 	<string name="passwordmsglength">Adgangskoden må ikke være mindre end 8 cifre!</string>
 	<string name="empty_string">Kan ikke indstilles til tom!</string>
 	<string name="add_network">Tilføj netværk</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">Statisk</string>
 	<string name="ip_settings">IP-indstillinger</string>
@@ -203,30 +199,25 @@
 	<string name="resolution">Opløsning</string>
 	<string name="display_settings">Indstillinger for skærm</string>
 	<string name="brightness">Lysstyrke</string>
-
 	<string name="picture_mode_standard_name">Norm</string>
 	<string name="picture_mode_cinema_name">Biograf</string><!--Movie--> <string name="picture_mode_vivid_name">Lys</string> <string name="picture_mode_sports_name">Sport</string><!--Sports--> <string name="picture_mode_game_name">Spil</string> <string name="picture_mode_bright_name">Lys</string> <string name="picture_mode_soft_name">Blød</string> <string name ="picture_mode_computer_name">Computer</string> <string name="picture_mode_hdr_name">HD</string> <string name="picture_mode_calibrated_name">Kalibreret</string> <string name="picture_mode_calibrateddark_name">Mørk kalibreret</string> <string name="picture_mode_home_name">Hjem</string> <string name="picture_mode_shop_name">Shopping</string> <string name="picture_mode_animation_name">Animation</string><!--Children-->
 	<string name="picture_mode_monitor_name">Skærm</string>
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">Samsung</string>
 	<string name="picture_mode_custom_name">Sædvane</string>
-
 	<string name="network_disconnect_tip">Opret forbindelse til netværket og prøv igen!</string>
 	<string name="data_err">Unormal dataindsamling!</string>
-
 	<string name="fan_brightness_1">Standard-tilstand</string>
 	<string name="fan_brightness_2">Energibesparende tilstand</string>
 	<string name="fan_brightness_3">Høj lysstyrke</string>
 	<string name="fan_brightness_4">Høj temperatur tilstand</string>
 	<string name="power_on">Tænd</string>
-
 	<string name="invalid_ip">Ugyldig IP</string>
 	<string name="invalid_netmask">Ugyldig undernetmaske</string>
 	<string name="invalid_gateway">Ugyldig gateway</string>
 	<string name="invalid_dns1">Ugyldig DNS1</string>
 	<string name="invalid_dns2">Ugyldig DNS2</string>
 	<string name="init_angle_correct">Indledende vinkelkorrektion</string>
-
 	<string name="defaultcorrectionhint">Placer venligst enheden på en vandret overflade, og tryk på [OK] for at korrigere. Flyt ikke enheden under korrektion!</string>
 	<string name="defaultcorrectionin">Rettelse i gang, vent venligst...</string>
 	<string name="hint">Antydning</string>
@@ -239,10 +230,8 @@
 	<string name="auto_time_zone_hint">Automatisk tidszone er i brug og kan ikke ændres manuelt</string>
 	<string name="hours_12">12-timers format</string>
 	<string name="hours_24">24-timers format</string>
-
 	<string name="find_local_update_msg">Fandt en opgraderingspakke: \'%1$s\', vil du installere opgraderingspakken\?</string>
 	<string name="reset_success">Nulstil med succes!</string>
-
 	<string name="no_caalibrated">Ikke kalibreret</string>
 	<string name="calibrated">Kalibreret</string>
 	<string name="calibrated_data_fail">Kalibreret, data er fejlbehæftet</string>
@@ -257,17 +246,17 @@
 	<string name="red">Rød</string>
 	<string name="green">Grøn</string>
 	<string name="blue">Blå</string>
-
 	<string name="standard">Norm</string>
 	<string name="music">Musik</string>
 	<string name="movie">Film</string>
 	<string name="news">Nyhed</string>
 	<string name="account">Konto</string>
 	<string name="static_network_config_title">Statisk netværkskonfiguration</string>
-
 	<string name="follow_me">Følg følgende trin:</string>
 	<string name="init_angle_tip1">1 Placer venligst maskinen vandret på bordet og skærmen lodret i forhold til væggen eller gardinet. </string>
 	<string name="init_angle_tip2">2 Juster maskinens op- og nedadgående vinkel for at sikre, at skærmen projiceres ind i et standardrektangel. </string>
 	<string name="init_angle_tip3">3. Klik på Start.</string>
 	<string name="start">Start</string>
+	<string name="wallpaper_text">Baggrundsskift</string>
+	<string name="wallpper_load">Baggrundsressourcer indlæses...</string>
 </resources>

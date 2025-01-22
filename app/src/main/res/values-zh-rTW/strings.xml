@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">Launcher</string>
 	<string name="wifi_remembered">已保存</string>
 	<string name="isconnected">（已連接）</string>
@@ -176,20 +175,17 @@
 	<string name="calibration">智慧標定</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> 秒後自動關機 ]]></Data></string>
 	<string name="connecting_ssid">正在連接 %1$s …</string>
-
 	<string name="resident_app">固定快速應用程式,不可刪除</string>
 	<string name="data_none">未找到對應的應用程式資料</string>
 	<string name="network_setting">網路設定</string>
 	<string name="hotspot_settings">熱點設定</string>
 	<string name="wired_network">有線網路</string>
 	<string name="hotspot_switch">熱點開關</string>
-
 	<string name="one_band">2.4 GHz 頻段</string>
 	<string name="two_band">5 GHz 頻段</string>
 	<string name="passwordmsglength">輸入密碼不能小於8位數!</string>
 	<string name="empty_string">不能設為空！ </string>
 	<string name="add_network">新增網路</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">靜態</string>
 	<string name="ip_settings">IP設定</string>
@@ -204,7 +200,6 @@
 	<string name="resolution">解析度</string>
 	<string name="display_settings">顯示設定</string>
 	<string name="brightness">亮度</string>
-
 	<string name="picture_mode_standard_name">標準</string>
 	<string name="picture_mode_cinema_name">戲院</string><!--影片-->
 	<string name="picture_mode_vivid_name">艷麗</string>
@@ -223,7 +218,6 @@
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">三星</string>
 	<string name="picture_mode_custom_name">自訂</string>
-
 	<string name="network_disconnect_tip">請連結網路後重試！ </string>
 	<string name="data_err">取得資料異常！ </string>
 	<string name="fan_brightness_1">標準模式</string>
@@ -231,39 +225,31 @@
 	<string name="fan_brightness_3">高亮模式</string>
 	<string name="fan_brightness_4">高溫模式</string>
 	<string name="power_on">上電開機</string>
-
 	<string name="invalid_ip">無效 IP</string>
 	<string name="invalid_netmask">無效子網路遮罩</string>
 	<string name="invalid_gateway">無效網關</string>
 	<string name="invalid_dns1">無效 DNS1</string>
 	<string name="invalid_dns2">無效 DNS2</string>
 	<string name="init_angle_correct">初始角度校正</string>
-
 	<string name="defaultcorrectionhint">請將裝置放於水平面，再按【確定】進行矯正，矯正期間請勿移動裝置！ </string>
 	<string name="defaultcorrectionin">正在矯正，請稍後…</string>
 	<string name="hint">提示</string>
-
 	<string name="usb_debug">USB 偵錯</string>
 	<string name="adb_debug">adb 偵錯</string>
 	<string name="device_mode">設備模式</string>
 	<string name="select_ap">選擇AP頻段</string>
-
 	<string name="refresh_network">刷新網路</string>
 	<string name="auto_time_zone">自動時區</string>
 	<string name="auto_time_zone_hint">自動時區正在使用中，無法手動修改</string>
 	<string name="hours_12">12 小時格式</string>
 	<string name="hours_24">24 小時格式</string>
-
 	<string name="find_local_update_msg">發現一個升級包: \'%1$s\' ,是否要安裝升級包?</string>
-
 	<string name="reset_success">重置成功！ </string>
-
 	<string name="no_caalibrated">未校準</string>
 	<string name="calibrated">已校準</string>
 	<string name="calibrated_data_fail">已校準，資料失敗</string>
 	<string name="calibrated_data_normal">已校準，資料正常</string>
 	<string name="auto_four_corner_hint">自動對焦開啟後生效</string>
-
 	<string name="picture_mode">映像模式</string>
 	<string name="audio_mode">聲音模式</string>
 	<string name="contrast">對比</string>
@@ -273,17 +259,17 @@
 	<string name="red">紅</string>
 	<string name="green">綠</string>
 	<string name="blue">藍</string>
-
 	<string name="standard">標準</string>
 	<string name="music">音樂</string>
 	<string name="movie">電影</string>
 	<string name="news">新聞</string>
 	<string name="account">帳號</string>
 	<string name="static_network_config_title">靜態網路配置</string>
-
 	<string name="follow_me">依下列步驟操作:</string>
 	<string name="init_angle_tip1">1、請將機械水平放置桌面，畫面垂直於牆面或布幕。 </string>
 	<string name="init_angle_tip2">2、調整機械上下角度，保證畫面投出來為標準矩形。 </string>
 	<string name="init_angle_tip3">3、點選開始。 </string>
 	<string name="start">開始</string>
+	<string name="wallpaper_text">背景切換</string>
+	<string name="wallpper_load">背景資源加載中...</string>
 </resources>

@@ -175,20 +175,17 @@
     <string name="calibration">스마트 교정</string>
     <string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> 초 후 종료 ]]></Data></string>
     <string name="connecting_ssid">연결 중 %1$s …</string>
-
     <string name="resident_app">바로가기 애플리케이션이 수정되어 삭제할 수 없습니다</string>
     <string name="data_none">해당 애플리케이션 데이터를 찾을 수 없습니다</string>
     <string name="network_setting">네트워크 설정</string>
     <string name="hotspot_settings">핫스팟 설정</string>
     <string name="wired_network">유선 네트워크</string>
     <string name="hotspot_switch">핫스팟 스위치</string>
-
     <string name="one_band">2.4GHz 주파수 대역</string>
     <string name="two_band">5GHz 대역</string>
     <string name="passwordmsglength">비밀번호는 8자리 이상 입력하실 수 없습니다!</string>
     <string name="empty_string">비워둘 수 없습니다! </string>
     <string name="add_network">네트워크 추가</string>
-
     <string name="dhcp">DHCP</string>
     <string name="static_ip">정적</string>
     <string name="ip_settings">IP 설정</string>
@@ -203,7 +200,6 @@
     <string name="resolution">해상도</string>
     <string name="display_settings">디스플레이 설정</string>
     <string name="brightness">밝기</string>
-
     <string name="picture_mode_standard_name">표준</string>
     <string name="picture_mode_cinema_name">영화</string><!--비디오-->
     <string name="picture_mode_vivid_name">선명한</string>
@@ -222,7 +218,6 @@
     <string name="picture_mode_sony_name">소니</string>
     <string name="picture_mode_samsung_name">삼성</string>
     <string name="picture_mode_custom_name">맞춤설정</string>
-
     <string name="network_disconnect_tip">네트워크에 연결한 후 다시 시도해 주세요! </string>
     <string name="data_err">데이터를 가져오는 중 예외가 발생했습니다! </string>
     <string name="fan_brightness_1">표준 모드</string>
@@ -230,38 +225,31 @@
     <string name="fan_brightness_3">하이라이트 모드</string>
     <string name="fan_brightness_4">고온 모드</string>
     <string name="power_on">전원 켜기</string>
-
     <string name="invalid_ip">잘못된 IP</string>
     <string name="invalid_netmask">잘못된 서브넷 마스크</string>
     <string name="invalid_gateway">잘못된 게이트웨이</string>
     <string name="invalid_dns1">잘못된 DNS1</string>
     <string name="invalid_dns2">잘못된 DNS2</string>
     <string name="init_angle_correct">초기 각도 수정</string>
-
     <string name="defaultcorrectionhint">기기를 수평면에 놓고 [확인]을 눌러 수정하세요. 수정 중에는 기기를 움직이지 마세요! </string>
     <string name="defaultcorrectionin">수정 중입니다. 잠시 기다려 주세요…</string>
     <string name="hint">힌트</string>
-
     <string name="usb_debug">USB 디버깅</string>
     <string name="adb_debug">adb 디버깅</string>
     <string name="device_mode">기기 모드</string>
     <string name="select_ap">AP 밴드 선택</string>
-
     <string name="refresh_network">네트워크 새로 고침</string>
     <string name="auto_time_zone">자동 시간대</string>
     <string name="auto_time_zone_hint">자동 시간대가 사용 중이므로 수동으로 수정할 수 없습니다</string>
     <string name="hours_12">12시간 형식</string>
     <string name="hours_24">24시간 형식</string>
-
     <string name="find_local_update_msg">업그레이드 패키지를 찾았습니다: \'%1$s\', 업그레이드 패키지를 설치하시겠습니까?</string>
     <string name="reset_success">재설정에 성공했습니다!</string>
-
     <string name="no_caalibrated">보정되지 않음</string>
     <string name="calibrated">보정되었습니다</string>
     <string name="calibrated_data_fail">보정됨, 데이터 실패</string>
     <string name="calibrated_data_normal">보정되었으며 데이터는 정상입니다</string>
     <string name="auto_four_corner_hint">자동 초점이 켜진 후에 유효</string>
-
     <string name="picture_mode">사진 모드</string>
     <string name="audio_mode">사운드 모드</string>
     <string name="contrast">대비</string>
@@ -271,17 +259,17 @@
     <string name="red">빨간색</string>
     <string name="green">녹색</string>
     <string name="blue">파란색</string>
-
     <string name="standard">표준</string>
     <string name="music">음악</string>
     <string name="movie">영화</string>
     <string name="news">뉴스</string>
     <string name="account">계정</string>
     <string name="static_network_config_title">정적 네트워크 구성</string>
-
     <string name="follow_me">다음 단계를 따르세요:</string>
     <string name="init_angle_tip1">1. 테이블 위에는 기기를 수평으로 놓고, 화면은 벽이나 커튼에 수직으로 놓아주세요. </string>
     <string name="init_angle_tip2">2. 화면이 표준 직사각형에 투사되도록 기계의 위아래 각도를 조정하세요. </string>
     <string name="init_angle_tip3">3. 시작을 클릭하세요. </string>
     <string name="start">시작</string>
+    <string name="wallpaper_text">배경 변경</string>
+    <string name="wallpper_load">배경 리소스를 로드하는 중...</string>
 </resources>

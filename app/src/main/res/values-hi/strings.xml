@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">स्पेक्ट्राओस</string>
 	<string name="wifi_remembered">सहेजा गया</string>
 	<string name="isconnected">जुड़ा हुआ)</string>
@@ -175,20 +175,17 @@
 	<string name="calibration">बुद्धिमान अंशांकन</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font रंग =\"#ff0000\"><b>%1$d</b></font> सेकंड ऑटो बंद]]></Data></string>
 	<string name="connecting_ssid">%1$ को कनेक्ट किया जा रहा है…</string>
-
 	<string name="resident_app">नियत शॉर्टकट अनुप्रयोग, मिटाया नहीं जा सकता</string>
 	<string name="data_none">कोई संबंधित अनुप्रयोग डेटा नहीं मिला</string>
 	<string name="network_setting">नेटवर्क सेटिंग</string>
 	<string name="hotspot_settings">हॉटस्पॉट सेटिंग</string>
 	<string name="wired_network">वायर युक्त संजाल</string>
 	<string name="hotspot_switch">हॉटस्पॉट स्विच</string>
-
 	<string name="one_band">2.4 गेज़ बैंड</string>
 	<string name="two_band">5 जीज़ बैंड</string>
 	<string name="passwordmsglength">पासवर्ड 8 अंकों से कम नहीं हो सकता!</string>
 	<string name="empty_string">रिक्त पर सेट नहीं किया जा सकता!</string>
 	<string name="add_network">संजाल जोड़ें</string>
-
 	<string name="dhcp">डीएचसीपी</string>
 	<string name="static_ip">स्थिर</string>
 	<string name="ip_settings">आईपी सेटिंग</string>
@@ -203,30 +200,25 @@
 	<string name="resolution">संकल्प</string>
 	<string name="display_settings">प्रकटन विन्यास</string>
 	<string name="brightness">चमक</string>
-
 	<string name="picture_mode_standard_name">मानक</string>
 	<string name="picture_mode_cinema_name">चलचित्र</string><!--Movie--> <string name="picture_mode_vivid_name">उज्ज्वल</string> <string name="picture_mode_sports_name">खेल</string><!--Sports--> <string name="picture_mode_game_name">खेल</string> <string name="picture_mode_bright_name">उज्ज्वल</string> <string name="picture_mode_soft_name">कोमलांग</string> <string name ="picture_mode_computer_name">कंप्यूटर</string> <string name="picture_mode_hdr_name">एचडी</string> <string name="picture_mode_calibrated_name">अंशशोघित</string> <string name="picture_mode_calibrateddark_name">गहरा कैलिब्रेटेड</string> <string name="picture_mode_home_name">घर</string> <string name="picture_mode_shop_name">खरीदारी</string> <string name="picture_mode_animation_name">एनीमेशन</string><!--Children-->
 	<string name="picture_mode_monitor_name">वरान</string>
 	<string name="picture_mode_sony_name">सोनी</string>
 	<string name="picture_mode_samsung_name">सैमसंग</string>
 	<string name="picture_mode_custom_name">रिवाज</string>
-
 	<string name="network_disconnect_tip">कृपया नेटवर्क से कनेक्ट करें और फिर से प्रयास करें!</string>
 	<string name="data_err">असामान्य डेटा अधिग्रहण!</string>
-
 	<string name="fan_brightness_1">मानक मोड</string>
 	<string name="fan_brightness_2">ऊर्जा बचत मोड</string>
 	<string name="fan_brightness_3">उच्च चमक मोड</string>
 	<string name="fan_brightness_4">उच्च तापमान विधि</string>
 	<string name="power_on">पावर ऑन</string>
-
 	<string name="invalid_ip">अवैध आई. पी.</string>
 	<string name="invalid_netmask">अवैध सबनेट मास्क</string>
 	<string name="invalid_gateway">अवैध गेटवे</string>
 	<string name="invalid_dns1">अवैध DNS1</string>
 	<string name="invalid_dns2">अवैध DNS2</string>
 	<string name="init_angle_correct">आरंभिक कोण संशोधन</string>
-
 	<string name="defaultcorrectionhint">कृपया डिवाइस को किसी क्षैतिज सतह पर रखें और ठीक करने के लिए [OK) दबाएँ. सुधार के दौरान डिवाइस को स्थानांतरित न करें!</string>
 	<string name="defaultcorrectionin">सुधार प्रगति में है, कृपया प्रतीक्षा करें…</string>
 	<string name="hint">परोक्ष संकेत</string>
@@ -239,10 +231,8 @@
 	<string name="auto_time_zone_hint">ऑटो समय क्षेत्र उपयोग में है और मैन्युअल रूप से संशोधित नहीं किया जा सकता है</string>
 	<string name="hours_12">12 घंटे का प्रारूप</string>
 	<string name="hours_24">24 घंटे का प्रारूप</string>
-
 	<string name="find_local_update_msg">अद्यतन पैकेज पाया गया: \"%1$s\", क्या आप अद्यतन पैकेज को संस्थापित करना चाहते हैं\?</string>
 	<string name="reset_success">सफलतापूर्वक रीसेट करें!</string>
-
 	<string name="no_caalibrated">कैलिब्रेटेड नहीं</string>
 	<string name="calibrated">अंशशोघित</string>
 	<string name="calibrated_data_fail">कैलिब्रेटेड, डेटा विफल है</string>
@@ -257,17 +247,17 @@
 	<string name="red">लाल</string>
 	<string name="green">हरा</string>
 	<string name="blue">नीला</string>
-
 	<string name="standard">मानक</string>
 	<string name="music">संगीत</string>
 	<string name="movie">चलचित्र</string>
 	<string name="news">समाचार</string>
 	<string name="account">हिसाब-किताब</string>
 	<string name="static_network_config_title">स्थैतिक नेटवर्क कॉन्फ़िगरेशन</string>
-
 	<string name="follow_me">निम्न चरणों का पालन करें:</string>
 	<string name="init_angle_tip1">1. कृपया मशीन को मेज पर क्षैतिज रूप से रखें और स्क्रीन को दीवार या पर्दे के सामने लंबवत रखें। </string>
 	<string name="init_angle_tip2">2. यह सुनिश्चित करने के लिए कि स्क्रीन एक मानक आयत में प्रक्षेपित है, मशीन के ऊपर और नीचे के कोण को समायोजित करें। </string>
 	<string name="init_angle_tip3">3. प्रारंभ पर क्लिक करें. </string>
 	<string name="start">प्रारंभ करें</string>
+	<string name="wallpaper_text">वॉलपेपर बदलें</string>
+	<string name="wallpper_load">वॉलपेपर संसाधन लोड हो रहा है...</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">Лаунчер</string>
 	<string name="wifi_remembered">Сохранено</string>
 	<string name="isconnected">(Подключены)</string>
@@ -176,20 +175,17 @@
 	<string name="calibration">Умная калибровка</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> Автоматическое выключение через секунду]]></Data></string>
 	<string name="connecting_ssid">Подключается %1$s …</string>
-
 	<string name="resident_app">Исправлен ярлык приложения, его нельзя удалить</string>
 	<string name="data_none">Соответствующие данные приложения не найдены</string>
 	<string name="network_setting">Настройки сети</string>
 	<string name="hotspot_settings">Настройки точки доступа</string>
 	<string name="wired_network">Проводная сеть</string>
 	<string name="hotspot_switch">Переключатель точки доступа</string>
-
 	<string name="one_band">Полоса частот 2,4ГГц</string>
 	<string name="two_band">Диапазон 5ГГц</string>
 	<string name="passwordmsglength">Введите пароль не менее 8 цифр!</string>
 	<string name="empty_string">Невозможно установить пустое значение! </string>
 	<string name="add_network">Добавить сеть</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">статический</string>
 	<string name="ip_settings">Настройки IP</string>
@@ -204,7 +200,6 @@
 	<string name="resolution">Разрешение</string>
 	<string name="display_settings">Настройки отображения</string>
 	<string name="brightness">Яркость</string>
-
 	<string name="picture_mode_standard_name">Стандарт</string>
 	<string name="picture_mode_cinema_name">Кино</string><!--Видео-->
 	<string name="picture_mode_vivid_name">Яркий</string>
@@ -223,47 +218,38 @@
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">Samsung</string>
 	<string name="picture_mode_custom_name">Пользовательский</string>
-
 	<string name="network_disconnect_tip">Подключитесь к сети и повторите попытку! </string>
 	<string name="data_err">Исключение при получении данных! </string>
-
 	<string name="fan_brightness_1">Стандартный режим</string>
 	<string name="fan_brightness_2">Режим энергосбережения</string>
 	<string name="fan_brightness_3">Режим выделения</string>
 	<string name="fan_brightness_4">Высокотемпературный режим</string>
 	<string name="power_on">Включение</string>
-
 	<string name="invalid_ip">Неверный IP</string>
 	<string name="invalid_netmask">Неверная маска подсети</string>
 	<string name="invalid_gateway">Неверный шлюз</string>
 	<string name="invalid_dns1">Неверный DNS1</string>
 	<string name="invalid_dns2">Неверный DNS2</string>
 	<string name="init_angle_correct">Коррекция начального угла</string>
-
 	<string name="defaultcorrectionhint">Пожалуйста, поместите устройство на горизонтальную поверхность, а затем нажмите [ОК] для исправления. Не перемещайте устройство во время исправления! </string>
 	<string name="defaultcorrectionin">Исправляется, подождите…</string>
 	<string name="hint">Подсказка</string>
-
 	<string name="usb_debug">Отладка по USB</string>
 	<string name="adb_debug">отладка adb</string>
 	<string name="device_mode">Режим устройства</string>
 	<string name="select_ap">Выбрать диапазон точки доступа</string>
-
 	<string name="refresh_network">Обновить сеть</string>
 	<string name="auto_time_zone">Автоматический часовой пояс</string>
 	<string name="auto_time_zone_hint">Автоматический часовой пояс используется и не может быть изменен вручную</string>
 	<string name="hours_12">12-часовой формат</string>
 	<string name="hours_24">24-часовой формат</string>
-
 	<string name="find_local_update_msg">Найден пакет обновления: \'%1$s\', вы хотите установить пакет обновления?</string>
 	<string name="reset_success">Сброс выполнен успешно!</string>
-
 	<string name="no_caalibrated">Не откалибровано</string>
 	<string name="calibrated">Откалиброван</string>
 	<string name="calibrated_data_fail">Откалиброван, данные неверны</string>
 	<string name="calibrated_data_normal">Откалиброван, данные в норме</string>
 	<string name="auto_four_corner_hint">Вступает в силу после включения автофокуса</string>
-
 	<string name="picture_mode">Режим изображения</string>
 	<string name="audio_mode">Режим звука</string>
 	<string name="contrast">Контраст</string>
@@ -273,17 +259,17 @@
 	<string name="red">Красный</string>
 	<string name="green">Зеленый</string>
 	<string name="blue">Синий</string>
-
 	<string name="standard">Стандарт</string>
 	<string name="music">Музыка</string>
 	<string name="movie">Фильм</string>
 	<string name="news">Новости</string>
 	<string name="account">Учетная запись</string>
 	<string name="static_network_config_title">Статическая конфигурация сети</string>
-
 	<string name="follow_me">Выполните следующие действия:</string>
 	<string name="init_angle_tip1">1. Расположите аппарат на столе горизонтально, а экран вертикально к стене или занавеске. </string>
 	<string name="init_angle_tip2">2. Отрегулируйте угол наклона устройства вверх и вниз, чтобы экран проецировался в виде стандартного прямоугольника. </string>
 	<string name="init_angle_tip3">3. Нажмите «Пуск». </string>
 	<string name="start">Начать</string>
+	<string name="wallpaper_text">Смена фона</string>
+	<string name="wallpper_load">Загрузка фоновых ресурсов...</string>
 </resources>

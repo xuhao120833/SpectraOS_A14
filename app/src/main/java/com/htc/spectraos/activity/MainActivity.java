@@ -182,9 +182,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         mainBinding.rlBluetooth.setOnClickListener(this);
         mainBinding.rlEthernet.setOnClickListener(this);
         mainBinding.rlClear.setOnClickListener(this);
-
         mainBinding.rlWallpapers.setOnClickListener(this);
-
 
         mainBinding.rlApps.setOnHoverListener(this);
         mainBinding.rlGoogle.setOnHoverListener(this);
@@ -200,20 +198,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         mainBinding.rlEthernet.setOnHoverListener(this);
         mainBinding.rlWallpapers.setOnHoverListener(this);
         mainBinding.rlClear.setOnHoverListener(this);
-
-        /*mainBinding.rlApps.setOnFocusChangeListener(this);
-        mainBinding.rlGoogle.setOnFocusChangeListener(this);
-        mainBinding.rlSettings.setOnFocusChangeListener(this);
-        mainBinding.rlUsb.setOnFocusChangeListener(this);
-        mainBinding.rlAv.setOnFocusChangeListener(this);
-        mainBinding.rlHdmi1.setOnFocusChangeListener(this);
-        mainBinding.rlHdmi2.setOnFocusChangeListener(this);
-        mainBinding.rlVga.setOnFocusChangeListener(this);
-        mainBinding.rlManual.setOnFocusChangeListener(this);
-
-        mainBinding.rlWifi.setOnFocusChangeListener(focusChangeListener);
-        mainBinding.rlBluetooth.setOnFocusChangeListener(focusChangeListener);*/
-
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -262,7 +246,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     }
 
     private void initSourceData(){
-
         SignalAdapter signalAdapter = new SignalAdapter(this,getSourceListTitle(),getSourceList());
         signalAdapter.setSignalItemCallBack(signalItemCallBack);
         GridLayoutManager gridLayoutManager;
@@ -272,9 +255,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
              gridLayoutManager = new GridLayoutManager(this,2);
         }
         mainBinding.signalRv.setLayoutManager(gridLayoutManager);
-
         mainBinding.signalRv.setAdapter(signalAdapter);
-
     }
 
     public static String[] getSourceList(){
@@ -637,7 +618,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
      * 第一次初始化默认快捷栏app数据
      */
     private boolean initDataApp() {
-
         boolean isLoad = true;
         SharedPreferences sharedPreferences = ShareUtil.getInstans(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -647,11 +627,9 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
             File file = new File("/oem/shortcuts.config");
             if (!file.exists())
              file = new File("/system/shortcuts.config");
-
             if (!file.exists()) {
                 return false;
             }
-
             try {
                 FileInputStream is = new FileInputStream(file);
                 byte[] b = new byte[is.available()];
@@ -671,7 +649,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                             packageName)) {
                         long addCode = DBUtils.getInstance(this)
                                 .addFavorites(packageName);
-
                     }
                 }
                 editor.putString("resident",residentList.toString());
@@ -685,7 +662,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                 isLoad = false;
             }
         }
-
         return isLoad;
     }
 
@@ -694,15 +670,12 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         ArrayList<AppSimpleBean> appSimpleBeans = DBUtils.getInstance(this).getFavorites();
         ArrayList<ShortInfoBean> shortInfoBeans = new ArrayList<>();
         ArrayList<AppInfoBean> appList = AppUtils.getApplicationMsg(this);
-
         String country_code = Settings.System.getString(getContentResolver(),"ip_country_code");
         LogUtils.d("ip_country_code "+country_code);
         if (country_code!=null){
             String[] continent_countryCode = country_code.split(",");
             if (continent_countryCode.length>=2 && MyApplication.config.specialApps !=null && MyApplication.config.specialApps.size()>0) {
-
                 for (SpecialApps specialApps : MyApplication.config.specialApps){
-
                     if (specialApps.getContinent()!=null && !specialApps.getContinent().equals("")){
                         if (specialApps.getContinent().contains("!")){
                             if (specialApps.getContinent().replace("!","").equals(continent_countryCode[0]))
@@ -712,7 +685,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                                 continue;
                         }
                     }
-
                     if (specialApps.getCountryCode()!=null && !specialApps.getCountryCode().equals("")){
                         if (specialApps.getCountryCode().contains("!")){
                             if (specialApps.getCountryCode().replace("!","").equals(continent_countryCode[1]))
@@ -722,8 +694,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                                 continue;
                         }
                     }
-
-
                     LogUtils.d("specialApps.getContinent() "+specialApps.getContinent()+" specialApps.getCountryCode() "+specialApps.getCountryCode());
                     AppSimpleBean simpleBean = new AppSimpleBean();
                     simpleBean.setPackagename(specialApps.getPackageName());
@@ -732,7 +702,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                     appSimpleBeans.add(0,simpleBean);
 
                 }
-
                 /*if (continent_countryCode[1].equals("BR")) {
                     //巴西IP
                     AppSimpleBean simpleBean = new AppSimpleBean();
@@ -750,10 +719,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                     simpleBean.setPackagename("com.mm.droid.livetv.tvees");
                     appSimpleBeans.add(0,simpleBean);
                 }*/
-
-
             }
-
         }
 
         for (int i = 0; i < appSimpleBeans.size(); i++) {

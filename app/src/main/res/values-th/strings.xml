@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">สเปกตรัม</string>
 	<string name="wifi_remembered">บันทึกแล้ว</string>
 	<string name="isconnected">(เชื่อมต่อ)</string>
@@ -175,20 +175,17 @@
 	<string name="calibration">การปรับเทียบ ที่ชาญฉลาด</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> วินาทีปิดเครื่องอัตโนมัติ]]></Data></string>
 	<string name="connecting_ssid">กำลังเชื่อมต่อ %1$s ดอลลาร์...</string>
-
 	<string name="resident_app">โปรแกรมทางลัดคง ที่ไม่สามารถลบได้</string>
 	<string name="data_none">ไม่พบข้อมูลของโปรแกรม ที่สอดคล้องกัน</string>
 	<string name="network_setting">ตั้งค่าเครือข่าย</string>
 	<string name="hotspot_settings">ตั้งค่าฮอตสปอต</string>
 	<string name="wired_network">เครือข่ายแบบมีสาย</string>
 	<string name="hotspot_switch">สลับฮอตสปอต</string>
-
 	<string name="one_band">วงดนตรี 2.4 GHz</string>
 	<string name="two_band">วงดนตรี 5 กิกะเฮิร์ซ</string>
 	<string name="passwordmsglength">รหัสผ่านไม่สามารถน้อยกว่า 8 หลัก!</string>
 	<string name="empty_string">ไม่สามารถตั้งค่าให้ว่า งได้!</string>
 	<string name="add_network">เพิ่มเครือข่าย</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">คง ที่</string>
 	<string name="ip_settings">ตั้งค่า IP</string>
@@ -203,30 +200,25 @@
 	<string name="resolution">ความละเอียด</string>
 	<string name="display_settings">ตั้งค่าการแสดงผล</string>
 	<string name="brightness">ความสว่า ง</string>
-
 	<string name="picture_mode_standard_name">มาตรฐาน</string>
 	<string name="picture_mode_cinema_name">โรงหนัง</string><!--Movie--> <string name="picture_mode_vivid_name">สว่า ง</string> <string name="picture_mode_sports_name">กีฬา</string><!--Sports--> <string name="picture_mode_game_name">เกม</string> <string name="picture_mode_bright_name">สว่า ง</string> <string name="picture_mode_soft_name">นุ่ม</string> <string name ="picture_mode_computer_name">คอมพิวเตอร์</string> <string name="picture_mode_hdr_name">HD</string> <string name="picture_mode_calibrated_name">ปรับเทียบแล้ว</string> <string name="picture_mode_calibrateddark_name">ปรับเทียบสีเข้ม</string> <string name="picture_mode_home_name">ที่บ้าน</string> <string name="picture_mode_shop_name">ช้อปปิ้ง</string> <string name="picture_mode_animation_name">การเคลื่อนไหว</string><!--Children-->
 	<string name="picture_mode_monitor_name">เฝ้าดู</string>
 	<string name="picture_mode_sony_name">โซนี่</string>
 	<string name="picture_mode_samsung_name">ซัมซุง</string>
 	<string name="picture_mode_custom_name">กำหนดเอง</string>
-
 	<string name="network_disconnect_tip">โปรดเชื่อมต่อกับเครือข่าย และลองอีกครั้ง!</string>
 	<string name="data_err">การเข้าซื้อข้อมูล ที่ผิดปกติ!</string>
-
 	<string name="fan_brightness_1">โหมดมาตรฐาน</string>
 	<string name="fan_brightness_2">โหมดประหยัดพลังงาน</string>
 	<string name="fan_brightness_3">โหมดความสว่า งสูง</string>
 	<string name="fan_brightness_4">โหมดอุณหภูมิสูง</string>
 	<string name="power_on">เปิดเครื่อง</string>
-
 	<string name="invalid_ip">IP ไม่ถูกต้อง</string>
 	<string name="invalid_netmask">หน้ากาก subnet ไม่ถูกต้อง</string>
 	<string name="invalid_gateway">เกตเวย์ไม่ถูกต้อง</string>
 	<string name="invalid_dns1">DNS 1 ใช้ไม่ได้</string>
 	<string name="invalid_dns2">DNS 2 ใช้ไม่ได้</string>
 	<string name="init_angle_correct">แก้มุมเริ่มต้น</string>
-
 	<string name="defaultcorrectionhint">กรุณาวางอุปกรณ์บนพื้นผิวแนวนอน และกด[โอเค]เพื่อแก้ไข อย่าย้ายอุปกรณ์ในระหว่า งการแก้ไข!</string>
 	<string name="defaultcorrectionin">กำลังแก้ไขโปรดรอสักครู่...</string>
 	<string name="hint">คำใบ้</string>
@@ -239,10 +231,8 @@
 	<string name="auto_time_zone_hint">มีการใช้งานเขตเวลาอัตโนมัติ และไม่สามารถแก้ไขได้ด้วยตนเอง</string>
 	<string name="hours_12">รูปแบบ 12 ชั่วโมง</string>
 	<string name="hours_24">รูปแบบ 24 ชั่วโมง</string>
-
 	<string name="find_local_update_msg">พบแพคเกจการอัพเกรด: \'%1$s\'คุณต้องการติดตั้งแพกเกจการอัพเกรด หรือไม่?</string>
 	<string name="reset_success">รีเซ็ตสำเร็จ!</string>
-
 	<string name="no_caalibrated">ยังไม่ปรับเทียบ</string>
 	<string name="calibrated">ปรับเทียบแล้ว</string>
 	<string name="calibrated_data_fail">การปรับเทียบข้อมูลจะล้มเหลว</string>
@@ -257,17 +247,17 @@
 	<string name="red">สีแดง</string>
 	<string name="green">สีเขียว</string>
 	<string name="blue">น้ำเงิน</string>
-
 	<string name="standard">มาตรฐาน</string>
 	<string name="music">ดนตรี</string>
 	<string name="movie">หนัง</string>
 	<string name="news">ข่าว</string>
 	<string name="account">บัญชีผู้ใช้</string>
 	<string name="static_network_config_title">การกำหนดค่าเครือข่ายแบบคงที่</string>
-
 	<string name="follow_me">ทำตามขั้นตอนต่อไปนี้:</string>
 	<string name="init_angle_tip1">1. โปรดวางเครื่องในแนวนอนบนโต๊ะและฉากกั้นในแนวตั้งกับผนังหรือผ้าม่าน </string>
 	<string name="init_angle_tip2">2. ปรับมุมขึ้นและลงของเครื่องเพื่อให้แน่ใจว่าหน้าจอฉายเป็นรูปสี่เหลี่ยมผืนผ้ามาตรฐาน </string>
 	<string name="init_angle_tip3">3. คลิกเริ่ม </string>
 	<string name="start">เริ่ม</string>
+	<string name="wallpaper_text">เปลี่ยนภาพพื้นหลัง</string>
+	<string name="wallpper_load">กำลังโหลดทรัพยากรพื้นหลัง...</string>
 </resources>

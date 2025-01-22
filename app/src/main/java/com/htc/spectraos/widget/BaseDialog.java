@@ -39,10 +39,10 @@ public class BaseDialog extends Dialog implements View.OnHoverListener {
     }
 
     public void setWallPaper(){
-        if (MyApplication.otherDrawable!=null){
+        if (MyApplication.mainDrawable!=null){
             RelativeLayout relativeLayout = Objects.requireNonNull(getWindow()).getDecorView().findViewById(R.id.rl_main);
             if (relativeLayout!=null)
-                relativeLayout.setBackground(MyApplication.otherDrawable);
+                relativeLayout.setBackground(MyApplication.mainDrawable);
         }
     }
 

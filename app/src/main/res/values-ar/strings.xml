@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">لاونشر</string>
 	<string name="wifi_remembered">حفظ</string>
 	<string name="isconnected">( متصل )</string>
@@ -176,20 +175,17 @@
 	<string name="calibration">ذكي المعايرة</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> الاغلاق التلقائي بعد ثانية ]]></Data></string>
 	<string name="connecting_ssid">الاتصال %1$s …</string>
-
 	<string name="resident_app">تم إصلاح تطبيق الاختصار ولا يمكن حذفه</string>
 	<string name="data_none">لم يتم العثور على بيانات التطبيق المقابلة</string>
 	<string name="network_setting">إعدادات الشبكة</string>
 	<string name="hotspot_settings">إعدادات نقطة الاتصال</string>
 	<string name="wired_network">شبكة سلكية</string>
 	<string name="hotspot_switch">مفتاح نقطة الاتصال</string>
-
 	<string name="one_band">نطاق تردد 2.4 جيجا هرتز</string>
 	<string name="two_band">نطاق 5 جيجا هرتز</string>
 	<string name="passwordmsglength">أدخل كلمة المرور لا يمكن أن تكون أقل من 8 أرقام!</string>
 	<string name="empty_string">لا يمكن ضبطه على فارغ! </string>
 	<string name="add_network">إضافة شبكة</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">ثابت</string>
 	<string name="ip_settings">إعدادات IP</string>
@@ -204,7 +200,6 @@
 	<string name="resolution">الحل</string>
 	<string name="display_settings">إعدادات العرض</string>
 	<string name="brightness">السطوع</string>
-
 	<string name="picture_mode_standard_name">قياسي</string>
 	<string name="picture_mode_cinema_name">السينما</string><!--Video-->
 	<string name="picture_mode_vivid_name">حيوية</string>
@@ -223,7 +218,6 @@
 	<string name="picture_mode_sony_name">سوني</string>
 	<string name="picture_mode_samsung_name">Samsung</string>
 	<string name="picture_mode_custom_name">مخصص</string>
-
 	<string name="network_disconnect_tip">يُرجى الاتصال بالشبكة والمحاولة مرة أخرى! </string>
 	<string name="data_err">استثناء في الحصول على البيانات! </string>
 	<string name="fan_brightness_1">الوضع القياسي</string>
@@ -231,38 +225,31 @@
 	<string name="fan_brightness_3">وضع التمييز</string>
 	<string name="fan_brightness_4">وضع درجة الحرارة المرتفعة</string>
 	<string name="power_on">التشغيل</string>
-
 	<string name="invalid_ip">عنوان IP غير صالح</string>
 	<string name="invalid_netmask">قناع الشبكة الفرعية غير صالح</string>
 	<string name="invalid_gateway">بوابة غير صالحة</string>
 	<string name="invalid_dns1">DNS1 غير صالح</string>
 	<string name="invalid_dns2">DNS2 غير صالح</string>
 	<string name="init_angle_correct">تصحيح الزاوية الأولي</string>
-
 	<string name="defaultcorrectionhint">يُرجى وضع الجهاز على سطح أفقي، ثم الضغط على [موافق] للتصحيح. لا تحرك الجهاز أثناء التصحيح! </string>
 	<string name="defaultcorrectionin">جارٍ التصحيح، يرجى الانتظار…</string>
 	<string name="hint">تلميح</string>
-
 	<string name="usb_debug">تصحيح أخطاء USB</string>
 	<string name="adb_debug">تصحيح أخطاء adb</string>
 	<string name="device_mode">وضع الجهاز</string>
 	<string name="select_ap">حدد نطاق AP</string>
-
 	<string name="refresh_network">تحديث الشبكة</string>
 	<string name="auto_time_zone">المنطقة الزمنية التلقائية</string>
 	<string name="auto_time_zone_hint">المنطقة الزمنية التلقائية قيد الاستخدام ولا يمكن تعديلها يدويًا</string>
 	<string name="hours_12">تنسيق 12 ساعة</string>
 	<string name="hours_24">تنسيق 24 ساعة</string>
-
 	<string name="find_local_update_msg">تم العثور على حزمة ترقية: \'%1$s\'، هل تريد تثبيت حزمة الترقية؟</string>
 	<string name="reset_success">تم إعادة الضبط بنجاح!</string>
-
 	<string name="no_caalibrated">لم تتم معايرته</string>
 	<string name="calibrated">تمت معايرته</string>
 	<string name="calibrated_data_fail">تمت المعايرة، فشلت البيانات</string>
 	<string name="calibrated_data_normal">تمت المعايرة، البيانات طبيعية</string>
 	<string name="auto_four_corner_hint">يسري بعد تشغيل التركيز التلقائي</string>
-
 	<string name="picture_mode">وضع الصورة</string>
 	<string name="audio_mode">وضع الصوت</string>
 	<string name="contrast">التباين</string>
@@ -272,17 +259,17 @@
 	<string name="red">أحمر</string>
 	<string name="green">أخضر</string>
 	<string name="blue">الأزرق</string>
-
 	<string name="standard">قياسي</string>
 	<string name="music">الموسيقى</string>
 	<string name="movie">فيلم</string>
 	<string name="news">الأخبار</string>
 	<string name="account">الحساب</string>
 	<string name="static_network_config_title">تكوين الشبكة الثابتة</string>
-
 	<string name="follow_me">اتبع الخطوات التالية:</string>
 	<string name="init_angle_tip1">1. يرجى وضع الجهاز أفقيًا على الطاولة والشاشة عموديًا على الحائط أو الستارة. </string>
 	<string name="init_angle_tip2">2. اضبط الزاوية العلوية والسفلية للجهاز لضمان عرض الشاشة في مستطيل قياسي. </string>
 	<string name="init_angle_tip3">3. انقر فوق ابدأ</string>
 	<string name="start">ابدأ</string>
+	<string name="wallpaper_text">تبديل الخلفية</string>
+	<string name="wallpper_load">يتم تحميل موارد الخلفية...</string>
 </resources>

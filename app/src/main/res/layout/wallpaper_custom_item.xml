@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:background="@drawable/wallpaper_bg_custom"
+    android:padding="@dimen/y_6"
+    android:id="@+id/rl_item">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/icon_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/y_10"
+        app:cardElevation="0dp">
+        <ImageView
+            android:layout_width="@dimen/x_387"
+            android:layout_height="@dimen/y_173"
+            android:scaleType="fitXY"
+            android:id="@+id/icon"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/check"
+        android:layout_width="@dimen/x_27"
+        android:layout_height="@dimen/y_27"
+        android:src="@drawable/check_no"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/y_10"
+        android:layout_marginEnd="@dimen/x_10">
+
+    </ImageView>
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/checkbox"-->
+<!--        android:layout_width="40px"-->
+<!--        android:layout_height="40px"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="8px"-->
+<!--        android:layout_marginTop="8px"-->
+<!--        android:buttonTint="@color/colorAccent"-->
+<!--        android:background="@null"/>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="460px"-->
+<!--        android:layout_height="@dimen/y_40"-->
+<!--        android:id="@+id/status"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:textSize="@dimen/x_23"-->
+<!--        android:textColor="@color/wallpaper_tv_color"-->
+<!--        android:text="@string/enter"-->
+<!--        android:background="@drawable/wallpaper_tv_bg"-->
+<!--        android:gravity="center"-->
+<!--        android:singleLine="true"-->
+<!--        android:ellipsize="marquee"-->
+<!--        android:duplicateParentState="true"-->
+<!--        />-->
+
+</FrameLayout>

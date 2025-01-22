@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">SpectraOs</string>
 	<string name="wifi_remembered">Gravado</string>
 	<string name="isconnected">(Ligado)</string>
@@ -176,20 +175,17 @@
 	<string name="calibration">Calibração inteligente</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="# ff0000"><b>%1$d</b></font> Desliga automaticamente em segundos ]]></Data></string>
 	<string name="connecting_ssid">na ligação %1$s …</string>
-
 	<string name="resident_app">Aplicativo de atalho corrigido e não pode ser excluído</string>
 	<string name="data_none">Nenhum dado de aplicativo correspondente encontrado</string>
 	<string name="network_setting">Configurações de rede</string>
 	<string name="hotspot_settings">Configurações do ponto de acesso</string>
 	<string name="wired_network">Rede com fio</string>
 	<string name="hotspot_switch">Interruptor de ponto de acesso</string>
-
 	<string name="one_band">faixa de frequência de 2,4 GHz</string>
 	<string name="two_band">Banda de 5 GHz</string>
 	<string name="passwordmsglength">Insira a senha que não pode ter menos de 8 dígitos!</string>
 	<string name="empty_string">Não pode ser definido como vazio! </string>
 	<string name="add_network">Adicionar rede</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">estático</string>
 	<string name="ip_settings">Configurações de IP</string>
@@ -204,7 +200,6 @@
 	<string name="resolution">Resolução</string>
 	<string name="display_settings">Configurações de exibição</string>
 	<string name="brightness">Brilho</string>
-
 	<string name="picture_mode_standard_name">Padrão</string>
 	<string name="picture_mode_cinema_name">Cinema</string><!--Vídeo-->
 	<string name="picture_mode_vivid_name">Vívido</string>
@@ -223,27 +218,22 @@
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">Samsung</string>
 	<string name="picture_mode_custom_name">Personalizado</string>
-
 	<string name="network_disconnect_tip">Conecte-se à rede e tente novamente! </string>
 	<string name="data_err">Exceção na obtenção de dados! </string>
-
 	<string name="fan_brightness_1">Modo predefinido</string>
 	<string name="fan_brightness_2">Modo de poupança de energia</string>
 	<string name="fan_brightness_3">Modo de realce</string>
 	<string name="fan_brightness_4">Modo de alta temperatura</string>
 	<string name="power_on">Ligar</string>
-
 	<string name="invalid_ip">IP inválido</string>
 	<string name="invalid_netmask">Máscara de sub-rede inválida</string>
 	<string name="invalid_gateway">Gateway inválido</string>
 	<string name="invalid_dns1">DNS1 inválido</string>
 	<string name="invalid_dns2">DNS2 inválido</string>
 	<string name="init_angle_correct">Correção do ângulo inicial</string>
-
 	<string name="defaultcorrectionhint">Coloque o dispositivo numa superfície horizontal e prima [OK] para corrigir. </string>
 	<string name="defaultcorrectionin">A corrigir, aguarde…</string>
 	<string name="hint">Dica</string>
-
 	<string name="usb_debug">Depuração USB</string>
 	<string name="adb_debug">depuração adb</string>
 	<string name="device_mode">Modo de dispositivo</string>
@@ -253,16 +243,13 @@
 	<string name="auto_time_zone_hint">O fuso horário automático está em utilização e não pode ser modificado manualmente</string>
 	<string name="hours_12">Formato de 12 horas</string>
 	<string name="hours_24">Formato de 24 horas</string>
-
 	<string name="find_local_update_msg">Encontrado um pacote de atualização: \'%1$s\', pretende instalar o pacote de atualização?</string>
 	<string name="reset_success">Reinicialização com sucesso!</string>
-
 	<string name="no_caalibrated">Não calibrado</string>
 	<string name="calibrated">Calibrado</string>
 	<string name="calibrated_data_fail">Calibrado, os dados falharam</string>
 	<string name="calibrated_data_normal">Calibrado, os dados estão normais</string>
 	<string name="auto_four_corner_hint">Efetivo após o foco automático ser ativado</string>
-
 	<string name="picture_mode">Modo de imagem</string>
 	<string name="audio_mode">Modo de som</string>
 	<string name="contrast">Contraste</string>
@@ -272,17 +259,17 @@
 	<string name="red">Vermelho</string>
 	<string name="green">Verde</string>
 	<string name="blue">Azul</string>
-
 	<string name="standard">Padrão</string>
 	<string name="music">Música</string>
 	<string name="movie">Filme</string>
 	<string name="news">Notícias</string>
 	<string name="account">Conta</string>
 	<string name="static_network_config_title">Configuração de rede estática</string>
-
 	<string name="follow_me">Siga os seguintes passos:</string>
 	<string name="init_angle_tip1">1. Coloque a máquina horizontalmente sobre a mesa e a tela verticalmente na parede ou cortina. </string>
 	<string name="init_angle_tip2">2. Ajuste o ângulo para cima e para baixo da máquina para garantir que a tela seja projetada em um retângulo padrão. </string>
 	<string name="init_angle_tip3">3. Clique para começar.</string>
 	<string name="start">Iniciar</string>
+	<string name="wallpaper_text">Mudança de fundo</string>
+	<string name="wallpper_load">Carregando recursos de fundo...</string>
 </resources>

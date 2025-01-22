@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">Spektrumlar</string>
 	<string name="wifi_remembered">Kaydedilmiş</string>
 	<string name="isconnected">(Bağlı)</string>
@@ -175,20 +175,17 @@
 	<string name="calibration">Akıllı Kalibrasyon</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color=\"#ff0000\"><b>%1$d</b></font> saniye otomatik kapanma]]></Data></string>
 	<string name="connecting_ssid">%1$s bağlanıyor …</string>
-
 	<string name="resident_app">Sabit kısayol uygulaması, silinemez</string>
 	<string name="data_none">Karşılık gelen uygulama verisi bulunamadı</string>
 	<string name="network_setting">Ağ ayarları</string>
 	<string name="hotspot_settings">Hotspot ayarları</string>
 	<string name="wired_network">Kablolu ağ</string>
 	<string name="hotspot_switch">Hotspot anahtarı</string>
-
 	<string name="one_band">2,4 GHz bandı</string>
 	<string name="two_band">5 GHz bandı</string>
 	<string name="passwordmsglength">Şifre 8 haneden az olamaz!</string>
 	<string name="empty_string">Boş olarak ayarlanamaz!</string>
 	<string name="add_network">Ağ ekle</string>
-
 	<string name="dhcp">DHCP Teknolojisi</string>
 	<string name="static_ip">Duruk</string>
 	<string name="ip_settings">IP ayarları</string>
@@ -203,30 +200,25 @@
 	<string name="resolution">Çözünürlük</string>
 	<string name="display_settings">Ekran ayarları</string>
 	<string name="brightness">Parlaklık</string>
-
 	<string name="picture_mode_standard_name">Standart</string>
 	<string name="picture_mode_cinema_name">Sinema</string><!--Movie--> <string name="picture_mode_vivid_name">Aydınlık</string> <string name="picture_mode_sports_name">Spor</string><!--Sports--> <string name="picture_mode_game_name">Oyun</string> <string name="picture_mode_bright_name">Aydınlık</string> <string name="picture_mode_soft_name">Yumuşak</string> <string name ="picture_mode_computer_name">Bilgisayar</string> <string name="picture_mode_hdr_name">Sabit disk</string> <string name="picture_mode_calibrated_name">Kalibre</string> <string name="picture_mode_calibrateddark_name">Karanlık Kalibre Edilmiş</string> <string name="picture_mode_home_name">Ev</string> <string name="picture_mode_shop_name">Alışveriş</string> <string name="picture_mode_animation_name">Animasyon</string><!--Children-->
 	<string name="picture_mode_monitor_name">Ekran</string>
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">Samsung Belediyesi</string>
 	<string name="picture_mode_custom_name">Töre</string>
-
 	<string name="network_disconnect_tip">Lütfen ağa bağlanın ve tekrar deneyin!</string>
 	<string name="data_err">Anormal veri toplama!</string>
-
 	<string name="fan_brightness_1">Standart mod</string>
 	<string name="fan_brightness_2">Enerji tasarrufu modu</string>
 	<string name="fan_brightness_3">Yüksek parlaklık modu</string>
 	<string name="fan_brightness_4">Yüksek sıcaklık modu</string>
 	<string name="power_on">güç</string>
-
 	<string name="invalid_ip">Geçersiz IP</string>
 	<string name="invalid_netmask">Geçersiz alt ağ maskesi</string>
 	<string name="invalid_gateway">Geçersiz ağ geçidi</string>
 	<string name="invalid_dns1">Geçersiz DNS1</string>
 	<string name="invalid_dns2">Geçersiz DNS2</string>
 	<string name="init_angle_correct">İlk açı düzeltmesi</string>
-
 	<string name="defaultcorrectionhint">Lütfen cihazı yatay bir yüzeye yerleştirin ve düzeltmek için [OK]\'e basın. Düzeltme sırasında cihazı hareket ettirmeyin!</string>
 	<string name="defaultcorrectionin">Düzeltme devam ediyor, lütfen bekleyin…</string>
 	<string name="hint">İma</string>
@@ -239,10 +231,8 @@
 	<string name="auto_time_zone_hint">Otomatik Saat dilimi kullanımdadır ve manuel olarak değiştirilemez</string>
 	<string name="hours_12">12 saatlik biçim</string>
 	<string name="hours_24">24 saat biçimi</string>
-
 	<string name="find_local_update_msg">Bir yükseltme paketi bulun: \'%1$s\', yükseltme paketini yüklemek istiyor musunuz\?</string>
 	<string name="reset_success">Başarıyla sıfırla!</string>
-
 	<string name="no_caalibrated">Kalibre edilmedi</string>
 	<string name="calibrated">Kalibre</string>
 	<string name="calibrated_data_fail">Kalibre edildi, veriler başarısız</string>
@@ -257,17 +247,17 @@
 	<string name="red">Kırmızı</string>
 	<string name="green">Yeşil</string>
 	<string name="blue">Mavi</string>
-
 	<string name="standard">Standart</string>
 	<string name="music">Müzik</string>
 	<string name="movie">Film</string>
 	<string name="news">Haberler</string>
 	<string name="account">Hesap</string>
 	<string name="static_network_config_title">Statik ağ yapılandırması</string>
-
 	<string name="follow_me">Aşağıdaki adımları izleyin:</string>
 	<string name="init_angle_tip1">1. Lütfen makineyi masanın üzerine yatay olarak ve ekrana dikey olarak duvara veya perdeye yerleştirin. </string>
 	<string name="init_angle_tip2">2. Ekranın standart bir dikdörtgene yansıtıldığından emin olmak için makinenin yukarı ve aşağı açısını ayarlayın. </string>
 	<string name="init_angle_tip3">3. Başlat\'a tıklayın. </string>
 	<string name="start">Başlat</string>
+	<string name="wallpaper_text">Arka Plan Değiştirme</string>
+	<string name="wallpper_load">Arka plan kaynakları yükleniyor...</string>
 </resources>

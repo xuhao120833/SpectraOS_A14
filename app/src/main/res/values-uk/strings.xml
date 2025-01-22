@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">Спектри</string>
 	<string name="wifi_remembered">Збережені</string>
 	<string name="isconnected">(пов\'язаний)</string>
@@ -175,20 +175,17 @@
 	<string name="calibration">Інтелектуальне калібрування</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color=\"#ff0000\"><b>%1$d</b></font> секунд автоматичне вимкнення]]></Data></string>
 	<string name="connecting_ssid">Підключення %1$s …</string>
-
 	<string name="resident_app">Виправлено ярлик програми, яку не можна видалити</string>
 	<string name="data_none">Відповідних даних програми не знайдено</string>
 	<string name="network_setting">Налаштування мережі</string>
 	<string name="hotspot_settings">Налаштування точки доступу</string>
 	<string name="wired_network">Дротова мережа</string>
 	<string name="hotspot_switch">Перемикач точки доступу</string>
-
 	<string name="one_band">Діапазон 2,4 ГГц</string>
 	<string name="two_band">Діапазон 5 ГГц</string>
 	<string name="passwordmsglength">Пароль не може бути менше 8 цифр!</string>
 	<string name="empty_string">Не можна встановити на порожнє!</string>
 	<string name="add_network">Додати мережу</string>
-
 	<string name="dhcp">ДГКП</string>
 	<string name="static_ip">Статичні</string>
 	<string name="ip_settings">Налаштування IP</string>
@@ -203,30 +200,25 @@
 	<string name="resolution">Резолюція</string>
 	<string name="display_settings">Налаштування дисплея</string>
 	<string name="brightness">Яскравість</string>
-
 	<string name="picture_mode_standard_name">Стандарт</string>
 	<string name="picture_mode_cinema_name">Кінотеатр</string><!--Movie--> <string name="picture_mode_vivid_name">Яскравий</string> <string name="picture_mode_sports_name">Спортивний</string><!--Sports--> <string name="picture_mode_game_name">Гра</string> <string name="picture_mode_bright_name">Яскравий</string> <string name="picture_mode_soft_name">М\'який</string> <string name ="picture_mode_computer_name">Комп\'ютер</string> <string name="picture_mode_hdr_name">HD</string> <string name="picture_mode_calibrated_name">Калібровані</string> <string name="picture_mode_calibrateddark_name">Темний Калібрований</string> <string name="picture_mode_home_name">Дім</string> <string name="picture_mode_shop_name">Торговий</string> <string name="picture_mode_animation_name">Анімації</string><!--Children-->
 	<string name="picture_mode_monitor_name">Монітор</string>
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">Самсунг</string>
 	<string name="picture_mode_custom_name">Нестандартний</string>
-
 	<string name="network_disconnect_tip">Будь ласка, підключіться до мережі та спробуйте ще раз!</string>
 	<string name="data_err">Аномальний збір даних!</string>
-
 	<string name="fan_brightness_1">Стандартний режим</string>
 	<string name="fan_brightness_2">Режим енергозбереження</string>
 	<string name="fan_brightness_3">Режим високої яскравості</string>
 	<string name="fan_brightness_4">Високотемпературний режим</string>
 	<string name="power_on">Увімкнення живлення</string>
-
 	<string name="invalid_ip">Невірна IP-адреса</string>
 	<string name="invalid_netmask">Неприпустима маска підмережі</string>
 	<string name="invalid_gateway">Невірний шлюз</string>
 	<string name="invalid_dns1">Невірний DNS1</string>
 	<string name="invalid_dns2">Невірний DNS2</string>
 	<string name="init_angle_correct">Початкова корекція кута нахилу</string>
-
 	<string name="defaultcorrectionhint">Будь ласка, покладіть пристрій на горизонтальну поверхню та натисніть [OK] для виправлення. Не рухайте пристрій під час корекції!</string>
 	<string name="defaultcorrectionin">Виправлення триває, будь ласка, зачекайте…</string>
 	<string name="hint">Підказка</string>
@@ -239,10 +231,8 @@
 	<string name="auto_time_zone_hint">Використовується автоматичний часовий пояс, який не можна змінити вручну</string>
 	<string name="hours_12">12-годинний формат</string>
 	<string name="hours_24">24-годинний формат</string>
-
 	<string name="find_local_update_msg">Знайшли пакет оновлення: \'%1$s\', ви хочете встановити пакет оновлень?</string>
 	<string name="reset_success">Успішне скидання!</string>
-
 	<string name="no_caalibrated">Не відкалібровано</string>
 	<string name="calibrated">Калібровані</string>
 	<string name="calibrated_data_fail">Відкалібровано, дані не працюють</string>
@@ -257,17 +247,17 @@
 	<string name="red">Червоний</string>
 	<string name="green">Зелений</string>
 	<string name="blue">Синій</string>
-
 	<string name="standard">Стандарт</string>
 	<string name="music">Музика</string>
 	<string name="movie">Фільм</string>
 	<string name="news">Вісті</string>
 	<string name="account">Рахунок</string>
 	<string name="static_network_config_title">Статична конфігурація мережі</string>
-
 	<string name="follow_me">Виконайте такі дії:</string>
 	<string name="init_angle_tip1">1. Розмістіть машину горизонтально на столі, а екран вертикально до стіни або штори. </string>
 	<string name="init_angle_tip2">2. Відрегулюйте кут нахилу апарата вгору та вниз, щоб переконатися, що екран проектується у стандартний прямокутник. </string>
 	<string name="init_angle_tip3">3. Натисніть «Пуск». </string>
 	<string name="start">Почати</string>
+	<string name="wallpaper_text">Зміна фону</string>
+	<string name="wallpper_load">Завантаження фонових ресурсів...</string>
 </resources>

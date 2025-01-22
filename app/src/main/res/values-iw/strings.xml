@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SpectraOs</string>
     <string name="wifi_remembered">שמור</string>
@@ -173,23 +174,18 @@
     <string name="intelligent_obstacle">הימנעות מושכלת ממכשולים</string>
     <string name="calibration">כיול חכם</string>
     <string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> כיבוי אוטומטי לאחר שניות]]></Data></string>
-
     <string name="connecting_ssid">מחבר את %1$s…</string>
-
-
     <string name="resident_app">יישום קיצור דרך תוקן ולא ניתן למחוק</string>
     <string name="data_none">לא נמצאו נתוני אפליקציה מתאימים</string>
     <string name="network_setting">הגדרות רשת</string>
     <string name="hotspot_settings">הגדרות נקודה חמה</string>
     <string name="wired_network">רשת קווית</string>
     <string name="hotspot_switch">מתג נקודה חמה</string>
-
     <string name="one_band">2.4 GHz רצועת תדר</string>
     <string name="two_band">פס 5 GHz</string>
     <string name="passwordmsglength">הזן את הסיסמה לא יכולה להיות פחות מ-8 ספרות!</string>
     <string name="empty_string">לא ניתן להגדיר לריק! </string>
     <string name="add_network">הוסף רשת</string>
-
     <string name="dhcp">DHCP</string>
     <string name="static_ip">סטטי</string>
     <string name="ip_settings">הגדרות IP</string>
@@ -204,7 +200,6 @@
     <string name="resolution">רזולוציה</string>
     <string name="display_settings">הגדרות תצוגה</string>
     <string name="brightness">בהירות</string>
-
     <string name="picture_mode_standard_name">רגיל</string>
     <string name="picture_mode_cinema_name">קולנוע</string><!--Video-->
     <string name="picture_mode_vivid_name">חי</string>
@@ -223,23 +218,19 @@
     <string name="picture_mode_sony_name">Sony</string>
     <string name="picture_mode_samsung_name">Samsung</string>
     <string name="picture_mode_custom_name">מותאם אישית</string>
-
     <string name="network_disconnect_tip">אנא התחבר לרשת ונסה שוב! </string>
     <string name="data_err">חריג בקבלת נתונים! </string>
-
     <string name="fan_brightness_1">מצב רגיל</string>
     <string name="fan_brightness_2">מצב חיסכון באנרגיה</string>
     <string name="fan_brightness_3">מצב הדגשה</string>
     <string name="fan_brightness_4">מצב טמפרטורה גבוהה</string>
     <string name="power_on">הפעל</string>
-
     <string name="invalid_ip">IP לא חוקי</string>
     <string name="invalid_netmask">מסיכת רשת משנה לא חוקית</string>
     <string name="invalid_gateway">שער לא חוקי</string>
     <string name="invalid_dns1">DNS1 לא חוקי</string>
     <string name="invalid_dns2">DNS2 לא חוקי</string>
     <string name="init_angle_correct">תיקון זווית ראשונית</string>
-
     <string name="defaultcorrectionhint">אנא הנח את המכשיר על משטח אופקי, ולאחר מכן לחץ על [אישור] כדי לתקן. </string>
     <string name="defaultcorrectionin">מתקן, אנא המתן…</string>
     <string name="hint">רמז</string>
@@ -247,23 +238,18 @@
     <string name="adb_debug">דיב באגים</string>
     <string name="device_mode">מצב מכשיר</string>
     <string name="select_ap">בחר רצועת AP</string>
-
     <string name="refresh_network">רענן רשת</string>
     <string name="auto_time_zone">אזור זמן אוטומטי</string>
     <string name="auto_time_zone_hint">אזור הזמן האוטומטי נמצא בשימוש ולא ניתן לשנותו באופן ידני</string>
     <string name="hours_12">פורמט 12 שעות</string>
     <string name="hours_24">פורמט 24 שעות</string>
-
     <string name="find_local_update_msg">נמצאה חבילת שדרוג: \'%1$s\', האם ברצונך להתקין את חבילת השדרוג?</string>
-
     <string name="reset_success">איפוס הצליח! </string>
-
     <string name="no_caalibrated">לא מכויל</string>
     <string name="calibrated">מכויל</string>
     <string name="calibrated_data_fail">כייל, הנתונים נכשלו</string>
     <string name="calibrated_data_normal">מכויל, נתונים רגילים</string>
     <string name="auto_four_corner_hint">זה נכנס לתוקף לאחר הפעלת המיקוד האוטומטי</string>
-
     <string name="picture_mode">מצב תמונה</string>
     <string name="audio_mode">מצב סאונד</string>
     <string name="contrast">ניגודיות</string>
@@ -273,17 +259,17 @@
     <string name="red">אדום</string>
     <string name="green">ירוק</string>
     <string name="blue">כחול</string>
-
     <string name="standard">רגיל</string>
     <string name="music">מוזיקה</string>
     <string name="movie">סרט</string>
     <string name="news">חדשות</string>
     <string name="account">חשבון</string>
     <string name="static_network_config_title">תצורת רשת סטטית</string>
-
     <string name="follow_me">בצע את השלבים הבאים:</string>
     <string name="init_angle_tip1">1. אנא הצב את המכונה בצורה אופקית על השולחן ואת המסך אנכית לקיר או לווילון. </string>
     <string name="init_angle_tip2">2. כוונן את הזווית למעלה ולמטה של המכונה כדי להבטיח שהמסך יוקרן לתוך מלבן סטנדרטי. </string>
     <string name="init_angle_tip3">3. לחץ על התחל. </string>
     <string name="start">התחל</string>
+    <string name="wallpaper_text">החלפת רקע</string>
+    <string name="wallpper_load">טוען משאבי רקע...</string>
 </resources>

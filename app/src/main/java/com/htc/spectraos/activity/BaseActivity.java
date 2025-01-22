@@ -2,9 +2,11 @@ package com.htc.spectraos.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
@@ -12,15 +14,17 @@ import android.widget.RelativeLayout;
 
 import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
+import com.htc.spectraos.utils.Utils;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Author:
  * Date:
  * Description:
  */
-public class BaseActivity extends Activity implements View.OnClickListener, View.OnHoverListener, View.OnFocusChangeListener {
+public class BaseActivity extends AppCompatActivity implements View.OnClickListener, View.OnHoverListener, View.OnFocusChangeListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,11 +39,16 @@ public class BaseActivity extends Activity implements View.OnClickListener, View
         super.onResume();
     }
 
-    public void setWallPaper(){
-        if (MyApplication.otherDrawable!=null){
-            RelativeLayout relativeLayout =findViewById(R.id.rl_main);
-            if (relativeLayout!=null)
-                relativeLayout.setBackground(MyApplication.otherDrawable);
+    public void setWallPaper() {
+        if (MyApplication.mainDrawable != null) {
+            ViewGroup relativeLayout = findViewById(R.id.rl_main);
+            if (relativeLayout != null)
+                relativeLayout.setBackground(MyApplication.mainDrawable);
+        } else {
+            ViewGroup relativeLayout = findViewById(R.id.rl_main);
+            if (relativeLayout != null) {
+                relativeLayout.setBackground((Drawable) Utils.drawables.get(0));
+            }
         }
     }
 

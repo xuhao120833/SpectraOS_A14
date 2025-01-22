@@ -97,9 +97,11 @@
             android:launchMode="singleTop"
             android:theme="@style/MyDialogStyleBottom" />
         <activity android:name=".activity.BluetoothSpeakerActivity" />
-        <activity android:name=".activity.WallPaperActivity" />
+        <activity android:name=".activity.WallPaperActivity"
+            android:launchMode="singleInstance"/>
         <activity android:name=".activity.AppsManagerActivity" />
-        <activity android:name=".activity.AppFavoritesActivity" />
+        <activity android:name=".activity.AppFavoritesActivity"
+            android:launchMode="singleInstance"/>
         <activity android:name=".activity.CorrectionActivity" />
         <activity
             android:name=".activity.BluetoothActivity"
@@ -136,12 +138,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ProjectActivity" />
-        <activity android:name=".activity.MainSettingActivity"
+        <activity
+            android:name=".activity.MainSettingActivity"
             android:exported="true"
-            android:launchMode="singleTop"
-            />
-        <activity android:name=".activity.AppsActivity"
-            android:launchMode="singleInstance"/>
+            android:launchMode="singleTop" />
+        <activity android:name=".activity.AppsActivity"/>
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"

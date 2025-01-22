@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">SpectraOs</string>
 	<string name="wifi_remembered">保存済み</string>
 	<string name="isconnected">（接続済み）</string>
@@ -176,20 +175,17 @@
 	<string name="calibration">インテリジェントひょうてい</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> 秒後に自動的にシャットダウン]]></Data></string>
 	<string name="connecting_ssid">接続中 %1$s …</string>
-
 	<string name="resident_app">ショートカット アプリケーションを修正し、削除できません</string>
 	<string name="data_none">対応するアプリケーション データが見つかりません</string>
 	<string name="network_setting">ネットワーク設定</string>
 	<string name="hotspot_settings">ホットスポット設定</string>
 	<string name="wired_network">有線ネットワーク</string>
 	<string name="hotspot_switch">ホットスポット スイッチ</string>
-
 	<string name="one_band">2.4 GHz 周波数帯域</string>
 	<string name="two_band">5 GHz 帯域</string>
 	<string name="passwordmsglength">8 桁未満のパスワードを入力してください!</string>
 	<string name="empty_string">空には設定できません。 </string>
 	<string name="add_network">ネットワークを追加</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">静的</string>
 	<string name="ip_settings">IP 設定</string>
@@ -204,7 +200,6 @@
 	<string name="resolution">解決</string>
 	<string name="display_settings">表示設定</string>
 	<string name="brightness">明るさ</string>
-
 	<string name="picture_mode_standard_name">標準</string>
 	<string name="picture_mode_cinema_name">映画</string><!--ビデオ-->
 	<string name="picture_mode_vivid_name">鮮やか</string>
@@ -223,7 +218,6 @@
 	<string name="picture_mode_sony_name">ソニー</string>
 	<string name="picture_mode_samsung_name">サムスン</string>
 	<string name="picture_mode_custom_name">カスタム</string>
-
 	<string name="network_disconnect_tip">ネットワークに接続して、もう一度お試しください。 </string>
 	<string name="data_err">データの取得中に例外が発生しました。 </string>
 	<string name="fan_brightness_1">標準モード</string>
@@ -231,38 +225,31 @@
 	<string name="fan_brightness_3">ハイライト モード</string>
 	<string name="fan_brightness_4">高温モード</string>
 	<string name="power_on">電源をオン</string>
-
 	<string name="invalid_ip">無効な IP </string>
 	<string name="invalid_netmask">無効なサブネット マスク</string>
 	<string name="invalid_gateway">無効なゲートウェイ</string>
 	<string name="invalid_dns1">無効な DNS1</string>
 	<string name="invalid_dns2">無効な DNS2</string>
 	<string name="init_angle_correct">初期角度補正</string>
-
 	<string name="defaultcorrectionhint">デバイスを水平面に置き、[OK] を押して修正してください。修正中にデバイスを動かさないでください。 </string>
 	<string name="defaultcorrectionin">修正中です。お待ちください…</string>
 	<string name="hint">ヒント</string>
-
 	<string name="usb_debug">USB デバッグ</string>
 	<string name="adb_debug">adb デバッグ</string>
 	<string name="device_mode">デバイスモード</string>
 	<string name="select_ap">AP バンドを選択</string>
-
 	<string name="refresh_network">ネットワークを更新</string>
 	<string name="auto_time_zone">自動タイムゾーン</string>
 	<string name="auto_time_zone_hint">自動タイムゾーンが使用されており、手動で変更できません</string>
 	<string name="hours_12">12 時間形式</string>
 	<string name="hours_24">24 時間形式</string>
-
 	<string name="find_local_update_msg">アップグレード パッケージが見つかりました: \'%1$s\'。アップグレード パッケージをインストールしますか?</string>
 	<string name="reset_success">リセット成功!</string>
-
 	<string name="no_caalibrated">調整されていません</string>
 	<string name="calibrated">校正済み</string>
 	<string name="calibrated_data_fail">キャリブレーション済み、データは失敗しました</string>
 	<string name="calibrated_data_normal">キャリブレーション済み、データは正常です</string>
 	<string name="auto_four_corner_hint">オートフォーカスがオンになった後に有効になります</string>
-
 	<string name="picture_mode">ピクチャーモード</string>
 	<string name="audio_mode">サウンドモード</string>
 	<string name="contrast">コントラスト</string>
@@ -272,17 +259,17 @@
 	<string name="red">レッド</string>
 	<string name="green">グリーン</string>
 	<string name="blue">ブルー</string>
-
 	<string name="standard">標準</string>
 	<string name="music">音楽</string>
 	<string name="movie">映画</string>
 	<string name="news">ニュース</string>
 	<string name="account">アカウント</string>
 	<string name="static_network_config_title">静的ネットワーク構成</string>
-
 	<string name="follow_me">次の手順に従います:</string>
 	<string name="init_angle_tip1">1. 本機をテーブルに水平に、画面を壁またはカーテンに垂直に設置してください。 </string>
 	<string name="init_angle_tip2">2. 画面が標準的な長方形に投影されるように、マシンの上下の角度を調整します。 </string>
 	<string name="init_angle_tip3">3. 「開始」をクリックします。 </string>
 	<string name="start">開始</string>
+	<string name="wallpaper_text">背景切り替え</string>
+	<string name="wallpper_load">背景リソースを読み込んでいます...</string>
 </resources>

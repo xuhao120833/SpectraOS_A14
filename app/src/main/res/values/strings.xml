@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
 	<string name="app_name">SpectraOs</string>
 	<string name="wifi_remembered">Saved</string>
 	<string name="isconnected">(Connected)</string>
@@ -176,20 +175,17 @@
 	<string name="calibration">Intelligent Calibration</string>
 	<string name="shutdown_tips"><Data><![CDATA[<font color="#ff0000"><b>%1$d</b></font> seconds auto shutdown]]></Data></string>
 	<string name="connecting_ssid">connecting %1$s …</string>
-
 	<string name="resident_app">Fixed shortcut application, cannot be deleted</string>
 	<string name="data_none">No corresponding application data found</string>
 	<string name="network_setting">Network settings</string>
 	<string name="hotspot_settings">Hotspot settings</string>
 	<string name="wired_network">Wired network</string>
 	<string name="hotspot_switch">Hotspot switch</string>
-
 	<string name="one_band">2.4 GHz band</string>
 	<string name="two_band">5 GHz band</string>
 	<string name="passwordmsglength">The password cannot be less than 8 digits!</string>
 	<string name="empty_string">Cannot be set to empty! </string>
 	<string name="add_network">Add network</string>
-
 	<string name="dhcp">DHCP</string>
 	<string name="static_ip">Static</string>
 	<string name="ip_settings">IP settings</string>
@@ -204,30 +200,25 @@
 	<string name="resolution">Resolution</string>
 	<string name="display_settings">Display settings</string>
 	<string name="brightness">Brightness</string>
-
 	<string name="picture_mode_standard_name">Standard</string>
 	<string name="picture_mode_cinema_name">Cinema</string><!--Movie--> <string name="picture_mode_vivid_name">Bright</string> <string name="picture_mode_sports_name">Sports</string><!--Sports--> <string name="picture_mode_game_name">Game</string> <string name="picture_mode_bright_name">Bright</string> <string name="picture_mode_soft_name">Soft</string> <string name ="picture_mode_computer_name">Computer</string> <string name="picture_mode_hdr_name">HD</string> <string name="picture_mode_calibrated_name">Calibrated</string> <string name="picture_mode_calibrateddark_name">Dark Calibrated</string> <string name="picture_mode_home_name">Home</string> <string name="picture_mode_shop_name">Shopping</string> <string name="picture_mode_animation_name">Animation</string><!--Children-->
 	<string name="picture_mode_monitor_name">Monitor</string>
 	<string name="picture_mode_sony_name">Sony</string>
 	<string name="picture_mode_samsung_name">Samsung</string>
 	<string name="picture_mode_custom_name">Custom</string>
-
 	<string name="network_disconnect_tip">Please connect to the network and try again! </string>
 	<string name="data_err">Abnormal data acquisition! </string>
-
 	<string name="fan_brightness_1">Standard mode</string>
 	<string name="fan_brightness_2">Energy saving mode</string>
 	<string name="fan_brightness_3">High brightness mode</string>
 	<string name="fan_brightness_4">High temperature mode</string>
 	<string name="power_on">Power on</string>
-
 	<string name="invalid_ip">Invalid IP</string>
 	<string name="invalid_netmask">Invalid subnet mask</string>
 	<string name="invalid_gateway">Invalid gateway</string>
 	<string name="invalid_dns1">Invalid DNS1</string>
 	<string name="invalid_dns2">Invalid DNS2</string>
 	<string name="init_angle_correct">Initial angle correction</string>
-
 	<string name="defaultcorrectionhint">Please place the device on a horizontal surface and press [OK] to correct. Do not move the device during correction! </string>
 	<string name="defaultcorrectionin">Correction in progress, please wait…</string>
 	<string name="hint">Hint</string>
@@ -240,10 +231,8 @@
 	<string name="auto_time_zone_hint">Auto Time zone is in use and cannot be manually modified</string>
 	<string name="hours_12">12-hour format</string>
 	<string name="hours_24">24-hour format</string>
-
 	<string name="find_local_update_msg">Found an upgrade package: \'%1$s\', do you want to install the upgrade package?</string>
 	<string name="reset_success">Reset successfully!</string>
-
 	<string name="no_caalibrated">Not calibrated</string>
 	<string name="calibrated">Calibrated</string>
 	<string name="calibrated_data_fail">Calibrated, data is fail</string>
@@ -258,18 +247,17 @@
 	<string name="red">Red</string>
 	<string name="green">Green</string>
 	<string name="blue">Blue</string>
-
 	<string name="standard">Standard</string>
 	<string name="music">Music</string>
 	<string name="movie">Movie</string>
 	<string name="news">News</string>
 	<string name="account">Account</string>
 	<string name="static_network_config_title">Static Network Configuration</string>
-
 	<string name="follow_me">Follow the following steps:</string>
 	<string name="init_angle_tip1">1. Place the machine horizontally on the desktop, with the screen perpendicular to the wall or curtain. </string>
 	<string name="init_angle_tip2">2. Adjust the machine\'s up and down angles to ensure that the projected screen is a standard rectangle. </string>
 	<string name="init_angle_tip3">3. Click Start.</string>
 	<string name="start">Start</string>
-
+	<string name="wallpaper_text">Background Switching</string>
+	<string name="wallpper_load">Background resources loading...</string>
 </resources>

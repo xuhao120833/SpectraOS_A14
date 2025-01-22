@@ -32,12 +32,18 @@ public interface Contants {
     String TimeOffStatus = "timeOffStatus";
     String TimeOffIndex = "timeOffIndex";
 
+    String SelectWallpaperLocal = "selectwallpaperlocal";
+
     int PICTURE_NULL = 101;
     int PICTURE_RESULT = 102;
     int PICTURE_FIND = 103;
     int DISSMISS_DIALOG = 104;
 
-    String WALLPAPER_DIR = "/storage/emulated/0/wallpaper";
-    String WALLPAPER_MAIN = "/storage/emulated/0/wallpaper/background_main.png";
-    String WALLPAPER_OTHER = "/storage/emulated/0/wallpaper/background_other.png";
+    int RESET_CHECK = 120;
+
+    String DefaultBg = "defaultbg";
+
+    String WALLPAPER_DIR = "/storage/emulated/0/.wallpaper";
+    String WALLPAPER_MAIN = "/storage/emulated/0/.wallpaper/background_main.png";
+    String WALLPAPER_OTHER = "/storage/emulated/0/.wallpaper/background_other.png";
 }

@@ -1,11 +1,5 @@
 package com.htc.spectraos.utils;
 
-/**
- * @author  作者：zgr
- * @version 创建时间：2016年11月3日 下午5:50:52
- * 类说明
- */
-
 import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
