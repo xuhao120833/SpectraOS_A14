@@ -12,6 +12,7 @@ public class Config {
     public String filterApps = "";
     public String managerFilterApps = "";
     public String brandLogo = "";
+    public String defaultbackground = "";
     public boolean ipSetting = true;
 
     public ArrayList<SpecialApps> specialApps ;

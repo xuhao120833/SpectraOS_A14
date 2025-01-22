@@ -9,13 +9,21 @@
     android:clipChildren="false"
     tools:context=".activity.MainActivity">
 
-    <ImageView
+    <FrameLayout
         android:layout_width="@dimen/x_350"
         android:layout_height="@dimen/y_133"
-        android:layout_marginStart="@dimen/x_85"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:id="@+id/brand"/>
+        android:layout_marginStart="@dimen/x_57">
+
+        <ImageView
+            android:id="@+id/brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/brand" />
+
+    </FrameLayout>
 
 
     <RelativeLayout

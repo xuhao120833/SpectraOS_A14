@@ -23,6 +23,8 @@ import java.util.List;
 
 public class AppUtils {
 
+	private static String TAG = "AppUtils";
+
 	/**
 	 * 获取全部应用程序的信息
 	 *
@@ -285,17 +287,19 @@ public class AppUtils {
 	 * @param packageName
 	 */
 	public static boolean startNewApp(Context context, String packageName) {
+
+		Log.d(TAG, " startNewApp " + packageName);
 		try {
 			PackageManager packageManager = context.getPackageManager();
 			Intent intent = packageManager.getLaunchIntentForPackage(packageName);
 			if (intent != null) {
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				context.startActivity(intent);
 				return true;
 			}
 			intent = packageManager.getLeanbackLaunchIntentForPackage(packageName);
 			if (intent != null) {
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				context.startActivity(intent);
 				return true;
 			}
@@ -303,6 +307,7 @@ public class AppUtils {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		//ToastUtil.showShortToast(context, context.getString(R.string.data_none));
 		return false;
 	}
 
