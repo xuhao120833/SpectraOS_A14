@@ -11,10 +11,10 @@
       "type": "SINGLE",
       "filters": [],
       "properties": [],
-      "versionCode": 51,
-      "versionName": "2501221441",
+      "versionCode": 54,
+      "versionName": "2501221528",
       "enabled": true,
-      "outputFile": "SpectraOS-V51-2501221441-release.apk"
+      "outputFile": "SpectraOS-V54-2501221528-release.apk"
     }
   ]
 }

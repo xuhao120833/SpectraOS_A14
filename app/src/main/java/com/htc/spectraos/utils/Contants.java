@@ -45,5 +45,6 @@ public interface Contants {
 
     String WALLPAPER_DIR = "/storage/emulated/0/.wallpaper";
     String WALLPAPER_MAIN = "/storage/emulated/0/.wallpaper/background_main.png";
+    String CUSTOMBACKGROUND = "/oem/background";
     String WALLPAPER_OTHER = "/storage/emulated/0/.wallpaper/background_other.png";
 }

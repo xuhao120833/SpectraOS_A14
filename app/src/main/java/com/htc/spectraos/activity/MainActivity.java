@@ -106,7 +106,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     private ActivityMainBinding mainBinding;
     private ArrayList<ShortInfoBean> short_list = new ArrayList<>();
 
-    boolean  get_default_url = false;
+    boolean get_default_url = false;
     private ChannelData channelData;
     private List<AppsData> appsDataList;
     /**
@@ -128,26 +128,26 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     private final int DATA_ERROR = 102;
     private final int DATA_FINISH = 103;
 
-    private IntentFilter appFilter=new IntentFilter();
-    private AppReceiver appReceiver=null;
+    private IntentFilter appFilter = new IntentFilter();
+    private AppReceiver appReceiver = null;
     private static String TAG = "MainActivity";
 
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case 202:
-                    ShortcutsAdapter shortcutsAdapter = new ShortcutsAdapter(MainActivity.this,short_list);
+                    ShortcutsAdapter shortcutsAdapter = new ShortcutsAdapter(MainActivity.this, short_list);
                     shortcutsAdapter.setItemCallBack(itemCallBack);
                     mainBinding.shortcutsRv.setAdapter(shortcutsAdapter);
                     break;
                 case DATA_ERROR:
                     requestFlag = false;
-                    ToastUtil.showShortToast(MainActivity.this,getString(R.string.data_err));
+                    ToastUtil.showShortToast(MainActivity.this, getString(R.string.data_err));
                     break;
                 case DATA_FINISH:
                     requestFlag = false;
-                    if (channelData!=null && channelData.getData().size()>0){
+                    if (channelData != null && channelData.getData().size() > 0) {
                         startAppFormChannel();
                     }
                     break;
@@ -159,13 +159,17 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
-        setContentView(mainBinding.getRoot());
-        setDefaultBackgroundById();
-        initView();
-        initData();
-        initReceiver();
+        try {
+            super.onCreate(savedInstanceState);
+            mainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
+            setContentView(mainBinding.getRoot());
+            setDefaultBackgroundById();
+            initView();
+            initData();
+            initReceiver();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -173,14 +177,14 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         super.onResume();
         updateTime();
         updateBle();
-        if ((boolean)ShareUtil.get(this,Contants.MODIFY,false)){
-            short_list =loadHomeAppData();
+        if ((boolean) ShareUtil.get(this, Contants.MODIFY, false)) {
+            short_list = loadHomeAppData();
             handler.sendEmptyMessage(202);
-            ShareUtil.put(this,Contants.MODIFY,false);
+            ShareUtil.put(this, Contants.MODIFY, false);
         }
     }
 
-    private void initView(){
+    private void initView() {
         mainBinding.rlApps.setOnClickListener(this);
         mainBinding.rlGoogle.setOnClickListener(this);
         mainBinding.rlSettings.setOnClickListener(this);
@@ -214,20 +218,20 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mainBinding.shortcutsRv.addItemDecoration(new SpacesItemDecoration(0,
-                (int) (getWindowManager().getDefaultDisplay().getWidth()*0.03),0,0));
+                (int) (getWindowManager().getDefaultDisplay().getWidth() * 0.03), 0, 0));
         mainBinding.shortcutsRv.setLayoutManager(layoutManager);
     }
 
-    private void initData(){
+    private void initData() {
 
-        mainBinding.rlEthernet.setVisibility(isNetworkConnect()?View.VISIBLE:View.GONE);
+        mainBinding.rlEthernet.setVisibility(isNetworkConnect() ? View.VISIBLE : View.GONE);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 getBrandImage();
                 initDataApp();
-                short_list =loadHomeAppData();
+                short_list = loadHomeAppData();
                 handler.sendEmptyMessage(202);
             }
         }).start();
@@ -239,10 +243,10 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         if (MyApplication.config.brandLogo.equals(""))
             return;
         Bitmap bitmap = null;
-        if (new File(MyApplication.config.brandLogo).exists()){
+        if (new File(MyApplication.config.brandLogo).exists()) {
             bitmap = BitmapFactory.decodeFile(MyApplication.config.brandLogo);
         }
-        if (bitmap == null ) {
+        if (bitmap == null) {
             return;
         }
         Bitmap finalBitmap = bitmap;
@@ -267,6 +271,9 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         //背景控制end
 //        String defaultbg = sharedPreferences.getString(Contants.DefaultBg, "1");
         String defaultbg = MyApplication.config.defaultbackground;
+        if (defaultbg.isEmpty()) {
+            defaultbg = "1";
+        }
         Log.d(TAG, " setDefaultBackground defaultbg " + defaultbg);
         int number = Integer.parseInt(defaultbg);
         Log.d(TAG, " setDefaultBackground number " + number);
@@ -319,39 +326,39 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         }
     }
 
-    private void initSourceData(){
-        SignalAdapter signalAdapter = new SignalAdapter(this,getSourceListTitle(),getSourceList());
+    private void initSourceData() {
+        SignalAdapter signalAdapter = new SignalAdapter(this, getSourceListTitle(), getSourceList());
         signalAdapter.setSignalItemCallBack(signalItemCallBack);
         GridLayoutManager gridLayoutManager;
-        if (signalAdapter.getIdList().size()==2){
-             gridLayoutManager = new GridLayoutManager(this,1);
-        }else {
-             gridLayoutManager = new GridLayoutManager(this,2);
+        if (signalAdapter.getIdList().size() == 2) {
+            gridLayoutManager = new GridLayoutManager(this, 1);
+        } else {
+            gridLayoutManager = new GridLayoutManager(this, 2);
         }
         mainBinding.signalRv.setLayoutManager(gridLayoutManager);
         mainBinding.signalRv.setAdapter(signalAdapter);
     }
 
-    public static String[] getSourceList(){
+    public static String[] getSourceList() {
         return MyApplication.config.sourceList.split(",");
     }
 
-    public static String[] getSourceListTitle(){
+    public static String[] getSourceListTitle() {
         return MyApplication.config.sourceListTitle.split(",");
     }
 
     SignalItemCallBack signalItemCallBack = new SignalItemCallBack() {
         @Override
         public void onItemClick(String id) {
-            if (id.contains("USB")){
+            if (id.contains("USB")) {
                 AppUtils.startNewApp(MainActivity.this,
-                        SystemProperties.get("persist.sys.filemanager_package","com.softwinner.TvdFileManager"));
+                        SystemProperties.get("persist.sys.filemanager_package", "com.softwinner.TvdFileManager"));
                 return;
-            }else if (id.contains("SCREEN")){
+            } else if (id.contains("SCREEN")) {
 
                 return;
-            }else if (id.contains("MANUAL")){
-                ManualQrDialog manualQrDialog = new ManualQrDialog(MainActivity.this,R.style.DialogTheme);
+            } else if (id.contains("MANUAL")) {
+                ManualQrDialog manualQrDialog = new ManualQrDialog(MainActivity.this, R.style.DialogTheme);
                 manualQrDialog.show();
                 return;
             }
@@ -365,7 +372,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         }
     };
 
-    private void initReceiver(){
+    private void initReceiver() {
         IntentFilter networkFilter = new IntentFilter(
                 ConnectivityManager.CONNECTIVITY_ACTION);
         networkReceiver = new NetworkReceiver();
@@ -405,33 +412,33 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         intentFilter.addAction("com.htc.refreshApps");
-        registerReceiver(networkConnectReceiver,intentFilter);
+        registerReceiver(networkConnectReceiver, intentFilter);
 
         //app
         appFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
         appFilter.addAction(Intent.ACTION_PACKAGE_REPLACED);
         appFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
         appFilter.addDataScheme("package");
-        appReceiver=new AppReceiver(appCallBack);
+        appReceiver = new AppReceiver(appCallBack);
         registerReceiver(appReceiver, appFilter);
     }
 
     AppCallBack appCallBack = new AppCallBack() {
         @Override
         public void appChange(String packageName) {
-            short_list =loadHomeAppData();
+            short_list = loadHomeAppData();
             handler.sendEmptyMessage(202);
         }
 
         @Override
         public void appUnInstall(String packageName) {
-            short_list =loadHomeAppData();
+            short_list = loadHomeAppData();
             handler.sendEmptyMessage(202);
         }
 
         @Override
         public void appInstall(String packageName) {
-            short_list =loadHomeAppData();
+            short_list = loadHomeAppData();
             handler.sendEmptyMessage(202);
         }
     };
@@ -450,29 +457,29 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
                 }
             } else if ("com.htc.refreshApps".equals(intent.getAction())) {
-                short_list =loadHomeAppData();
+                short_list = loadHomeAppData();
                 handler.sendEmptyMessage(202);
             }
         }
     };
-    
+
     ShortcutsAdapter.ItemCallBack itemCallBack = new ShortcutsAdapter.ItemCallBack() {
         @Override
-        public void onItemClick(int i,String name) {
+        public void onItemClick(int i, String name) {
             if (i < short_list.size()) {
                 if ("Netflix".equals(name)) {
-                    if (!startNetflix()){
+                    if (!startNetflix()) {
                         appName = name;
                         requestChannelData();
                     }
 
-                }else if ("Youtube".equals(name)) {
-                    if (!startYoutube()){
+                } else if ("Youtube".equals(name)) {
+                    if (!startYoutube()) {
                         appName = name;
                         requestChannelData();
                     }
-                }else if ("Fili TV".equals(name)) {
-                    if (!AppUtils.startNewApp(MainActivity.this,"com.mm.droid.livetv.fili")){
+                } else if ("Fili TV".equals(name)) {
+                    if (!AppUtils.startNewApp(MainActivity.this, "com.mm.droid.livetv.fili")) {
                         appName = name;
                         requestChannelData();
                     }
@@ -487,55 +494,54 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     };
 
 
-    private boolean startYoutube(){
+    private boolean startYoutube() {
         try {
-            if (AppUtils.startNewApp(this,"com.google.android.youtube.tv"))
+            if (AppUtils.startNewApp(this, "com.google.android.youtube.tv"))
                 return true;
-            if (AppUtils.startNewApp(this,"com.google.android.youtube"))
+            if (AppUtils.startNewApp(this, "com.google.android.youtube"))
                 return true;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return false;
     }
 
-    private boolean startNetflix(){
+    private boolean startNetflix() {
         try {
-            if (AppUtils.startNewApp(this,"com.netflix.ninja"))
+            if (AppUtils.startNewApp(this, "com.netflix.ninja"))
                 return true;
-            if (AppUtils.startNewApp(this,"com.netflix.mediaclient"))
+            if (AppUtils.startNewApp(this, "com.netflix.mediaclient"))
                 return true;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
 
-    private void startAppFormChannel(){
-        for (AppsData appsData:channelData.getData()){
-            if (appName.equals(appsData.getName())){
+    private void startAppFormChannel() {
+        for (AppsData appsData : channelData.getData()) {
+            if (appName.equals(appsData.getName())) {
                 Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.htc.storeos","com.htc.storeos.AppDetailActivity"));
+                intent.setComponent(new ComponentName("com.htc.storeos", "com.htc.storeos.AppDetailActivity"));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("appData",new Gson().toJson(appsData));
+                intent.putExtra("appData", new Gson().toJson(appsData));
                 startActivity(intent);
                 return;
             }
         }
-        ToastUtil.showShortToast(this,getString(R.string.data_none));
+        ToastUtil.showShortToast(this, getString(R.string.data_none));
     }
 
 
-
-    private void requestChannelData(){
+    private void requestChannelData() {
         if (requestFlag)
             return;
 
-        if (!NetWorkUtils.isNetworkConnected(this)){
-            ToastUtil.showShortToast(this,getString(R.string.network_disconnect_tip));
+        if (!NetWorkUtils.isNetworkConnected(this)) {
+            ToastUtil.showShortToast(this, getString(R.string.network_disconnect_tip));
             return;
         }
         requestFlag = true;
@@ -544,37 +550,37 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         OkHttpClient okHttpClient = builder.build();
         String time = String.valueOf(System.currentTimeMillis());
         String chan = Constants.getChannel();
-        LogUtils.d("chanId "+chan);
+        LogUtils.d("chanId " + chan);
         Request.Builder requestBuilder = new Request.Builder();
-        requestBuilder.addHeader("chanId",chan);
-        requestBuilder.addHeader("timestamp",time);
-        HashMap<String,Object> requestData = new HashMap<>();
-        requestData.put("chanId",chan);
+        requestBuilder.addHeader("chanId", chan);
+        requestBuilder.addHeader("timestamp", time);
+        HashMap<String, Object> requestData = new HashMap<>();
+        requestData.put("chanId", chan);
         String deviceId = Constants.getWan0Mac();
-        if (Constants.isOne(Uri.complexType,1)) {
+        if (Constants.isOne(Uri.complexType, 1)) {
             String aesKey = VerifyUtil.initKey();
-            LogUtils.d("aesKey "+ aesKey);
-            deviceId = VerifyUtil.encrypt(deviceId,aesKey,aesKey,VerifyUtil.AES_CBC);
-            LogUtils.d("deviceId "+deviceId);
+            LogUtils.d("aesKey " + aesKey);
+            deviceId = VerifyUtil.encrypt(deviceId, aesKey, aesKey, VerifyUtil.AES_CBC);
+            LogUtils.d("deviceId " + deviceId);
         }
-        requestData.put("deviceId",deviceId);
-        requestData.put("model", SystemProperties.get("persist.sys.modelName","project"));
+        requestData.put("deviceId", deviceId);
+        requestData.put("model", SystemProperties.get("persist.sys.modelName", "project"));
         requestData.put("sysVersion", Constants.getHtcDisplay());
         try {
-            requestData.put("verCode",getPackageManager().getPackageInfo(getPackageName(),0).versionCode);
+            requestData.put("verCode", getPackageManager().getPackageInfo(getPackageName(), 0).versionCode);
         } catch (PackageManager.NameNotFoundException e) {
-            requestData.put("verCode",10);
+            requestData.put("verCode", 10);
             throw new RuntimeException(e);
         }
 
-        requestData.put("complexType",Uri.complexType);//
+        requestData.put("complexType", Uri.complexType);//
         Gson gson = new Gson();
         String json = gson.toJson(requestData);
         requestBuilder.url(Uri.SIGN_APP_LIST_URL)
                 .post(RequestBody.create(json, MediaType.parse("application/json;charset=UTF-8")));
-        String sign = RequestManager.getInstance().getSign(json,chan,time);
-        LogUtils.d("sign "+ sign);
-        requestBuilder.addHeader("sign",sign);
+        String sign = RequestManager.getInstance().getSign(json, chan, time);
+        LogUtils.d("sign " + sign);
+        requestBuilder.addHeader("sign", sign);
         Request request = requestBuilder.build();
         okHttpClient.newCall(request).enqueue(channelCallback);
     }
@@ -592,20 +598,20 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
             try {
                 String content = response.body().string();
-                LogUtils.d("content "+ content);
-                if (RequestManager.isOne(Uri.complexType,3)) {
+                LogUtils.d("content " + content);
+                if (RequestManager.isOne(Uri.complexType, 3)) {
                     byte[] bytes = Base64.decode(content, Base64.NO_WRAP);
                     content = new String(VerifyUtil.gzipDecompress(bytes), StandardCharsets.UTF_8);
                     LogUtils.d("content " + content);
                 }
                 channelData = new Gson().fromJson(content, ChannelData.class);
-                if (channelData.getCode()!=0){
+                if (channelData.getCode() != 0) {
                     handler.sendEmptyMessage(DATA_ERROR);
-                }else {
+                } else {
                     handler.sendEmptyMessage(DATA_FINISH);
                 }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 handler.sendEmptyMessage(DATA_ERROR);
             }
         }
@@ -613,7 +619,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
 
             case R.id.rl_wallpapers:
                 startNewActivity(WallPaperActivity.class);
@@ -626,11 +632,11 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                 break;
             case R.id.rl_settings:
 
-                if (MyApplication.config.setting.equals("")){
+                if (MyApplication.config.setting.equals("")) {
                     startNewActivity(MainSettingActivity.class);
-                }else {
+                } else {
                     String[] act = MyApplication.config.setting.split("/");
-                    AppUtils.startNewApp(this,act[0],act[1].replace(".",act[0]));
+                    AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
                 }
 
                 break;
@@ -650,39 +656,39 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                 startSource("VGA");
                 break;
             case R.id.rl_manual:
-                ManualQrDialog manualQrDialog = new ManualQrDialog(this,R.style.DialogTheme);
+                ManualQrDialog manualQrDialog = new ManualQrDialog(this, R.style.DialogTheme);
                 manualQrDialog.show();
                 break;
             case R.id.rl_wifi:
-                if (MyApplication.config.barWifi.equals("")){
+                if (MyApplication.config.barWifi.equals("")) {
                     startNewActivity(WifiActivity.class);
-                }else {
+                } else {
                     String[] act = MyApplication.config.barWifi.split("/");
-                    AppUtils.startNewApp(this,act[0],act[1].replace(".",act[0]));
+                    AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
                 }
                 break;
             case R.id.rl_bluetooth:
-                if (MyApplication.config.barBluetooth.equals("")){
+                if (MyApplication.config.barBluetooth.equals("")) {
                     startNewActivity(BluetoothActivity.class);
-                }else {
+                } else {
                     String[] act = MyApplication.config.barBluetooth.split("/");
-                    AppUtils.startNewApp(this,act[0],act[1].replace(".",act[0]));
+                    AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
                 }
                 break;
             case R.id.rl_ethernet:
                 startNewActivity(WiredActivity.class);
                 break;
             case R.id.rl_clear:
-                AppUtils.startNewApp(this,"com.htc.clearmemory");
+                AppUtils.startNewApp(this, "com.htc.clearmemory");
                 break;
         }
 
     }
 
-    private void startSource(String sourceName){
+    private void startSource(String sourceName) {
         Intent intent_hdmi = new Intent();
-        intent_hdmi.setComponent(new ComponentName("com.softwinner.awlivetv","com.softwinner.awlivetv.MainActivity"));
-        intent_hdmi.putExtra("input_source",sourceName);
+        intent_hdmi.setComponent(new ComponentName("com.softwinner.awlivetv", "com.softwinner.awlivetv.MainActivity"));
+        intent_hdmi.putExtra("input_source", sourceName);
         intent_hdmi.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent_hdmi.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent_hdmi);
@@ -700,7 +706,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
             // 读取文件
             File file = new File("/oem/shortcuts.config");
             if (!file.exists())
-             file = new File("/system/shortcuts.config");
+                file = new File("/system/shortcuts.config");
             if (!file.exists()) {
                 return false;
             }
@@ -716,7 +722,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                     JSONObject jsonobject = jsonarrray.getJSONObject(i);
                     String packageName = jsonobject.getString("packageName");
                     boolean resident = jsonobject.getBoolean("resident");
-                    if (resident){
+                    if (resident) {
                         residentList.add(packageName);
                     }
                     if (!DBUtils.getInstance(this).isExistData(
@@ -725,8 +731,8 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
                                 .addFavorites(packageName);
                     }
                 }
-                editor.putString("resident",residentList.toString());
-                editor.putInt("residentSize",residentList.size());
+                editor.putString("resident", residentList.toString());
+                editor.putInt("residentSize", residentList.size());
                 editor.putInt("code", 1);
                 editor.apply();
                 is.close();
@@ -744,36 +750,36 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         ArrayList<AppSimpleBean> appSimpleBeans = DBUtils.getInstance(this).getFavorites();
         ArrayList<ShortInfoBean> shortInfoBeans = new ArrayList<>();
         ArrayList<AppInfoBean> appList = AppUtils.getApplicationMsg(this);
-        String country_code = Settings.System.getString(getContentResolver(),"ip_country_code");
-        LogUtils.d("ip_country_code "+country_code);
-        if (country_code!=null){
+        String country_code = Settings.System.getString(getContentResolver(), "ip_country_code");
+        LogUtils.d("ip_country_code " + country_code);
+        if (country_code != null) {
             String[] continent_countryCode = country_code.split(",");
-            if (continent_countryCode.length>=2 && MyApplication.config.specialApps !=null && MyApplication.config.specialApps.size()>0) {
-                for (SpecialApps specialApps : MyApplication.config.specialApps){
-                    if (specialApps.getContinent()!=null && !specialApps.getContinent().equals("")){
-                        if (specialApps.getContinent().contains("!")){
-                            if (specialApps.getContinent().replace("!","").equals(continent_countryCode[0]))
+            if (continent_countryCode.length >= 2 && MyApplication.config.specialApps != null && MyApplication.config.specialApps.size() > 0) {
+                for (SpecialApps specialApps : MyApplication.config.specialApps) {
+                    if (specialApps.getContinent() != null && !specialApps.getContinent().equals("")) {
+                        if (specialApps.getContinent().contains("!")) {
+                            if (specialApps.getContinent().replace("!", "").equals(continent_countryCode[0]))
                                 continue;
-                        }else {
+                        } else {
                             if (!specialApps.getContinent().equals(continent_countryCode[0]))
                                 continue;
                         }
                     }
-                    if (specialApps.getCountryCode()!=null && !specialApps.getCountryCode().equals("")){
-                        if (specialApps.getCountryCode().contains("!")){
-                            if (specialApps.getCountryCode().replace("!","").equals(continent_countryCode[1]))
+                    if (specialApps.getCountryCode() != null && !specialApps.getCountryCode().equals("")) {
+                        if (specialApps.getCountryCode().contains("!")) {
+                            if (specialApps.getCountryCode().replace("!", "").equals(continent_countryCode[1]))
                                 continue;
-                        }else {
+                        } else {
                             if (!specialApps.getCountryCode().equals(continent_countryCode[1]))
                                 continue;
                         }
                     }
-                    LogUtils.d("specialApps.getContinent() "+specialApps.getContinent()+" specialApps.getCountryCode() "+specialApps.getCountryCode());
+                    LogUtils.d("specialApps.getContinent() " + specialApps.getContinent() + " specialApps.getCountryCode() " + specialApps.getCountryCode());
                     AppSimpleBean simpleBean = new AppSimpleBean();
                     simpleBean.setPackagename(specialApps.getPackageName());
                     simpleBean.setPath(specialApps.getIconPath());
                     simpleBean.setAppName(specialApps.getAppName());
-                    appSimpleBeans.add(0,simpleBean);
+                    appSimpleBeans.add(0, simpleBean);
 
                 }
                 /*if (continent_countryCode[1].equals("BR")) {
@@ -817,27 +823,28 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode()==KeyEvent.KEYCODE_BACK)
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK)
             return true;
         return super.dispatchKeyEvent(event);
     }
 
-    private void updateBle(){
+    private void updateBle() {
         boolean isConnected = BluetoothUtils.getInstance(this)
                 .isBluetoothConnected();
-        if (isConnected){
+        if (isConnected) {
             mainBinding.homeBluetooth.setBackgroundResource(R.drawable.bluetooth_con);
-        }else {
+        } else {
             mainBinding.homeBluetooth.setBackgroundResource(R.drawable.bluetooth_not);
         }
     }
 
-    private boolean isNetworkConnect(){
+    private boolean isNetworkConnect() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
-        return networkInfo!=null&& networkInfo.isConnected();
+        return networkInfo != null && networkInfo.isConnected();
     }
-    private void updateTime(){
+
+    private void updateTime() {
         String builder = TimeUtils.getCurrentDate() +
                 " | " +
                 TimeUtils
@@ -926,9 +933,10 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     }
 
-    public interface SignalItemCallBack{
+    public interface SignalItemCallBack {
         void onItemClick(String id);
-        void onItemFocus(View view,boolean hasFocus);
+
+        void onItemFocus(View view, boolean hasFocus);
     }
 
 

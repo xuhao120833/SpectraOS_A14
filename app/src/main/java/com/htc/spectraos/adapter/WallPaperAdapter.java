@@ -121,6 +121,9 @@ public class WallPaperAdapter extends RecyclerView.Adapter<WallPaperAdapter.MyVi
 //            SharedPreferences sharedPreferences = ShareUtil.getInstans(mContext);
 //            String defaultbg = sharedPreferences.getString(Contants.DefaultBg, "1");
             String defaultbg = MyApplication.config.defaultbackground;
+            if (defaultbg.isEmpty()) {
+                defaultbg = "1";
+            }
             int number = Integer.parseInt(defaultbg);
             if (number - 1 == i) {
                 myViewHolder.check.setVisibility(View.VISIBLE);
