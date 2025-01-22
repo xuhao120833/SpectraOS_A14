@@ -48,6 +48,18 @@ public class BaseMainActivity extends Activity implements View.OnClickListener, 
         }
     }
 
+    public void setWallPaper(int resId) {
+        if (MyApplication.mainDrawable != null) {
+            RelativeLayout relativeLayout = findViewById(R.id.rl_main);
+            if (relativeLayout != null)
+                relativeLayout.setBackground(MyApplication.mainDrawable);
+        } else if (resId != -1) {
+            RelativeLayout relativeLayout = findViewById(R.id.rl_main);
+            if (relativeLayout != null)
+                relativeLayout.setBackgroundResource(resId);
+        }
+    }
+
     @Override
     public void onClick(View v) {
 

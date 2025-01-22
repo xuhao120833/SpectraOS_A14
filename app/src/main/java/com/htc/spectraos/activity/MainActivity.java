@@ -1,5 +1,9 @@
 package com.htc.spectraos.activity;
 
+import static com.htc.spectraos.utils.BlurImageView.MAX_BITMAP_SIZE;
+import static com.htc.spectraos.utils.BlurImageView.narrowBitmap;
+
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -10,6 +14,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
@@ -62,6 +69,7 @@ import com.htc.spectraos.utils.TimeUtils;
 import com.htc.spectraos.utils.ToastUtil;
 import com.htc.spectraos.utils.Uri;
 import com.htc.spectraos.utils.VerifyUtil;
+import com.htc.spectraos.utils.Utils;
 import com.htc.spectraos.widget.ManualQrDialog;
 import com.htc.spectraos.widget.SpacesItemDecoration;
 
@@ -71,11 +79,14 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
@@ -101,7 +112,6 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     /**
      * receiver
      */
-
     private NetworkReceiver networkReceiver = null;
     // 时间
     private IntentFilter timeFilter = new IntentFilter();
@@ -112,7 +122,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     // 蓝牙
     private IntentFilter blueFilter = new IntentFilter();
     private BluetoothReceiver blueReceiver = null;
-
+    ExecutorService threadExecutor = Executors.newFixedThreadPool(5);
     private String appName = "";
     private boolean requestFlag = false;
     private final int DATA_ERROR = 102;
@@ -120,6 +130,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     private IntentFilter appFilter=new IntentFilter();
     private AppReceiver appReceiver=null;
+    private static String TAG = "MainActivity";
 
     Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -151,6 +162,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         super.onCreate(savedInstanceState);
         mainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(mainBinding.getRoot());
+        setDefaultBackgroundById();
         initView();
         initData();
         initReceiver();
@@ -226,12 +238,10 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
     private void getBrandImage() {
         if (MyApplication.config.brandLogo.equals(""))
             return;
-
         Bitmap bitmap = null;
         if (new File(MyApplication.config.brandLogo).exists()){
             bitmap = BitmapFactory.decodeFile(MyApplication.config.brandLogo);
         }
-
         if (bitmap == null ) {
             return;
         }
@@ -243,6 +253,70 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
             }
         });
 
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void setDefaultBackgroundById() {
+        //如果用户自主修改了背景，那么重启之后不再设置默认背景start
+        SharedPreferences sharedPreferences = ShareUtil.getInstans(getApplicationContext());
+        int selectBg = sharedPreferences.getInt(Contants.SelectWallpaperLocal, -1);
+        if (selectBg != -1) {
+            Log.d(TAG, " setDefaultBackground 用户已经自主修改了背景");
+            return;
+        }
+        //背景控制end
+//        String defaultbg = sharedPreferences.getString(Contants.DefaultBg, "1");
+        String defaultbg = MyApplication.config.defaultbackground;
+        Log.d(TAG, " setDefaultBackground defaultbg " + defaultbg);
+        int number = Integer.parseInt(defaultbg);
+        Log.d(TAG, " setDefaultBackground number " + number);
+        if (number > Utils.drawablesId.length) {
+            Log.d(TAG, " setDefaultBackground 用户设置的默认背景，超出了范围");
+            return;
+        }
+        setWallPaper(Utils.drawablesId[number - 1]);
+        Drawable drawable = getResources().getDrawable(Utils.drawablesId[number - 1]);
+        MyApplication.mainDrawable = (BitmapDrawable) drawable;
+        setDefaultBg(drawable);
+    }
+
+    private void setDefaultBg(Drawable drawable) {
+        threadExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                CopyDrawableToSd(drawable);
+            }
+        });
+    }
+
+    private void CopyDrawableToSd(Drawable drawable) {
+        Bitmap bitmap = null;
+        if (drawable instanceof BitmapDrawable) {
+            bitmap = ((BitmapDrawable) drawable).getBitmap();
+        } else {
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+        }
+        //判断图片大小，如果超过限制就做缩小处理
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        if (width * height * 4 >= MAX_BITMAP_SIZE) {
+            bitmap = narrowBitmap(bitmap);
+        }
+        //缩小完毕
+        MyApplication.mainDrawable = new BitmapDrawable(bitmap);
+        File dir = new File(Contants.WALLPAPER_DIR);
+        if (!dir.exists()) dir.mkdirs();
+        File file1 = new File(Contants.WALLPAPER_MAIN);
+//        if (file1.exists()) file1.delete();
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file1)) {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream); // 可根据需要更改格式
+            fileOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initSourceData(){

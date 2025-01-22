@@ -30,6 +30,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
 import com.htc.spectraos.utils.Contants;
 import com.htc.spectraos.utils.ImageUtils;
@@ -117,8 +118,9 @@ public class WallPaperAdapter extends RecyclerView.Adapter<WallPaperAdapter.MyVi
             myViewHolder.check.setVisibility(View.VISIBLE);
             myViewHolder.check.setImageResource(R.drawable.check_correct);
         } else if (selectpostion == -1) {//使用默认配置背景
-            SharedPreferences sharedPreferences = ShareUtil.getInstans(mContext);
-            String defaultbg = sharedPreferences.getString(Contants.DefaultBg, "1");
+//            SharedPreferences sharedPreferences = ShareUtil.getInstans(mContext);
+//            String defaultbg = sharedPreferences.getString(Contants.DefaultBg, "1");
+            String defaultbg = MyApplication.config.defaultbackground;
             int number = Integer.parseInt(defaultbg);
             if (number - 1 == i) {
                 myViewHolder.check.setVisibility(View.VISIBLE);
