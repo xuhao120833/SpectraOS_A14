@@ -62,6 +62,7 @@ import com.htc.spectraos.utils.BluetoothUtils;
 import com.htc.spectraos.utils.Constants;
 import com.htc.spectraos.utils.Contants;
 import com.htc.spectraos.utils.DBUtils;
+import com.htc.spectraos.utils.ImageUtils;
 import com.htc.spectraos.utils.LogUtils;
 import com.htc.spectraos.utils.NetWorkUtils;
 import com.htc.spectraos.utils.ShareUtil;
@@ -274,17 +275,31 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         if (defaultbg.isEmpty()) {
             defaultbg = "1";
         }
-        Log.d(TAG, " setDefaultBackground defaultbg " + defaultbg);
         int number = Integer.parseInt(defaultbg);
         Log.d(TAG, " setDefaultBackground number " + number);
-        if (number > Utils.drawablesId.length) {
-            Log.d(TAG, " setDefaultBackground 用户设置的默认背景，超出了范围");
-            return;
+        Log.d(TAG, " setDefaultBackground defaultbg " + defaultbg);
+        if(Utils.customBackground) {
+            String path = (String) Utils.drawables.get(number-1);
+            Log.d(TAG, " loadImageFromPath path " + path);
+            Drawable drawable = ImageUtils.loadImageFromPath(path,getApplicationContext());
+            MyApplication.mainDrawable = (BitmapDrawable) drawable;
+            setDefaultBg(drawable);
+        }else {
+            if (number > Utils.drawablesId.length) {
+                Log.d(TAG, " setDefaultBackground 用户设置的默认背景，超出了范围");
+                return;
+            }
+            if(number == 1) {
+                Drawable drawable = (Drawable) Utils.drawables.get(0);
+                MyApplication.mainDrawable = (BitmapDrawable) drawable;
+                setDefaultBg(drawable);
+            }else if(number>1) {
+                setWallPaper(Utils.drawablesId[number - 1]);
+                Drawable drawable = getResources().getDrawable(Utils.drawablesId[number - 1]);
+                MyApplication.mainDrawable = (BitmapDrawable) drawable;
+                setDefaultBg(drawable);
+            }
         }
-        setWallPaper(Utils.drawablesId[number - 1]);
-        Drawable drawable = getResources().getDrawable(Utils.drawablesId[number - 1]);
-        MyApplication.mainDrawable = (BitmapDrawable) drawable;
-        setDefaultBg(drawable);
     }
 
     private void setDefaultBg(Drawable drawable) {

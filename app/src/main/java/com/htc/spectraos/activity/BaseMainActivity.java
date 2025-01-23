@@ -1,11 +1,19 @@
 package com.htc.spectraos.activity;
 
+import static com.htc.spectraos.utils.BlurImageView.MAX_BITMAP_SIZE;
+import static com.htc.spectraos.utils.BlurImageView.narrowBitmap;
+
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
@@ -13,8 +21,12 @@ import android.widget.RelativeLayout;
 
 import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
+import com.htc.spectraos.utils.Utils;
 
 import androidx.annotation.Nullable;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  * Author:
@@ -36,15 +48,40 @@ public class BaseMainActivity extends Activity implements View.OnClickListener, 
 
     @Override
     protected void onResume() {
-        setWallPaper();
+        try {
+            setWallPaper();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         super.onResume();
     }
 
-    public void setWallPaper(){
-        if (MyApplication.mainDrawable!=null){
-            RelativeLayout relativeLayout =findViewById(R.id.rl_main);
-            if (relativeLayout!=null)
+    public void setWallPaper() {
+        if (MyApplication.mainDrawable != null) {
+            ViewGroup relativeLayout = findViewById(R.id.rl_main);
+            if (relativeLayout != null)
                 relativeLayout.setBackground(MyApplication.mainDrawable);
+        } else {
+            ViewGroup relativeLayout = findViewById(R.id.rl_main);
+            if (relativeLayout != null) {
+                if (Utils.drawables.get(0) instanceof Drawable) {
+                    relativeLayout.setBackground((Drawable) Utils.drawables.get(0));
+                } else if (Utils.drawables.get(0) instanceof Integer) {
+                    relativeLayout.setBackgroundResource((int) Utils.drawables.get(0));
+                } else if (Utils.drawables.get(0) instanceof String) {
+                    try {
+                        // 从文件加载 Bitmap
+                        FileInputStream inputStream = new FileInputStream((String) Utils.drawables.get(0));
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                        // 创建 Drawable 对象
+                        Drawable drawable = new BitmapDrawable(getResources(), bitmap);
+                        inputStream.close();
+                        relativeLayout.setBackground(drawable);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 

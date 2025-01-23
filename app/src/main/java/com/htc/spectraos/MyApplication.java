@@ -20,6 +20,8 @@ import com.htc.spectraos.utils.ShareUtil;
 import com.htc.spectraos.utils.Utils;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Author:
@@ -42,27 +44,27 @@ public class MyApplication extends Application {
 
     @Override
     public void onCreate() {
+        Log.d(TAG, "执行MyApplication onCreate");
         super.onCreate();
         SharedPreferences sharedPreferences = ShareUtil.getInstans(getApplicationContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(Contants.TimeOffStatus,false);
-        editor.putInt(Contants.TimeOffIndex,0);
+        editor.putBoolean(Contants.TimeOffStatus, false);
+        editor.putInt(Contants.TimeOffIndex, 0);
         editor.apply();
         if (new File(Contants.WALLPAPER_MAIN).exists())
-            mainDrawable =new BitmapDrawable(BitmapFactory.decodeFile(Contants.WALLPAPER_MAIN));
+            mainDrawable = new BitmapDrawable(BitmapFactory.decodeFile(Contants.WALLPAPER_MAIN));
         try {
             //json解析1
             parseConfigFile();
+            initDisplaySize();
+            initWallpaperData();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        initDisplaySize();
-        initWallpaperData();
 
         // 打开调试开关，可以查看logcat日志。版本发布前，为避免影响性能，移除此代码
         // 查看方法：adb logcat -s sdkstat
         //StatService.setDebugOn(true);
-
         // 开启自动埋点统计，为保证所有页面都能准确统计，建议在Application中调用。
         // 第三个参数：autoTrackWebview：
         // 如果设置为true，则自动track所有webview；如果设置为false，则不自动track webview，
@@ -75,22 +77,22 @@ public class MyApplication extends Application {
 
     private void parseConfigFile() {
         String configContent;
-        if (new File("/oem/shortcuts.config").exists()){
+        if (new File("/oem/shortcuts.config").exists()) {
             configContent = FileUtils.readFileContent("/oem/shortcuts.config");
-        }else {
+        } else {
             configContent = FileUtils.readFileContent("/system/shortcuts.config");
         }
-        if (configContent==null || configContent.equals(""))
+        if (configContent == null || configContent.equals(""))
             return;
         Gson gson = new Gson();
-        config = gson.fromJson(configContent,Config.class);
+        config = gson.fromJson(configContent, Config.class);
     }
 
-    private void initDisplaySize(){
+    private void initDisplaySize() {
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int screenWidth = dm.widthPixels;
         int screenHeight = dm.heightPixels;
-        Log.d(TAG,"screenWidth "+screenWidth+" screenHeight "+screenHeight);
+        Log.d(TAG, "screenWidth " + screenWidth + " screenHeight " + screenHeight);
         KeystoneUtils.lcd_h = screenHeight;
         KeystoneUtils.lcd_w = screenWidth;
         KeystoneUtils.minH_size = config.manualKeystoneWidth;
@@ -99,7 +101,14 @@ public class MyApplication extends Application {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void initWallpaperData() {
-        new Thread(() -> {
+//        new Thread(() -> {
+        if (!config.custombackground.isEmpty() && copyCustomBg()) {
+//            copyCustomBg();
+            Utils.customBackground = true;
+            copyMyWallpaper();
+            Utils.drawables.add(getResources().getDrawable(R.drawable.wallpaper_add));
+//            isDataInitialized.postValue(true);//UI线程用setValue
+        } else {
             Utils.drawables.add(getResources().getDrawable(R.drawable.background0));
             Utils.drawables.add(R.drawable.background_main);
             Utils.drawables.add(R.drawable.background1);
@@ -114,9 +123,11 @@ public class MyApplication extends Application {
             copyMyWallpaper();
             Utils.drawables.add(getResources().getDrawable(R.drawable.wallpaper_add));
             // 数据加载完成后更新 LiveData
-            Log.d(TAG,"执行完initWallpaperData");
+            Log.d(TAG, "执行完initWallpaperData");
             isDataInitialized.postValue(true);//UI线程用setValue
-        }).start();
+        }
+//        }
+//        ).start();
     }
 
     private void copyMyWallpaper() {
@@ -136,6 +147,49 @@ public class MyApplication extends Application {
                     }
                 }
             }
+        }
+    }
+
+    private boolean copyCustomBg() {
+        String[] imageExtensions = {".jpg", ".jpeg", ".png", ".bmp", ".webp"};
+        File directory = new File(config.custombackground);
+        if (directory.exists() && directory.isDirectory()) {
+            File[] files = directory.listFiles();
+            if (files != null) {//排序
+                // 按数字排序
+                Arrays.sort(files, (f1, f2) -> {
+                    // 提取文件名中的数字
+                    int num1 = extractNumber(f1.getName());
+                    int num2 = extractNumber(f2.getName());
+                    return Integer.compare(num1, num2); // 按数值升序排序
+                });
+            }
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isFile()) {
+                        for (String extension : imageExtensions) {
+                            if (file.getName().toLowerCase().endsWith(extension)) {
+                                Utils.drawables.add(file.getAbsolutePath());
+                                break; // 找到一个匹配后就跳出循环
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    // 从文件名中提取数字的方法
+    private static int extractNumber(String fileName) {
+        // 去掉文件后缀
+        String name = fileName.replaceAll("\\.[a-zA-Z]+$", "");
+        try {
+            // 尝试将文件名解析为数字
+            return Integer.parseInt(name);
+        } catch (NumberFormatException e) {
+            return Integer.MAX_VALUE; // 如果无法解析数字，将其放在排序末尾
         }
     }
 
