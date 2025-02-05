@@ -1,10 +1,6 @@
 apply plugin: 'com.android.application'
 
 ext.build_number = "debug";
-static def releaseTime() {
-    return new Date().format("yyMMddHHmm", TimeZone.getDefault());
-}
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -13,8 +9,10 @@ android {
         applicationId "com.htc.spectraos"
         minSdkVersion 26
         targetSdkVersion 30
-        versionCode getProperty("version.properties", "version_Code")
-        versionName releaseTime()
+//        versionCode getProperty("version.properties", "version_Code")
+//        versionName releaseTime()
+        versionCode releaseCode()
+        versionName getVersionNames()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -69,7 +67,7 @@ android {
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 // 显示app名称+当前版本号
-                def fileName = "SpectraOS-V${variant.versionCode}"
+                def fileName = "SpectraOS-V${getVersionNames()}"
                 // 如果有渠道，显示渠道名""
                 if (variant.flavorName!=""){
                     fileName = fileName + "-${variant.flavorName}"
@@ -87,6 +85,17 @@ android {
             }
         }
     }
+}
+
+static def getVersionNames() {
+    return "1.0.0"
+}
+
+static def releaseTime() {
+    return new Date().format("yyMMddHH", TimeZone.getTimeZone("GMT+8"));
+}
+static def releaseCode() {
+    return Integer.parseInt(releaseTime());
 }
 
 dependencies {
