@@ -266,8 +266,8 @@
 	<string name="account">帳號</string>
 	<string name="static_network_config_title">靜態網路配置</string>
 	<string name="follow_me">依下列步驟操作:</string>
-	<string name="init_angle_tip1">1、請將機械水平放置桌面，畫面垂直於牆面或布幕。 </string>
-	<string name="init_angle_tip2">2、調整機械上下角度，保證畫面投出來為標準矩形。 </string>
+	<string name="init_angle_tip1">1、請將機器水平放置桌面，畫面垂直於牆面或布幕。 </string>
+	<string name="init_angle_tip2">2、調整機器上下角度，保證畫面投出來為標準矩形。 </string>
 	<string name="init_angle_tip3">3、點選開始。 </string>
 	<string name="start">開始</string>
 	<string name="wallpaper_text">背景切換</string>
