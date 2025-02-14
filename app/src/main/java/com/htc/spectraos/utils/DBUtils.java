@@ -61,14 +61,22 @@ public class DBUtils extends SQLiteOpenHelper {
 	 * @return
 	 */
 	public long addFavorites(String packagename) {
-		long code = -1;
-		SQLiteDatabase db = getWritableDatabase();
-		ContentValues cv = new ContentValues();
-		cv.put("packagename", packagename);
-		code = db.insert(TABLENAME_FAVORITES, null, cv);
-		sharedPreferences.edit().putBoolean(Contants.MODIFY,true).apply();
-		db.close();
-		return code;
+		synchronized (this) {
+			SQLiteDatabase db = null;
+			try {
+				long code = -1;
+				db = getWritableDatabase();
+				ContentValues cv = new ContentValues();
+				cv.put("packagename", packagename);
+				code = db.insert(TABLENAME_FAVORITES, null, cv);
+				sharedPreferences.edit().putBoolean(Contants.MODIFY, true).apply();
+				db.close();
+				return code;
+			}catch (Exception e) {
+				e.printStackTrace();
+				return 0;
+			}
+		}
 	}
 	
 	/**
@@ -77,18 +85,25 @@ public class DBUtils extends SQLiteOpenHelper {
 	 * @return
 	 */
 	public ArrayList<AppSimpleBean> getFavorites() {
-		ArrayList<AppSimpleBean> list = new ArrayList<AppSimpleBean>();
-		SQLiteDatabase db = getReadableDatabase();
-		String sql = "select id , packagename  from " + TABLENAME_FAVORITES;
-		Cursor cs = db.rawQuery(sql, null);
-		while (cs.moveToNext()) {
-			AppSimpleBean bean = new AppSimpleBean();
-			bean.setId(cs.getInt(0));
-			bean.setPackagename(cs.getString(1));
-			list.add(bean);
+		synchronized (this) {
+			try {
+				ArrayList<AppSimpleBean> list = new ArrayList<AppSimpleBean>();
+				SQLiteDatabase db = getReadableDatabase();
+				String sql = "select id , packagename  from " + TABLENAME_FAVORITES;
+				Cursor cs = db.rawQuery(sql, null);
+				while (cs.moveToNext()) {
+					AppSimpleBean bean = new AppSimpleBean();
+					bean.setId(cs.getInt(0));
+					bean.setPackagename(cs.getString(1));
+					list.add(bean);
+				}
+				db.close();
+				return list;
+			}catch (Exception e){
+				e.printStackTrace();
+				return null;
+			}
 		}
-		db.close();
-		return list;
 	}
 	
 	/**
@@ -98,24 +113,33 @@ public class DBUtils extends SQLiteOpenHelper {
 	 * @return
 	 */
 	public int deleteFavorites(String packagename) {
-		int code = -1;
-		SQLiteDatabase db = getWritableDatabase();
-		code = db.delete(TABLENAME_FAVORITES, "packagename=?",
-				new String[] { packagename });
-		db.close();
-		sharedPreferences.edit().putBoolean(Contants.MODIFY,true).apply();
-		return code;
+		synchronized (this) {
+			try {
+				int code = -1;
+				SQLiteDatabase db = getWritableDatabase();
+				code = db.delete(TABLENAME_FAVORITES, "packagename=?",
+						new String[]{packagename});
+				db.close();
+				sharedPreferences.edit().putBoolean(Contants.MODIFY, true).apply();
+				return code;
+			}catch (Exception e) {
+				e.printStackTrace();
+				return -1;
+			}
+		}
 	}
 	
 	/**
 	 * 清空收藏
 	 */
 	public void clearFavorites() {
-		SQLiteDatabase db = getWritableDatabase();
-		String sql = "delete from " + TABLENAME_FAVORITES;
-		db.execSQL(sql);
-		db.close();
-		sharedPreferences.edit().putBoolean(Contants.MODIFY,true).apply();
+		synchronized (this) {
+			SQLiteDatabase db = getWritableDatabase();
+			String sql = "delete from " + TABLENAME_FAVORITES;
+			db.execSQL(sql);
+			db.close();
+			sharedPreferences.edit().putBoolean(Contants.MODIFY, true).apply();
+		}
 	}
 	
 	/**
@@ -124,27 +148,41 @@ public class DBUtils extends SQLiteOpenHelper {
 	 * @return
 	 */
 	public long getCount() {
-		long count = 0;
-		SQLiteDatabase db = getWritableDatabase();
-		String sql = "select count(*) from " + TABLENAME_FAVORITES;
-		Cursor cursor = db.rawQuery(sql, null);
-		cursor.moveToFirst();
-		count = cursor.getLong(0);
-		cursor.close();
-		return count;
+		synchronized (this) {
+			try {
+				long count = 0;
+				SQLiteDatabase db = getWritableDatabase();
+				String sql = "select count(*) from " + TABLENAME_FAVORITES;
+				Cursor cursor = db.rawQuery(sql, null);
+				cursor.moveToFirst();
+				count = cursor.getLong(0);
+				cursor.close();
+				return count;
+			}catch (Exception e) {
+				e.printStackTrace();
+				return -1;
+			}
+		}
 	}
 
 	public boolean isExistData(String packagename) {
-		boolean isExist = false;
-		SQLiteDatabase db = getWritableDatabase();
-		Cursor cs = db.rawQuery("select id , packagename  from "
-				+ TABLENAME_FAVORITES + " where packagename = ?",
-				new String[] { packagename });
-		while (cs.moveToNext()) {
-			isExist=true;
+		synchronized (this) {
+			try {
+				boolean isExist = false;
+				SQLiteDatabase db = getWritableDatabase();
+				Cursor cs = db.rawQuery("select id , packagename  from "
+								+ TABLENAME_FAVORITES + " where packagename = ?",
+						new String[]{packagename});
+				while (cs.moveToNext()) {
+					isExist = true;
+				}
+				db.close();
+				return isExist;
+			}catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
 		}
-		db.close();
-		return isExist;
 	}
 	
 	
