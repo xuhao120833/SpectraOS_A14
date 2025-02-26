@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
+import android.view.inputmethod.InputMethodManager;
 
 import com.google.gson.Gson;
 import com.htc.spectraos.MyApplication;
@@ -184,6 +185,7 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
             ShareUtil.put(this, Contants.MODIFY, false);
         }
     }
+
 
     private void initView() {
         mainBinding.rlApps.setOnClickListener(this);

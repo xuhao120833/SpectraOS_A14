@@ -29,6 +29,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -50,6 +51,7 @@ import java.util.concurrent.Executors;
  */
 public class WifiConnectDialog extends BaseDialog implements View.OnClickListener {
     private Context mContext;
+    private static String TAG = "WifiConnectDialog";
     private View parent;
     private WifiConnectDialogBinding wifiConnectDialogBinding;
     private String wifi_name = "unknow";
@@ -177,6 +179,7 @@ public class WifiConnectDialog extends BaseDialog implements View.OnClickListene
 
     @Override
     protected void onStop() {
+        Log.d(TAG," onStop");
         super.onStop();
         destroyReceiver();
     }
@@ -370,6 +373,7 @@ public class WifiConnectDialog extends BaseDialog implements View.OnClickListene
 
     @Override
     public void dismiss() {
+        Log.d(TAG," dismiss");
         EnableNetwork();
         handler.removeCallbacksAndMessages(null);
         super.dismiss();
