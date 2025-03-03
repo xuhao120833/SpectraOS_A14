@@ -145,6 +145,7 @@ public class CorrectionActivity extends BaseActivity {
             @Override
             public boolean onLongClick(View v) {
                 KeystoneUtils.resetKeystone();
+                KeystoneUtils.writeGlobalSettings(getApplicationContext(), "zoom_value", 0);
                 refreshStateValueUI();
                 int[] xy = new int[]{0, 0};
                 textv_lt.setText(xy[0] + "," + xy[1]);
@@ -222,6 +223,7 @@ public class CorrectionActivity extends BaseActivity {
 
                 if (keyEvent.getRepeatCount() == 10) {
                     KeystoneUtils.resetKeystone();
+                    KeystoneUtils.writeGlobalSettings(getApplicationContext(), "zoom_value", 0);
                     refreshStateValueUI();
                     int[] xy = new int[]{0, 0};
                     textv_lt.setText(xy[0] + "," + xy[1]);

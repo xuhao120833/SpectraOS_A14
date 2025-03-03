@@ -123,13 +123,14 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
 
     @Override
     protected void onResume() {
-
         int i = Constants.CheckCalibrated(AwTvSystemManager.getInstance(this).getSecureStorageKey("vafocusCam").trim());
         if (i != 1 && i != 3) {
             i = checkNewBDDATA();
         }
         calibratedTips = getStringId(i);
         super.onResume();
+        All = KeystoneUtils.readGlobalSettings(this, "zoom_value", 0);
+        updateZoomView();
     }
 
     private  int getStringId(int i){
@@ -295,8 +296,6 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
         project_name.add(getString(R.string.project_mode_4));
         cur_project_mode = tvDisplayManager.factoryGetPanelValue(AwTvDisplayTypes.EnumPanelConfigType.E_AW_PANEL_CONFIG_MIRROR);
         projectBinding.projectModeTv.setText(project_name.get(cur_project_mode));
-
-
         singer = Executors.newSingleThreadExecutor();
         sharedPreferences = ShareUtil.getInstans(this);
         String zoom_mode = sharedPreferences.getString("zoom_mode", "16:9");

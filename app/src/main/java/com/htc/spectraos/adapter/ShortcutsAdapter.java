@@ -143,9 +143,9 @@ public class ShortcutsAdapter extends RecyclerView.Adapter<ShortcutsAdapter.MyVi
             case "com.netflix.mediaclient":
                 return R.drawable.netflix;
             case "com.disney.disneyplus":
-                return R.drawable.disney;
+                return R.drawable.disney2;
             case "com.google.android.youtube.tv":
-                return R.drawable.youtube;
+                return R.drawable.youtube2;
             case "com.chrome.beta":
                 return R.drawable.chrome;
             case "com.amazon.avod.thirdpartyclient":
