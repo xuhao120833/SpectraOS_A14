@@ -65,7 +65,7 @@ android {
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 // 显示app名称+当前版本号
-                def fileName = "SpectraOS-V${getVersionNames()}"
+                def fileName = "SpectraOS_713_A11-V${getVersionNames()}"
                 // 如果有渠道，显示渠道名""
                 if (variant.flavorName!=""){
                     fileName = fileName + "-${variant.flavorName}"
@@ -86,7 +86,7 @@ android {
 }
 
 static def getVersionNames() {
-    return "1.0.03"
+    return "1.0.04"
 }
 
 static def releaseTime() {
@@ -97,10 +97,10 @@ static def releaseCode() {
 }
 
 dependencies {
-    implementation files('libs/softwinner.jar')
+    implementation files('libs/softwinner_713.jar')
     implementation 'com.google.android.material:material:1.3.0'
     implementation files('libs\\Baidu_Mtj_android_4.0.10.9.jar')
-    compileOnly files('libs/classes.jar')
+    compileOnly files('libs/classes_a11.jar')
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.12'

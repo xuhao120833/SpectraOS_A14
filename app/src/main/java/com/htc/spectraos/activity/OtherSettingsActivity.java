@@ -144,8 +144,8 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
         curPowerMode = mAwTvSystemManager.getPowerOnMode() == AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT ? 1 : 0;
         otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
 
-        Utils.sourceList = MainActivity.getSourceList();
-        Utils.sourceListTitle = MainActivity.getSourceListTitle();
+        Utils.sourceList = MainActivity.getSourceListFiltered();
+        Utils.sourceListTitle = MainActivity.getSourceListTitleFiltered();
         if (Utils.sourceList.length > 0 && !Utils.sourceList[0].isEmpty()) { //兼容多信源的情况
             boot_source_name = new String[Utils.sourceListTitle.length + 1];
             boot_source_name[0] = getResources().getString(R.string.boot_source_1);

@@ -85,6 +85,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -362,6 +363,18 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     public static String[] getSourceListTitle() {
         return MyApplication.config.sourceListTitle.split(",");
+    }
+
+    public static String[] getSourceListFiltered() {
+        return Arrays.stream(getSourceList())  // 转换为 Stream
+                .filter(item -> !item.equals("USB")) // 过滤掉 "USB"
+                .toArray(String[]::new); // 转换回数组
+    }
+
+    public static String[] getSourceListTitleFiltered() {
+        return Arrays.stream(getSourceListTitle())
+                .filter(item -> !item.equals("USB"))
+                .toArray(String[]::new);
     }
 
     SignalItemCallBack signalItemCallBack = new SignalItemCallBack() {
