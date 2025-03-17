@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class LanguageAndKeyboardActivity extends BaseActivity {
+    private static String TAG = "LanguageAndKeyboardActivity";
     private ActivityLanguageKeyboardBinding languageKeyboardBinding;
 
     private ArrayList<Language> mLocales;
@@ -122,6 +123,9 @@ public class LanguageAndKeyboardActivity extends BaseActivity {
     /**
      * 获取机器语言列表 1、代码优化--return ArrayList<Language> ,这样就可以在其他需要获取语言列表的地方复用
      */
+    /**
+     * 获取机器语言列表 1、代码优化--return ArrayList<Language> ,这样就可以在其他需要获取语言列表的地方复用
+     */
     private void buildLangListItem() {
         mSpecialLocaleCodes = getResources().getStringArray(
                 R.array.lang_speciale_codes);
@@ -131,72 +135,146 @@ public class LanguageAndKeyboardActivity extends BaseActivity {
         Arrays.sort(locales);
         final int origSize = locales.length;
         Language[] preprocess = new Language[origSize];
-        boolean filter = SystemProperties.get("persist.sys.Channel","pro").equals("D042Q_11_EQ_en");
         int finalSize = 0;
         for (int i = 0; i < origSize; i++) {
             String s = locales[i];
-            int len = s.length();
-            if (len == 5) {
-                String language = s.substring(0, 2);
-                String country = s.substring(3, 5);
-                if (filter && language.equals("iw"))
-                    continue;
+            Log.d(TAG, " buildLangListItem locales[i] " + locales[i] + " " + locales.length);
+            String language = "";
+            String country = "";
+            Locale l = null;
+            if(s.equals("zh-CN") || s.equals("en-XA") || s.equals("en-XC"))//1、中国只处理zh、zh-HK、zh-TW三种情况
+                continue;//2、Android 14增加了en-XA、en-XC（伪本地化语言)，必须过滤掉
 
-                Locale l = new Locale(language, country);
+            // 检查是否包含国家码
+            String[] parts = s.split("-");
+            if (parts.length == 2) {
+                // 包括国家码的情况
+                language = parts[0];
+                country = parts[1];
+                l = new Locale(language, country);
+            } else {
+                // 没有国家码的情况
+                language = s;
+                l = new Locale(language);
+            }
+            if (finalSize == 0) {
+                preprocess[finalSize++] = new Language(toTitleCase(l.getDisplayLanguage(l)), l);
+            } else {
+                if (preprocess[finalSize - 1].getLocale().getLanguage().equals(language)
+                        && (language.equals("zh") || language.equals("en"))) {  //只有中文、英文区分具体的国家
+                    Log.d(TAG, " 语言列表 language " + language + " s " + s + " l.getDisplayLanguage(l)" + l.getDisplayLanguage(l));
+                    preprocess[finalSize - 1].setLabel(toTitleCase(getDisplayName(preprocess[finalSize - 1].getLocale())));
+                    preprocess[finalSize++] = new Language(toTitleCase(getDisplayName(l)), l);
+                } else if (preprocess[finalSize - 1].getLocale().getLanguage().equals(language)) {
 
-                if (finalSize == 0) {
-                    preprocess[finalSize++] = new Language(
-                            toTitleCase(l.getDisplayLanguage(l)), l);
                 } else {
-                    if (preprocess[finalSize - 1].getLocale().getLanguage()
-                            .equals(language)) {
-                        preprocess[finalSize - 1]
-                                .setLabel(toTitleCase(getDisplayName(preprocess[finalSize - 1]
-                                        .getLocale())));
-                        preprocess[finalSize++] = new Language(
-                                toTitleCase(getDisplayName(l)), l);
+                    String displayName;
+                    if (s.equals("zz_ZZ")) {
+                        displayName = "Pseudo...";
                     } else {
-                        String displayName;
-                        if (s.equals("zz_ZZ")) {
-                            displayName = "Pseudo...";
-                        } else {
-                            displayName = toTitleCase(l.getDisplayLanguage(l));
-                        }
-                        preprocess[finalSize++] = new Language(displayName, l);
+                        displayName = toTitleCase(l.getDisplayLanguage(l));
                     }
+                    preprocess[finalSize++] = new Language(displayName, l);
                 }
-                // setIconRes(preprocess[finalSize-1]);//Set Icon
             }
         }
         Language mLocales2[] = new Language[finalSize];
         for (int i = 0; i < finalSize; i++) {
-
             mLocales2[i] = preprocess[i];
+            Log.d(TAG, " 语言列表 getLabel " + mLocales2[i].getLabel());
             //阿拉伯语
-            if (mLocales2[i].getLabel().contains("[XB]")){
+            if (mLocales2[i].getLabel().contains("[XB]")) {
                 mLocales2[i].setLabel("العربية  (XB)");
-
             }
-
             //英语（阿拉伯） en_XA
-            if (mLocales2[i].getLabel().contains("[XA]")){
+            if (mLocales2[i].getLabel().contains("[XA]")) {
                 mLocales2[i].setLabel("English (XA)");
             }
-
-
-            if (preprocess[i].getLocale().getCountry().equals(Locale.getDefault().getCountry())
-                    && preprocess[i].getLocale().getLanguage().equals(Locale.getDefault().getLanguage())){
-                mLocales2[i] = preprocess[0];
-                mLocales2[0] = preprocess[i];
-            }else {
-                mLocales2[i] = preprocess[i];
-            }
         }
-
-
+        Arrays.sort(mLocales2);
+        for (int b = 0; b < mLocales2.length; b++) {
+            Log.d(TAG, " 语言列表 排序后 getLabel " + mLocales2[b].getLabel() + " " + mLocales2.length
+                    +" "+mLocales2[b].getLocale().getLanguage()+" "+mLocales2[b].getLocale().getCountry());
+        }
         // Arrays.sort(preprocess);
         mLocales = new ArrayList<>(Arrays.asList(mLocales2));
+        Log.d(TAG, " buildLangListItem 最后的列表长度 " + mLocales.size());
     }
+//    private void buildLangListItem() {
+//        mSpecialLocaleCodes = getResources().getStringArray(
+//                R.array.lang_speciale_codes);
+//        mSpecialLocaleNames = getResources().getStringArray(
+//                R.array.lang_special_names);
+//        String[] locales = getAssets().getLocales();
+//        Arrays.sort(locales);
+//        final int origSize = locales.length;
+//        Language[] preprocess = new Language[origSize];
+//        boolean filter = SystemProperties.get("persist.sys.Channel","pro").equals("D042Q_11_EQ_en");
+//        int finalSize = 0;
+//        for (int i = 0; i < origSize; i++) {
+//            String s = locales[i];
+//            int len = s.length();
+//            if (len == 5) {
+//                String language = s.substring(0, 2);
+//                String country = s.substring(3, 5);
+//                if (filter && language.equals("iw"))
+//                    continue;
+//
+//                Locale l = new Locale(language, country);
+//
+//                if (finalSize == 0) {
+//                    preprocess[finalSize++] = new Language(
+//                            toTitleCase(l.getDisplayLanguage(l)), l);
+//                } else {
+//                    if (preprocess[finalSize - 1].getLocale().getLanguage()
+//                            .equals(language)) {
+//                        preprocess[finalSize - 1]
+//                                .setLabel(toTitleCase(getDisplayName(preprocess[finalSize - 1]
+//                                        .getLocale())));
+//                        preprocess[finalSize++] = new Language(
+//                                toTitleCase(getDisplayName(l)), l);
+//                    } else {
+//                        String displayName;
+//                        if (s.equals("zz_ZZ")) {
+//                            displayName = "Pseudo...";
+//                        } else {
+//                            displayName = toTitleCase(l.getDisplayLanguage(l));
+//                        }
+//                        preprocess[finalSize++] = new Language(displayName, l);
+//                    }
+//                }
+//                // setIconRes(preprocess[finalSize-1]);//Set Icon
+//            }
+//        }
+//        Language mLocales2[] = new Language[finalSize];
+//        for (int i = 0; i < finalSize; i++) {
+//
+//            mLocales2[i] = preprocess[i];
+//            //阿拉伯语
+//            if (mLocales2[i].getLabel().contains("[XB]")){
+//                mLocales2[i].setLabel("العربية  (XB)");
+//
+//            }
+//
+//            //英语（阿拉伯） en_XA
+//            if (mLocales2[i].getLabel().contains("[XA]")){
+//                mLocales2[i].setLabel("English (XA)");
+//            }
+//
+//
+//            if (preprocess[i].getLocale().getCountry().equals(Locale.getDefault().getCountry())
+//                    && preprocess[i].getLocale().getLanguage().equals(Locale.getDefault().getLanguage())){
+//                mLocales2[i] = preprocess[0];
+//                mLocales2[0] = preprocess[i];
+//            }else {
+//                mLocales2[i] = preprocess[i];
+//            }
+//        }
+//
+//
+//        // Arrays.sort(preprocess);
+//        mLocales = new ArrayList<>(Arrays.asList(mLocales2));
+//    }
 
     /**
      *  首字符大写
