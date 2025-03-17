@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.material.tabs.TabLayout;
 import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
 import com.htc.spectraos.databinding.ActivityProjectBinding;
