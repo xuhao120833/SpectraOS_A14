@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -86,7 +87,7 @@ public class WifiConnectDialog extends BaseDialog implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        Log.d("hzj","onclick");
+        Log.d(TAG,"onclick");
         switch (v.getId()){
             case R.id.enter:
                 if (wifiConnectDialogBinding.etPassword.getText().toString().isEmpty() ||
@@ -108,6 +109,18 @@ public class WifiConnectDialog extends BaseDialog implements View.OnClickListene
                 break;
             case R.id.cancel:
                 dismiss();
+                break;
+            case R.id.password_visibility:
+                Log.d(TAG," wifiConnectDialogBinding.etPassword.getInputType() "+wifiConnectDialogBinding.etPassword.getInputType());
+                if (wifiConnectDialogBinding.etPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                    // 显示密码
+                    wifiConnectDialogBinding.etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    wifiConnectDialogBinding.passwordVisibility.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
+                } else {
+                    // 隐藏密码
+                    wifiConnectDialogBinding.etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    wifiConnectDialogBinding.passwordVisibility.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
+                }
                 break;
         }
     }
@@ -282,6 +295,8 @@ public class WifiConnectDialog extends BaseDialog implements View.OnClickListene
         wifiConnectDialogBinding.cancel.setOnClickListener(this);
         wifiConnectDialogBinding.enter.setOnHoverListener(this);
         wifiConnectDialogBinding.cancel.setOnHoverListener(this);
+        wifiConnectDialogBinding.passwordVisibility.setOnClickListener(this);
+        wifiConnectDialogBinding.passwordVisibility.setOnHoverListener(this);
 
         wifiConnectDialogBinding.enter.setEnabled(false);
         wifiConnectDialogBinding.connectWifiName.setText(mContext.getString(R.string.network_connect_tips,wifi_name));
