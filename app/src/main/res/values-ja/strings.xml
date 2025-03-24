@@ -272,4 +272,7 @@
 	<string name="start">開始</string>
 	<string name="wallpaper_text">背景切り替え</string>
 	<string name="wallpper_load">背景リソースを読み込んでいます...</string>
+	<string name="bluetooth_receive_request">受信するファイルを受け入れますか？</string>
+	<string name="bluetooth_start_receive">データの受信を開始</string>
+	<string name="accept">受け入れる</string>
 </resources>

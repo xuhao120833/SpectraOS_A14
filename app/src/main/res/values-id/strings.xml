@@ -272,4 +272,7 @@
     <string name="start">Mulai</string>
     <string name="wallpaper_text">Ganti Latar Belakang</string>
     <string name="wallpper_load">Memuat sumber latar belakang...</string>
+    <string name="bluetooth_receive_request">Apakah Anda ingin menerima file yang masuk?</string>
+    <string name="bluetooth_start_receive">Mulai terima data</string>
+    <string name="accept">Terima</string>
 </resources>

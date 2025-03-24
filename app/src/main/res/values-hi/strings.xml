@@ -260,4 +260,7 @@
 	<string name="start">प्रारंभ करें</string>
 	<string name="wallpaper_text">वॉलपेपर बदलें</string>
 	<string name="wallpper_load">वॉलपेपर संसाधन लोड हो रहा है...</string>
+	<string name="bluetooth_receive_request">क्या आप आने वाली फ़ाइल को स्वीकार करना चाहते हैं?</string>
+	<string name="bluetooth_start_receive">डेटा प्राप्त करना शुरू करें</string>
+	<string name="accept">स्वीकार करें</string>
 </resources>

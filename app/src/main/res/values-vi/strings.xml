@@ -272,4 +272,7 @@
     <string name="start">Bắt đầu</string>
     <string name="wallpaper_text">Chuyển nền</string>
     <string name="wallpper_load">Đang tải tài nguyên nền...</string>
+    <string name="bluetooth_receive_request">Bạn có muốn nhận tệp tin vào không?</string>
+    <string name="bluetooth_start_receive">Bắt đầu nhận dữ liệu</string>
+    <string name="accept">Chấp nhận</string>
 </resources>

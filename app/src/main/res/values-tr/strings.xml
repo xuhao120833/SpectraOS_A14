@@ -260,4 +260,7 @@
 	<string name="start">Başlat</string>
 	<string name="wallpaper_text">Arka Plan Değiştirme</string>
 	<string name="wallpper_load">Arka plan kaynakları yükleniyor...</string>
+	<string name="bluetooth_receive_request">Gelen dosyayı kabul etmek istiyor musunuz?</string>
+	<string name="bluetooth_start_receive">Veri alımına başla</string>
+	<string name="accept">Kabul et</string>
 </resources>

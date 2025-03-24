@@ -260,4 +260,7 @@
 	<string name="start">Start</string>
 	<string name="wallpaper_text">Background Switching</string>
 	<string name="wallpper_load">Background resources loading...</string>
+	<string name="bluetooth_receive_request">Do you want to accept the incoming file?</string>
+	<string name="bluetooth_start_receive">Start receiving data</string>
+	<string name="accept">Accept</string>
 </resources>

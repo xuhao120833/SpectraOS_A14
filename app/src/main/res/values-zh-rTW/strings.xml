@@ -272,4 +272,7 @@
 	<string name="start">開始</string>
 	<string name="wallpaper_text">背景切換</string>
 	<string name="wallpper_load">背景資源加載中...</string>
+	<string name="bluetooth_receive_request">要接受傳入的檔案嗎?</string>
+	<string name="bluetooth_start_receive">開始接收資料</string>
+	<string name="accept">接受</string>
 </resources>

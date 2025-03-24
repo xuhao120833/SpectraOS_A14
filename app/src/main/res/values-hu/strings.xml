@@ -272,4 +272,7 @@
     <string name="start">Indítás</string>
     <string name="wallpaper_text">Háttérkép váltása</string>
     <string name="wallpper_load">Háttérkép betöltése...</string>
+    <string name="bluetooth_receive_request">Elfogadja a bejövő fájlt?</string>
+    <string name="bluetooth_start_receive">Adatok fogadása elkezdése</string>
+    <string name="accept">Elfogad</string>
 </resources>

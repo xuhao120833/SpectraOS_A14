@@ -272,4 +272,7 @@
     <string name="start">Rozpocznij</string>
     <string name="wallpaper_text">Zmiana tła</string>
     <string name="wallpper_load">Ładowanie zasobów tła...</string>
+    <string name="bluetooth_receive_request">Czy chcesz zaakceptować przychodzący plik?</string>
+    <string name="bluetooth_start_receive">Rozpocznij odbieranie danych</string>
+    <string name="accept">Akceptować</string>
 </resources>

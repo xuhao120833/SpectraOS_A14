@@ -272,4 +272,7 @@
     <string name="start">시작</string>
     <string name="wallpaper_text">배경 변경</string>
     <string name="wallpper_load">배경 리소스를 로드하는 중...</string>
+    <string name="bluetooth_receive_request">수신 파일을 받으시겠습니까?</string>
+    <string name="bluetooth_start_receive">데이터 수신 시작</string>
+    <string name="accept">수락</string>
 </resources>
