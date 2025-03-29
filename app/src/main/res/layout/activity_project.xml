@@ -40,7 +40,7 @@
             >
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_display_settings"
                 android:layout_marginStart="@dimen/x_100"
@@ -74,7 +74,7 @@
             </RelativeLayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_device_mode"
                 android:layout_below="@id/rl_display_settings"
@@ -140,7 +140,7 @@
 
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_project_mode"
                 android:layout_below="@id/rl_device_mode"
@@ -205,7 +205,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_project_mode"
                 android:id="@+id/rl_digital_zoom"
@@ -271,7 +271,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_digital_zoom"
                 android:id="@+id/rl_audio_mode"
@@ -336,7 +336,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_audio_mode"
                 android:id="@+id/rl_vertical_correct"
@@ -400,7 +400,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_vertical_correct"
                 android:id="@+id/rl_horizontal_correct"
@@ -464,7 +464,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_horizontal_correct"
                 android:id="@+id/rl_auto_keystone"
@@ -499,7 +499,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_auto_keystone"
                 android:id="@+id/rl_auto_focus"
@@ -535,7 +535,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_auto_focus"
                 android:id="@+id/rl_auto_four_corner"
@@ -572,7 +572,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_auto_four_corner"
                 android:id="@+id/rl_screen_recognition"
@@ -609,7 +609,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_screen_recognition"
                 android:id="@+id/rl_intelligent_obstacle"
@@ -645,7 +645,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_intelligent_obstacle"
                 android:id="@+id/rl_manual_keystone"
@@ -679,7 +679,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_manual_keystone"
                 android:id="@+id/rl_init_angle"
@@ -713,7 +713,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_init_angle"
                 android:id="@+id/rl_reset_keystone"
@@ -747,7 +747,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_reset_keystone"
                 android:id="@+id/rl_calibration"

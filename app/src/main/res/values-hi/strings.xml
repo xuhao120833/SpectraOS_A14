@@ -263,4 +263,16 @@
 	<string name="bluetooth_receive_request">क्या आप आने वाली फ़ाइल को स्वीकार करना चाहते हैं?</string>
 	<string name="bluetooth_start_receive">डेटा प्राप्त करना शुरू करें</string>
 	<string name="accept">स्वीकार करें</string>
+	<string name="account_sync">ऐप डेटा को स्वचालित रूप से सिंक करें</string>
+	<string name="account_add">खाता जोड़ें</string>
+	<string name="account_had">मौजूदा खाता</string>
+	<string name="accout_delete">इस खाते को हटाएं?</string>
+	<string name="account_sync_title1">क्या आप स्वचालित डेटा सिंक चालू करना चाहते हैं?</string>
+	<string name="account_message1">आपके खाते में ऑनलाइन किए गए सभी बदलाव स्वचालित रूप से आपके फ़ोन से सिंक हो जाएंगे।</string>
+	<string name="account_message2">कुछ खाते आपके फ़ोन पर किए गए सभी बदलावों को स्वचालित रूप से ऑनलाइन भी सिंक कर सकते हैं।</string>
+	<string name="account_message3">Google खाता इस प्रकार की द्वि-दिशात्मक सिंकिंग का समर्थन करता है।</string>
+	<string name="account_sync_title2">क्या आप स्वचालित डेटा सिंक बंद करना चाहते हैं?</string>
+	<string name="account_message4">इससे डेटा और बैटरी की बचत होगी,</string>
+	<string name="account_message5">लेकिन आपको नवीनतम जानकारी प्राप्त करने के लिए प्रत्येक खाते को मैन्युअल रूप से सिंक करना होगा,</string>
+	<string name="account_message6">और आपको अपडेट होने पर कोई सूचना नहीं मिलेगी।</string>
 </resources>

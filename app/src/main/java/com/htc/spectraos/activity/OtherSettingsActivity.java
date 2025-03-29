@@ -311,9 +311,10 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
                 startNewActivity(DeveloperModeActivity.class);
                 break;
             case R.id.rl_account:
-                Intent intent = new Intent("android.settings.SYNC_SETTINGS");
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+//                Intent intent = new Intent("android.settings.SYNC_SETTINGS");
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+                startNewActivity(AccountActivity.class);
                 break;
         }
     }

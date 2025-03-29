@@ -20,7 +20,7 @@
         />
 
     <com.htc.spectraos.widget.RL1Relativelayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/title"
         android:id="@+id/rl_auto"
@@ -59,7 +59,7 @@
     </com.htc.spectraos.widget.RL1Relativelayout>
 
     <RelativeLayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_auto"
         android:id="@+id/rl_date"
@@ -107,7 +107,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_date"
         android:id="@+id/rl_time"
@@ -155,7 +155,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_time"
         android:id="@+id/rl_auto_timezone"
@@ -192,7 +192,7 @@
     </RelativeLayout>
 
     <com.htc.spectraos.widget.RL2Relativelayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_auto_timezone"
         android:id="@+id/rl_timezone"
@@ -245,7 +245,7 @@
     </com.htc.spectraos.widget.RL2Relativelayout>
 
     <com.htc.spectraos.widget.RL1Relativelayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_timezone"
         android:id="@+id/rl_time_format"

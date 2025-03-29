@@ -275,4 +275,16 @@
     <string name="bluetooth_receive_request">Chcete přijmout příchozí soubor?</string>
     <string name="bluetooth_start_receive">Začít přijímat data</string>
     <string name="accept">Přijmout</string>
+    <string name="account_sync">Automatická synchronizace dat aplikace</string>
+    <string name="account_add">Přidat účet</string>
+    <string name="account_had">Existující účet</string>
+    <string name="accout_delete">Odebrat tento účet?</string>
+    <string name="account_sync_title1">Chcete zapnout automatickou synchronizaci dat?</string>
+    <string name="account_message1">Všechny změny, které provedete se svým účtem na internetu, se automaticky synchronizují s vaším telefonem.</string>
+    <string name="account_message2">Některé účty také umožňují automatickou synchronizaci všech změn provedených na vašem telefonu zpět na internet.</string>
+    <string name="account_message3">Účet Google podporuje tento obousměrný synchronizační režim.</string>
+    <string name="account_sync_title2">Chcete vypnout automatickou synchronizaci dat?</string>
+    <string name="account_message4">Tímto způsobem můžete ušetřit mobilní data a baterii,</string>
+    <string name="account_message5">ale budete muset ručně synchronizovat každý účet, abyste získali nejnovější informace,</string>
+    <string name="account_message6">a nebudete dostávat oznámení o aktualizacích.</string>
 </resources>

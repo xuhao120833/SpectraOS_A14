@@ -20,7 +20,7 @@
         />
 
     <com.htc.spectraos.widget.RL2Relativelayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/title"
         android:id="@+id/rl_language"
@@ -75,7 +75,7 @@
     </com.htc.spectraos.widget.RL2Relativelayout>
 
     <com.htc.spectraos.widget.RLRelativelayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_language"
         android:id="@+id/rl_keyboard"
@@ -120,7 +120,7 @@
     </com.htc.spectraos.widget.RLRelativelayout>
 
     <com.htc.spectraos.widget.RL2Relativelayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/rl_keyboard"
         android:id="@+id/rl_keyboard_setting"

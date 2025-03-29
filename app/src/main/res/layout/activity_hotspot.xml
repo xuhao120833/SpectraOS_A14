@@ -20,7 +20,7 @@
         />
 
     <RelativeLayout
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_80"
         android:layout_below="@id/title"
         android:id="@+id/rl_hotspot_switch"
@@ -56,7 +56,7 @@
     </RelativeLayout>
 
     <View
-        android:layout_width="@dimen/x_1032"
+        android:layout_width="@dimen/x_1080"
         android:layout_height="@dimen/y_6"
         android:layout_below="@id/rl_hotspot_switch"
         android:layout_marginStart="@dimen/x_100"
@@ -75,7 +75,7 @@
             android:id="@+id/rl_hotspot_msg"
             >
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_hotspot_name"
                 android:layout_marginStart="@dimen/x_100"
@@ -116,7 +116,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_hotspot_password"
                 android:layout_below="@id/rl_hotspot_name"
@@ -159,7 +159,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_hotspot_password"
                 android:id="@+id/rl_show_password"
@@ -195,7 +195,7 @@
             </RelativeLayout>
 
             <com.htc.spectraos.widget.RL1Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_hotspot_security"
                 android:layout_below="@id/rl_show_password"
@@ -258,7 +258,7 @@
             </com.htc.spectraos.widget.RL1Relativelayout>
 
             <com.htc.spectraos.widget.RL1Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_frequency"
                 android:layout_below="@id/rl_hotspot_security"
@@ -320,7 +320,7 @@
 
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_enter"
                 android:layout_below="@id/rl_frequency"
@@ -343,7 +343,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_cancel"
                 android:layout_below="@id/rl_enter"

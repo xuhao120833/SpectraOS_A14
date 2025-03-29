@@ -76,6 +76,9 @@
             android:value="true" />
 
         <activity
+            android:name=".activity.AccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.BluetoothIncomingFileConfirmActivity"
             android:theme="@style/TransparentActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"

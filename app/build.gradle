@@ -86,7 +86,7 @@ android {
 }
 
 static def getVersionNames() {
-    return "1.0.07"
+    return "1.0.08"
 }
 
 static def releaseTime() {
@@ -109,6 +109,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.12'
     implementation 'com.airbnb.android:lottie:5.2.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
 
 /**

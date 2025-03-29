@@ -34,7 +34,7 @@
             
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_picture_mode"
                 android:layout_marginBottom="@dimen/y_19"
@@ -97,7 +97,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_picture_mode"
                 android:id="@+id/rl_audio_mode"
@@ -161,7 +161,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <View
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_6"
                 android:id="@+id/line"
                 android:layout_below="@id/rl_audio_mode"
@@ -171,7 +171,7 @@
                 />
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/line"
                 android:id="@+id/rl_brightness"
@@ -235,7 +235,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_brightness"
                 android:id="@+id/rl_brightness_system"
@@ -299,7 +299,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_brightness_system"
                 android:id="@+id/rl_contrast"
@@ -363,7 +363,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_contrast"
                 android:id="@+id/rl_hue"
@@ -427,7 +427,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_hue"
                 android:id="@+id/rl_saturation"
@@ -491,7 +491,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_saturation"
                 android:id="@+id/rl_sharpness"
@@ -555,7 +555,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_sharpness"
                 android:id="@+id/rl_red"
@@ -619,7 +619,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_red"
                 android:id="@+id/rl_green"
@@ -683,7 +683,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:layout_below="@id/rl_green"
                 android:id="@+id/rl_blue"

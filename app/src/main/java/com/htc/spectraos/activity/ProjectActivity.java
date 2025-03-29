@@ -520,6 +520,7 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
                         setAuto();
                     }
                 });
+                SystemProperties.set("persist.sys.keystone_offset", "0");
                 alertDialog.show();
                 setAuto();
                 Window window = alertDialog.getWindow();

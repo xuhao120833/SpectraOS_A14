@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_device_model"
                 android:layout_marginStart="@dimen/x_100"
@@ -72,7 +72,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_ui_version"
                 android:layout_marginStart="@dimen/x_100"
@@ -113,7 +113,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_android_version"
                 android:layout_marginStart="@dimen/x_100"
@@ -154,7 +154,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_resolution"
                 android:layout_marginStart="@dimen/x_100"
@@ -195,7 +195,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_memory"
                 android:layout_marginStart="@dimen/x_100"
@@ -236,7 +236,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_storage"
                 android:layout_marginStart="@dimen/x_100"
@@ -278,7 +278,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_wired_mac"
                 android:layout_marginStart="@dimen/x_100"
@@ -319,7 +319,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_wireless_mac"
                 android:layout_marginStart="@dimen/x_100"
@@ -360,7 +360,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL2Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_serialNumber"
                 android:layout_marginStart="@dimen/x_100"
@@ -401,7 +401,7 @@
             </com.htc.spectraos.widget.RL2Relativelayout>
 
             <com.htc.spectraos.widget.RL1Relativelayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_update_firmware"
                 android:layout_marginStart="@dimen/x_100"
@@ -435,7 +435,7 @@
             </com.htc.spectraos.widget.RL1Relativelayout>
 
             <RelativeLayout
-                android:layout_width="@dimen/x_1032"
+                android:layout_width="@dimen/x_1080"
                 android:layout_height="@dimen/y_80"
                 android:id="@+id/rl_online_update"
                 android:layout_marginStart="@dimen/x_100"
