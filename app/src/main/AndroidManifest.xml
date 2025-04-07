@@ -76,6 +76,9 @@
             android:value="true" />
 
         <activity
+            android:name=".activity.InitAngleActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.AccountActivity"
             android:exported="false" />
         <activity

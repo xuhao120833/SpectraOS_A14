@@ -510,38 +510,39 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
                 AppUtils.startNewApp(this, "com.hysd.vafocus", "com.hysd.vafocus.VajzActivity");
                 break;
             case R.id.rl_init_angle:
-                AlertDialog.Builder builder = new AlertDialog.Builder(ProjectActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                InitAngleLayoutBinding initAngleLayoutBinding = InitAngleLayoutBinding.inflate(LayoutInflater.from(this));
-                builder.setView(initAngleLayoutBinding.getRoot());
-                AlertDialog alertDialog = builder.create();
-                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        setAuto();
-                    }
-                });
-                SystemProperties.set("persist.sys.keystone_offset", "0");
-                alertDialog.show();
-                setAuto();
-                Window window = alertDialog.getWindow();
-                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                WindowManager.LayoutParams layoutParams = window.getAttributes();
-                layoutParams.width = getResources().getDisplayMetrics().widthPixels;
-                layoutParams.height = getResources().getDisplayMetrics().heightPixels;
-                alertDialog.getWindow().setAttributes(layoutParams);
-                initAngleLayoutBinding.startInitAngle.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        initCorrectAngle();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                alertDialog.dismiss();
-                            }
-                        },3000);
-                    }
-                });
-                initAngleLayoutBinding.startInitAngle.requestFocus();
+//                AlertDialog.Builder builder = new AlertDialog.Builder(ProjectActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+//                InitAngleLayoutBinding initAngleLayoutBinding = InitAngleLayoutBinding.inflate(LayoutInflater.from(this));
+//                builder.setView(initAngleLayoutBinding.getRoot());
+//                AlertDialog alertDialog = builder.create();
+//                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//                    @Override
+//                    public void onDismiss(DialogInterface dialog) {
+//                        setAuto();
+//                    }
+//                });
+//                SystemProperties.set("persist.sys.keystone_offset", "0");
+//                alertDialog.show();
+//                setAuto();
+//                Window window = alertDialog.getWindow();
+//                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                WindowManager.LayoutParams layoutParams = window.getAttributes();
+//                layoutParams.width = getResources().getDisplayMetrics().widthPixels;
+//                layoutParams.height = getResources().getDisplayMetrics().heightPixels;
+//                alertDialog.getWindow().setAttributes(layoutParams);
+//                initAngleLayoutBinding.startInitAngle.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        initCorrectAngle();
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                alertDialog.dismiss();
+//                            }
+//                        },3000);
+//                    }
+//                });
+//                initAngleLayoutBinding.startInitAngle.requestFocus();
+                startNewActivity(InitAngleActivity.class);
                 break;
         }
     }
