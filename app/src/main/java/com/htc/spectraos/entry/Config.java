@@ -60,8 +60,8 @@ public class Config {
     public  boolean deviceMode=false;
     public  boolean deviceModeTestHigh=false;
     public  boolean wholeZoom=true;
-
-
+    public boolean email = false;
+    public String email_number = "";
     public boolean deviceModel = true;
     public boolean uiVersion = true;
     public boolean androidVersion = true;

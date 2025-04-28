@@ -287,4 +287,5 @@
 	<string name="account_message4">Это поможет сэкономить трафик и заряд батареи,</string>
 	<string name="account_message5">но вам нужно будет вручную синхронизировать каждый аккаунт, чтобы получить актуальную информацию,</string>
 	<string name="account_message6">и вы не будете получать уведомления о обновлениях.</string>
+	<string name="email_title">Электронная почта послепродажного обслуживания</string>
 </resources>

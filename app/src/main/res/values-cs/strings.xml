@@ -287,4 +287,5 @@
     <string name="account_message4">Tímto způsobem můžete ušetřit mobilní data a baterii,</string>
     <string name="account_message5">ale budete muset ručně synchronizovat každý účet, abyste získali nejnovější informace,</string>
     <string name="account_message6">a nebudete dostávat oznámení o aktualizacích.</string>
+    <string name="email_title">Zákaznický servis e-mailem</string>
 </resources>

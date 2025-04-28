@@ -287,4 +287,5 @@
     <string name="account_message4">זה יכול לחסוך נתוני אינטרנט וסוללה,</string>
     <string name="account_message5">אבל תצטרך לסנכרן כל חשבון ידנית כדי לקבל את המידע העדכני,</string>
     <string name="account_message6">ולא תתקבל הודעה כאשר יהיו עדכונים.</string>
+    <string name="email_title">אימייל לשירות לאחר רכישה</string>
 </resources>

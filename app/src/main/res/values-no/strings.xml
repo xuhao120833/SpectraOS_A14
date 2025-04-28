@@ -287,4 +287,5 @@
     <string name="account_message4">Dette kan spare mobildata og batteri,</string>
     <string name="account_message5">men du må synkronisere hver konto manuelt for å få oppdatert informasjon,</string>
     <string name="account_message6">og du vil ikke få varsler om oppdateringer.</string>
+    <string name="email_title">Kundeservice e-post</string>
 </resources>

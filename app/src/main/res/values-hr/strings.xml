@@ -287,4 +287,5 @@
     <string name="account_message4">To može uštedjeti podatkovni promet i energiju baterije,</string>
     <string name="account_message5">ali ćete morati ručno sinkronizirati svaki račun da biste dobili najnovije informacije,</string>
     <string name="account_message6">a nećete primati obavijesti kad bude dostupna nova verzija.</string>
+    <string name="email_title">Email za postprodajnu uslugu</string>
 </resources>
