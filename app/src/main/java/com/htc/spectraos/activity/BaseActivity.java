@@ -65,7 +65,12 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     public void startNewActivityWifi(Class<?> cls) {
         Intent intent = new Intent(this, cls);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    public void startNewActivityBlue(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
