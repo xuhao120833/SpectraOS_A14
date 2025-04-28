@@ -11,10 +11,10 @@
       "type": "SINGLE",
       "filters": [],
       "properties": [],
-      "versionCode": 25040710,
-      "versionName": "1.0.09",
+      "versionCode": 25042810,
+      "versionName": "1.0.10",
       "enabled": true,
-      "outputFile": "SpectraOS_716_A11-V1.0.09-25040710-release.apk"
+      "outputFile": "SpectraOS_716_A11-V1.0.10-25042810-release.apk"
     }
   ]
 }

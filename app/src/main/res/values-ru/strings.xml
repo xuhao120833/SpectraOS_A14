@@ -72,7 +72,7 @@
 	<string name="update_firmware">Локальное обновление</string>
 	<string name="all_apps">Все приложения</string>
 	<string name="app_manager_settings">Параметры приложения</string>
-	<string name="bluetooth">Синий зуб</string>
+	<string name="bluetooth">Bluetooth</string>
 	<string name="bluetooth_switch">Переключатель Bluetooth</string>
 	<string name="search_bluetooth">Поиск устройств Bluetooth</string>
 	<string name="paired_devices">Оборудование для спаривания</string>
@@ -106,7 +106,7 @@
 	<string name="boot_input">Внешний ввод при запуске</string>
 	<string name="boot_apps">Запустить приложение</string>
 	<string name="power_mode">Режим питания</string>
-	<string name="button_sound">Клавишные согласные</string>
+	<string name="button_sound">Звук клавиш</string>
 	<string name="screen_saver">Защита экрана</string>
 	<string name="timer_off">Время выключения</string>
 	<string name="reset_factory">Восстановление заводских настроек</string>
@@ -116,7 +116,7 @@
 	<string name="horizontal_correct">Горизонтальная коррекция</string>
 	<string name="manual_keystone">Ручная трапеция</string>
 	<string name="reset_keystone">Сбросить трапециевидную коррекцию</string>
-	<string name="wifi">ВИ - ФИ</string>
+	<string name="wifi">WI-FI</string>
 	<string name="wifi_switch">Переключатель Wi-Fi</string>
 	<string name="apps_version">Версия приложения</string>
 	<string name="app_size">Размер приложения</string>
