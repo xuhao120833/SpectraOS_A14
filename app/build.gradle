@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 ext.build_number = "debug";
+
+def buildVersion = "713"
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -52,9 +55,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false  //混淆打开
-           // zipAlignEnabled true  //优化代码
-            //shrinkResources true  //优化资源
+            minifyEnabled  false  //true混淆打开
+            zipAlignEnabled false  //优化代码
+            shrinkResources false  //优化资源
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -65,7 +68,7 @@ android {
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 // 显示app名称+当前版本号
-                def fileName = "SpectraOS_713_A11-V${getVersionNames()}"
+                def fileName = "SpectraOS_${buildVersion}_A11-V${getVersionNames()}"
                 // 如果有渠道，显示渠道名""
                 if (variant.flavorName!=""){
                     fileName = fileName + "-${variant.flavorName}"
@@ -86,7 +89,7 @@ android {
 }
 
 static def getVersionNames() {
-    return "1.0.10"
+    return "1.0.12"
 }
 
 static def releaseTime() {
@@ -97,7 +100,10 @@ static def releaseCode() {
 }
 
 dependencies {
-    implementation files('libs/softwinner_713.jar')
+    if (buildVersion == "713")
+        implementation files('libs/softwinner_713.jar')
+    else if (buildVersion == "716")
+        implementation files('libs/softwinner_716.jar')
     implementation 'com.google.android.material:material:1.3.0'
     implementation files('libs\\Baidu_Mtj_android_4.0.10.9.jar')
     compileOnly files('libs/classes_a11.jar')

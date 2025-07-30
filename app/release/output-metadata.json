@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.htc.spectraos",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 25073014,
+      "versionName": "1.0.12",
+      "enabled": true,
+      "outputFile": "SpectraOS_713_A11-V1.0.12-25073014-release.apk"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
 import com.htc.spectraos.databinding.ActivityMainSettingBinding;
 
@@ -42,6 +43,20 @@ public class MainSettingActivity extends BaseActivity {
         mainSettingBinding.rlProject.requestFocus();
         mainSettingBinding.rlProject.requestFocusFromTouch();
 
+        setGrayBorder();
+    }
+
+    private void setGrayBorder() {
+        if(MyApplication.config.grayBorder) {
+            mainSettingBinding.rlProject.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlWifi.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlBluetooth.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlAppsManager.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlLanguage.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlDateTime.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlOther.setBackgroundResource(R.drawable.main_settings_bg2);
+            mainSettingBinding.rlAbout.setBackgroundResource(R.drawable.main_settings_bg2);
+        }
     }
 
     private void initData(){

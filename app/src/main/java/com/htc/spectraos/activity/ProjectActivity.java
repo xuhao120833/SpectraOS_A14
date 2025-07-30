@@ -130,7 +130,8 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
         }
         calibratedTips = getStringId(i);
         super.onResume();
-        All = KeystoneUtils.readGlobalSettings(this, "zoom_value", 0);
+//        All = KeystoneUtils.readGlobalSettings(this, "zoom_value", 0);
+        All = KeystoneUtils.readSystemProperties(KeystoneUtils.PROP_ZOOM_VALUE,0);
         updateZoomView();
     }
 
@@ -322,7 +323,8 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
                 break;
         }
 
-        All = KeystoneUtils.readGlobalSettings(this, "zoom_value", 0);
+//        All = KeystoneUtils.readGlobalSettings(this, "zoom_value", 0);
+        All = KeystoneUtils.readSystemProperties(KeystoneUtils.PROP_ZOOM_VALUE,0);
         updateZoomView();
         initAuto();
         initBstacle();
@@ -700,7 +702,8 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
 
 
     public void set_screen_zoom(int l, int t, int r, int b) {
-        KeystoneUtils.writeGlobalSettings(this, "zoom_value", l);
+//        KeystoneUtils.writeGlobalSettings(this, "zoom_value", l);
+        KeystoneUtils.writeSystemProperties(KeystoneUtils.ZOOM_VALUE,l);
         l = max_value - l;
         t = max_value - t;
         r = max_value - r;
@@ -758,8 +761,10 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
         DecimalFormat df = new DecimalFormat("0.00", DecimalFormatSymbols.getInstance(Locale.CHINA));
         float a = Float.parseFloat(df.format((max_value - zoom * 2) * 0.01).replace(",", "."));
         Log.d("hzj", "float  a =" + a);
-        int old_ratio = KeystoneUtils.readGlobalSettings(this, "zoom_scale_old", 0);
-        int ratio = KeystoneUtils.readGlobalSettings(this, "zoom_scale", 0);
+//        int old_ratio = KeystoneUtils.readGlobalSettings(this, "zoom_scale_old", 0);
+        int old_ratio = KeystoneUtils.readSystemProperties(KeystoneUtils.PROP_ZOOM_SCALE_OLD,0);
+//        int ratio = KeystoneUtils.readGlobalSettings(this, "zoom_scale", 0);
+        int ratio = KeystoneUtils.readSystemProperties(KeystoneUtils.PROP_ZOOM_SCALE,0);
         int[] tpData = scUtils.getpxRatioxy(px4, py4, old_ratio, ratio, a, KeystoneUtils.lcd_w, KeystoneUtils.lcd_h);
         if (tpData != null && tpData[8] == 1) {
             KeystoneUtils.optKeystoneFun(tpData);
@@ -929,7 +934,8 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
             @Override
             public void onClick(View v) {
                 KeystoneUtils.resetKeystone();
-                KeystoneUtils.writeGlobalSettings(ProjectActivity.this, "zoom_value", 0);
+//                KeystoneUtils.writeGlobalSettings(ProjectActivity.this, "zoom_value", 0);
+                KeystoneUtils.writeSystemProperties(KeystoneUtils.PROP_ZOOM_VALUE,0);
                 All = 0;
                 updateZoomView();
                 dialoge.dismiss();

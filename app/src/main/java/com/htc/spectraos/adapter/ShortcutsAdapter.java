@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
 import com.htc.spectraos.activity.AppFavoritesActivity;
 import com.htc.spectraos.entry.ShortInfoBean;
@@ -196,6 +198,10 @@ public class ShortcutsAdapter extends RecyclerView.Adapter<ShortcutsAdapter.MyVi
             name = itemView.findViewById(R.id.name);
             rl_item = itemView.findViewById(R.id.rl_item);
             icon = itemView.findViewById(R.id.icon);
+
+            if(MyApplication.config.grayBorder) {
+                rl_item.setBackgroundResource(R.drawable.home_app_bg2);
+            }
         }
     }
 }

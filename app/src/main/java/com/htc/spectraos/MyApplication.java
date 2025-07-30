@@ -93,14 +93,18 @@ public class MyApplication extends Application {
     private void parseConfigFile() {
         String configContent;
         if (new File("/oem/shortcuts.config").exists()) {
+            Log.d(TAG," oem/shortcuts.config");
             configContent = FileUtils.readFileContent("/oem/shortcuts.config");
         } else {
+            Log.d(TAG," system/shortcuts.config");
             configContent = FileUtils.readFileContent("/system/shortcuts.config");
         }
         if (configContent == null || configContent.equals(""))
             return;
+        Log.d(TAG," parseConfigFile "+configContent);
         Gson gson = new Gson();
         config = gson.fromJson(configContent, Config.class);
+        Log.d(TAG,"parseConfigFile config.grayBorder " +config.grayBorder);
     }
 
     private void initDisplaySize() {

@@ -224,6 +224,24 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
         mainBinding.shortcutsRv.addItemDecoration(new SpacesItemDecoration(0,
                 (int) (getWindowManager().getDefaultDisplay().getWidth() * 0.03), 0, 0));
         mainBinding.shortcutsRv.setLayoutManager(layoutManager);
+
+        setGrayBorder();
+    }
+
+    private void setGrayBorder() {
+        Log.d(TAG," setGrayBorder "+MyApplication.config.grayBorder);
+        if(MyApplication.config.grayBorder) {
+            mainBinding.rlClear.setBackgroundResource(R.drawable.circle_bar_bg2);
+            mainBinding.rlWallpapers.setBackgroundResource(R.drawable.circle_bar_bg2);
+            mainBinding.rlEthernet.setBackgroundResource(R.drawable.circle_bar_bg2);
+            mainBinding.rlWifi.setBackgroundResource(R.drawable.circle_bar_bg2);
+            mainBinding.rlBluetooth.setBackgroundResource(R.drawable.circle_bar_bg2);
+//            mainBinding.rlDateTime.setBackgroundResource(R.drawable.circle_bar_bg2);
+
+            mainBinding.rlApps.setBackgroundResource(R.drawable.home_bg2);
+            mainBinding.rlGoogle.setBackgroundResource(R.drawable.home_bg2);
+            mainBinding.rlSettings.setBackgroundResource(R.drawable.home_bg2);
+        }
     }
 
     private void initData() {
