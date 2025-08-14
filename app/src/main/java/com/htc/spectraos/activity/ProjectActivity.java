@@ -703,7 +703,7 @@ public class ProjectActivity extends BaseActivity implements View.OnKeyListener 
 
     public void set_screen_zoom(int l, int t, int r, int b) {
 //        KeystoneUtils.writeGlobalSettings(this, "zoom_value", l);
-        KeystoneUtils.writeSystemProperties(KeystoneUtils.ZOOM_VALUE,l);
+        KeystoneUtils.writeSystemProperties(KeystoneUtils.PROP_ZOOM_VALUE,l);
         l = max_value - l;
         t = max_value - t;
         r = max_value - r;
