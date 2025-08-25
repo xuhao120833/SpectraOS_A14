@@ -239,14 +239,11 @@ public class WifiActivity extends BaseActivity  implements WifiEnabledReceiver.W
     }
 
     private synchronized void refreshWifiList() {
-        if (mWifiManager == null)
-            mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-
+        if (mWifiManager == null) mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         List<ScanResult> newWifiList = new ArrayList<>();
         List<ScanResult> wifiList = mWifiManager.getScanResults();
         if (wifiList == null)
             return;
-
         boolean isAdd;
         Log.d("hzj", "wifiList.size() " + wifiList.size());
         if (wifiList.size()>0) {
@@ -267,7 +264,10 @@ public class WifiActivity extends BaseActivity  implements WifiEnabledReceiver.W
                         newWifiList.remove(j);
                     }
                 }
-                if (isAdd) {
+//                if (isAdd) {
+//                    newWifiList.add(wifiList.get(i));
+//                }
+                if (isAdd && !wifiList.get(i).SSID.isEmpty()) {
                     newWifiList.add(wifiList.get(i));
                 }
             }
@@ -301,8 +301,6 @@ public class WifiActivity extends BaseActivity  implements WifiEnabledReceiver.W
                             break;
                         }
                     }
-
-
                     if (!exitflag) {
                         try {
                             ScanResult str = null;
@@ -331,12 +329,10 @@ public class WifiActivity extends BaseActivity  implements WifiEnabledReceiver.W
                         }
                     }
                 }
-
             }
         }
         WifiInfo info = mWifiManager.getConnectionInfo();
         if (info != null) {
-
             String infoSSID = info.getSSID().replace("\"", "");
             if (!TextUtils.isEmpty(infoSSID)) {
                 for (int i = 0; i < newWifiList.size(); i++) {
@@ -354,7 +350,6 @@ public class WifiActivity extends BaseActivity  implements WifiEnabledReceiver.W
         message.what =1;
         message.obj = newWifiList;
         handler.sendMessage(message);
-
     }
 
 
