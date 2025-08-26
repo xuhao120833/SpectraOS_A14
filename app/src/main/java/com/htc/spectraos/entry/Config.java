@@ -40,6 +40,7 @@ public class Config {
     public boolean resetFactory = true;
     public boolean powerMode = true;
     public boolean account = false;
+    public boolean set_password = false;
     public boolean developer = true;
 
     public boolean autoCheckCamera = false;

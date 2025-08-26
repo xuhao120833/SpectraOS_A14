@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 
 import com.htc.spectraos.MyApplication;
 import com.htc.spectraos.R;
+import com.htc.spectraos.utils.PasswordUtils;
 import com.htc.spectraos.utils.Utils;
 
 import androidx.annotation.Nullable;
@@ -29,7 +30,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (PasswordUtils.isPasswordSwitchEnabled() && !PasswordUtils.isSessionVerified()) {
+            if(!PasswordUtils.hasPasswordBeenSet(getApplicationContext())) {
+                startNewActivity(PasswordVerifyActivity.class);
+            } else {
+                startNewActivity(PasswordVerifyActivity2.class);
+            }
+            finish();
+        }
     }
 
     @Override

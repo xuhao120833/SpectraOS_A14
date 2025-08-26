@@ -19,6 +19,7 @@ import com.htc.spectraos.utils.Contants;
 import com.htc.spectraos.utils.ShareUtil;
 import com.htc.spectraos.utils.Utils;
 import com.htc.spectraos.widget.FactoryResetDialog;
+import com.htc.spectraos.widget.SetPasswordDialog;
 import com.softwinner.TvAudioControl;
 import com.softwinner.tv.AwTvSystemManager;
 import com.softwinner.tv.common.AwTvSystemTypes;
@@ -76,6 +77,7 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
         otherSettingsBinding.rlPowerMode.setOnClickListener(this);
 
         otherSettingsBinding.rlDeveloper.setOnClickListener(this);
+        otherSettingsBinding.rlSetPassword.setOnClickListener(this);
         otherSettingsBinding.rlAccount.setOnClickListener(this);
         otherSettingsBinding.rlBootInput.requestFocus();
         otherSettingsBinding.rlBootInput.requestFocusFromTouch();
@@ -89,6 +91,7 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
         otherSettingsBinding.rlBootInput.setOnHoverListener(this);
         otherSettingsBinding.rlPowerMode.setOnHoverListener(this);
         otherSettingsBinding.rlAccount.setOnHoverListener(this);
+        otherSettingsBinding.rlSetPassword.setOnHoverListener(this);
 
         otherSettingsBinding.bootInputLeft.setOnClickListener(this);
         otherSettingsBinding.screenSaverLeft.setOnClickListener(this);
@@ -113,6 +116,7 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
         otherSettingsBinding.rlResetFactory.setVisibility(MyApplication.config.resetFactory ? View.VISIBLE : View.GONE);
         otherSettingsBinding.rlPowerMode.setVisibility(MyApplication.config.powerMode ? View.VISIBLE : View.GONE);
         otherSettingsBinding.rlAccount.setVisibility(MyApplication.config.account ? View.VISIBLE : View.GONE);
+        otherSettingsBinding.rlSetPassword.setVisibility(MyApplication.config.set_password?View.VISIBLE:View.GONE);
     }
 
     private void initData() {
@@ -315,6 +319,10 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                startActivity(intent);
                 startNewActivity(AccountActivity.class);
+                break;
+            case R.id.rl_set_password:
+                SetPasswordDialog passwordDialog = new SetPasswordDialog(this);
+                passwordDialog.show();
                 break;
         }
     }
