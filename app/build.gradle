@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 ext.build_number = "debug";
 
-def buildVersion = "716"
+def buildVersion = "713"
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

@@ -1,12 +1,21 @@
 package com.htc.spectraos.widget;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.NetworkInfo;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -30,6 +39,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,11 +53,13 @@ import java.util.List;
 public class AddNetWorkDialog extends BaseDialog {
 
 	private LinkWifi linkWifi;
-	
+
 	private Context mContext;
 	private WifiManager mWifiManager;
 	private List<WifiConfiguration> wifiConfigurationList = new ArrayList<>();
-
+	private static String TAG = "AddNetWorkDialog";
+	private String ssid = "";
+	Dialog connectingDialog = null;
 
 	public AddNetWorkDialog(Context context) {
 		super(context);
@@ -56,7 +68,7 @@ public class AddNetWorkDialog extends BaseDialog {
 	}
 
 	public AddNetWorkDialog(Context context, boolean cancelable,
-                            OnCancelListener cancelListener) {
+							DialogInterface.OnCancelListener cancelListener) {
 		super(context, cancelable, cancelListener);
 		this.mContext = context;
 	}
@@ -71,6 +83,37 @@ public class AddNetWorkDialog extends BaseDialog {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		init();
+
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+		mContext.registerReceiver(wifiConnectReceiver, filter);
+	}
+
+	private BroadcastReceiver wifiConnectReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+			if (info == null) return;
+			WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+			if (wifiInfo == null || wifiInfo.getSSID() == null) return;
+			String currentSsid = wifiInfo.getSSID().replace("\"", "");
+			Log.d(TAG, "收到 NETWORK_STATE_CHANGED_ACTION: " + currentSsid);
+			if (currentSsid.equals(ssid)) {
+				if (info.isConnected()) {
+					Log.d(TAG, "连接成功: " + currentSsid);
+					Toast.makeText(mContext, mContext.getString(R.string.wifi_connect_success) + currentSsid, Toast.LENGTH_SHORT).show();
+					if(connectingDialog != null & connectingDialog.isShowing())
+						connectingDialog.dismiss();
+					dismiss();
+				}
+			}
+		}
+	};
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		mContext.unregisterReceiver(wifiConnectReceiver);
 	}
 
 	private void init() {
@@ -175,6 +218,7 @@ public class AddNetWorkDialog extends BaseDialog {
 								return true;
 							}
 						}
+						ssid = msiid;
 
 						WifiConfiguration isExitConf =  linkWifi.IsExsits(msiid);
 						if (isExitConf!=null)
@@ -187,8 +231,28 @@ public class AddNetWorkDialog extends BaseDialog {
 							mWifiManager.disableNetwork(c.networkId);
 
 						}
+						if(connectingDialog == null) {
+							connectingDialog = ConectingDialog(mContext, mContext.getString(R.string.connecting_ssid, ssid));
+						}
+						connectingDialog.show();
 						linkWifi.ConnectToNetID(netID);
-						dismiss();
+						new Handler(Looper.getMainLooper()).postDelayed(() -> {
+							WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+							if (wifiInfo != null &&
+									wifiInfo.getSupplicantState() == SupplicantState.COMPLETED &&
+									wifiInfo.getSSID() != null &&
+									wifiInfo.getSSID().equals("\"" + ssid + "\"")) {
+								Log.d(TAG, " 隐藏网络连接成功");
+							} else {
+								Log.d(TAG, " 隐藏网络连接失败，可能不存在");
+								Toast.makeText(mContext, mContext.getString(R.string.wifi_ssid_not_found), Toast.LENGTH_SHORT).show();
+								mWifiManager.removeNetwork(netID);
+								mWifiManager.saveConfiguration();
+								if(connectingDialog != null & connectingDialog.isShowing())
+									connectingDialog.dismiss();
+								dismiss();
+							}
+						}, 6000); // 等待6秒再判断
 						return true;
 					}
 					return false;
@@ -201,7 +265,7 @@ public class AddNetWorkDialog extends BaseDialog {
 					.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 						@Override
 						public void onCheckedChanged(CompoundButton arg0,
-								boolean isChecked) {
+													 boolean isChecked) {
 							if (isChecked) {
 								password_et
 										.setTransformationMethod(HideReturnsTransformationMethod
@@ -223,8 +287,6 @@ public class AddNetWorkDialog extends BaseDialog {
 				}
 			});
 
-			cancel.setOnHoverListener(this);
-
 			cancel.setOnClickListener(new View.OnClickListener() {
 
 				@Override
@@ -232,9 +294,8 @@ public class AddNetWorkDialog extends BaseDialog {
 					dismiss();
 				}
 			});
-			ok.setOnHoverListener(this);
-			ok.setOnClickListener(new View.OnClickListener() {
 
+			ok.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					String security = wifi_security.getText().toString();
@@ -254,32 +315,59 @@ public class AddNetWorkDialog extends BaseDialog {
 									mContext,
 									mContext.getResources().getString(
 											R.string.passwordmessage),
-											Toast.LENGTH_LONG).show();
+									Toast.LENGTH_LONG).show();
 							return;
 						}
 					}
-
+					ssid = msiid;
 					WifiConfiguration isExitConf =  linkWifi.IsExsits(msiid);
-					if (isExitConf!=null)
-						mWifiManager.removeNetwork(isExitConf.networkId);
-
+					if (isExitConf!=null) mWifiManager.removeNetwork(isExitConf.networkId);
 					int netID=linkWifi.CreateWifiInfo3(security, msiid, password);
 					//L.d("netID ===> "+netID);
 					wifiConfigurationList = mWifiManager.getConfiguredNetworks();
 					for (WifiConfiguration c : wifiConfigurationList){
 						mWifiManager.disableNetwork(c.networkId);
-
 					}
+					if(connectingDialog == null) {
+						connectingDialog = ConectingDialog(mContext, mContext.getString(R.string.connecting_ssid, ssid));
+					}
+					connectingDialog.show();
 					linkWifi.ConnectToNetID(netID);
-					dismiss();
+					new Handler(Looper.getMainLooper()).postDelayed(() -> {
+						WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+						if (wifiInfo != null &&
+								wifiInfo.getSupplicantState() == SupplicantState.COMPLETED &&
+								wifiInfo.getSSID() != null &&
+								wifiInfo.getSSID().equals("\"" + ssid + "\"")) {
+							Log.d(TAG, " 网络连接成功");
+						} else {
+							Log.d(TAG, " 网络连接失败，可能不存在");
+							Toast.makeText(mContext, mContext.getString(R.string.wifi_ssid_not_found), Toast.LENGTH_SHORT).show();
+							mWifiManager.removeNetwork(netID);
+							mWifiManager.saveConfiguration();
+							if(connectingDialog != null & connectingDialog.isShowing())
+								connectingDialog.dismiss();
+							dismiss();
+						}
+					}, 6000); // 等待6秒再判断
 				}
 			});
-
 		}
-
 	}
 
-
+	public Dialog ConectingDialog(Context context, String msg) {
+		LayoutInflater inflater = LayoutInflater.from(context);
+		View v = inflater.inflate(R.layout.loading_dialog2, null);// 得到加载view
+		RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.loadding_layout);// 加载布局
+		//改成用ProgressBar来实现旋转动画，不用原来的ImageView旋转方案，原来的会卡。2025/5/8
+		TextView tipTextView = (TextView) v.findViewById(R.id.loadding_tv);// 提示文字
+		tipTextView.setText(msg);// 设置加载信息
+		Dialog connectingDialog = new Dialog(context, R.style.DialogTheme);// 创建自定义样式dialog
+		connectingDialog.setContentView(layout, new RelativeLayout.LayoutParams(
+				RelativeLayout.LayoutParams.FILL_PARENT,
+				RelativeLayout.LayoutParams.FILL_PARENT));// 设置布局
+		return connectingDialog;
+	}
 
 	public class Wpaadapter extends BaseAdapter {
 
@@ -323,7 +411,7 @@ public class AddNetWorkDialog extends BaseDialog {
 	private PopupWindow popupwindow = null;
 
 	public void initPopupWindow(View showview, final TextView tv,
-			final LinearLayout lay) {
+								final LinearLayout lay) {
 		View view = LayoutInflater.from(mContext).inflate(
 				R.layout.layout_wpa_popupwindow, null);
 		if (view != null) {
@@ -347,7 +435,7 @@ public class AddNetWorkDialog extends BaseDialog {
 
 				@Override
 				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
+										int arg2, long arg3) {
 
 					String security = adapter.getItem(arg2);
 

@@ -287,5 +287,26 @@
     <string name="account_message4">Dette kan spare mobildata og batteri,</string>
     <string name="account_message5">men du må synkronisere hver konto manuelt for å få oppdatert informasjon,</string>
     <string name="account_message6">og du vil ikke få varsler om oppdateringer.</string>
-    <string name="email_title">Kundeservice e-post</string>
+    <string name="set_boot_password">Angi oppstartspassord</string>
+    <string name="password_length_limit">Passordet må være minst fire tegn</string>
+    <string name="password_attention">Merk: Hvis du glemmer passordet, må du gjenopprette fabrikkinnstillingene. Vennligst oppbevar passordet på en trygg måte!</string>
+    <string name="new_password">Angi nytt passord</string>
+    <string name="new_password_repeate">Angi nytt passord igjen</string>
+    <string name="password_error">Passordene stemmer ikke overens, vennligst prøv igjen</string>
+    <string name="boot_password">Oppstartspassord</string>
+    <string name="input_boot_password">Vennligst skriv inn oppstartspassordet ditt, minst 4 tegn</string>
+    <string name="password_error2">Feil passord, vennligst prøv igjen</string>
+    <string name="password_set">Passordinnstilling</string>
+    <string name="password_switch">Passordbryter</string>
+    <string name="change_password">Endre passord</string>
+    <string name="input_now_password">Skriv inn gjeldende passord</string>
+    <string name="input_new_password">Skriv inn nytt passord</string>
+    <string name="input_new_password_repeat">Skriv inn nytt passord igjen</string>
+    <string name="reboot_useful">Trer i kraft etter omstart</string>
+    <string name="password_error3">Gjeldende passord er feil, vennligst prøv igjen</string>
+    <string name="password_error4">De to nye passordene stemmer ikke overens, vennligst prøv igjen</string>
+    <string name="password_reboot_useful">Nytt passord er satt, trer i kraft etter omstart</string>
+    <string name="email_title">E-post for ettersalgsservice</string>
+    <string name="wifi_connect_success">Tilkobling vellykket:</string>
+    <string name="wifi_ssid_not_found">Kan ikke koble til dette Wi-Fi-nettverket, vennligst sjekk om nettverket eksisterer</string>
 </resources>

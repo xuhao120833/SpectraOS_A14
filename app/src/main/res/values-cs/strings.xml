@@ -287,5 +287,26 @@
     <string name="account_message4">Tímto způsobem můžete ušetřit mobilní data a baterii,</string>
     <string name="account_message5">ale budete muset ručně synchronizovat každý účet, abyste získali nejnovější informace,</string>
     <string name="account_message6">a nebudete dostávat oznámení o aktualizacích.</string>
-    <string name="email_title">Zákaznický servis e-mailem</string>
+    <string name="set_boot_password">Nastavit heslo při spuštění</string>
+    <string name="password_length_limit">Heslo musí mít alespoň 4 znaky</string>
+    <string name="password_attention">Pozor: Při zapomenutí hesla je nutné obnovit tovární nastavení, proto si heslo pečlivě zapamatujte!</string>
+    <string name="new_password">Zadejte nové heslo</string>
+    <string name="new_password_repeate">Zadejte nové heslo znovu</string>
+    <string name="password_error">Hesla se neshodují, zkuste to znovu</string>
+    <string name="boot_password">Heslo při spuštění</string>
+    <string name="input_boot_password">Zadejte heslo při spuštění (minimálně 4 znaky)</string>
+    <string name="password_error2">Chybné heslo, zkuste to znovu</string>
+    <string name="password_set">Nastavení hesla</string>
+    <string name="password_switch">Přepínač hesla</string>
+    <string name="change_password">Změnit heslo</string>
+    <string name="input_now_password">Zadejte aktuální heslo</string>
+    <string name="input_new_password">Zadejte nové heslo</string>
+    <string name="input_new_password_repeat">Zadejte nové heslo znovu</string>
+    <string name="reboot_useful">Restartování je vyžadováno</string>
+    <string name="password_error3">Ověření aktuálního hesla selhalo, zkuste to znovu</string>
+    <string name="password_error4">Dvě zadaná nová hesla se neshodují, zadejte je prosím znovu</string>
+    <string name="password_reboot_useful">Nové heslo bylo úspěšně nastaveno, restart bude účinný</string>
+    <string name="email_title">E-mail poprodejního servisu</string>
+    <string name="wifi_connect_success">Připojení úspěšné:</string>
+    <string name="wifi_ssid_not_found">Nelze se připojit k této Wi-Fi, ověřte, zda síť existuje</string>
 </resources>

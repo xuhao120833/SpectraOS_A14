@@ -275,5 +275,26 @@
 	<string name="account_message4">इससे डेटा और बैटरी की बचत होगी,</string>
 	<string name="account_message5">लेकिन आपको नवीनतम जानकारी प्राप्त करने के लिए प्रत्येक खाते को मैन्युअल रूप से सिंक करना होगा,</string>
 	<string name="account_message6">और आपको अपडेट होने पर कोई सूचना नहीं मिलेगी।</string>
-	<string name="email_title">ग्राहक सेवा ईमेल</string>
+	<string name="set_boot_password">बूट पासवर्ड सेट करें</string>
+	<string name="password_length_limit">पासवर्ड की लंबाई कम से कम चार अंकों की होनी चाहिए</string>
+	<string name="password_attention">ध्यान दें: पासवर्ड भूल जाने पर फ़ैक्टरी रीसेट करना पड़ेगा, कृपया पासवर्ड को सुरक्षित रखें!</string>
+	<string name="new_password">नया पासवर्ड दर्ज करें</string>
+	<string name="new_password_repeate">नया पासवर्ड दोबारा दर्ज करें</string>
+	<string name="password_error">दोनों पासवर्ड मेल नहीं खाते, कृपया पुनः दर्ज करें</string>
+	<string name="boot_password">बूट पासवर्ड</string>
+	<string name="input_boot_password">कृपया अपना बूट पासवर्ड दर्ज करें, न्यूनतम 4 अंक</string>
+	<string name="password_error2">पासवर्ड गलत है, कृपया पुनः दर्ज करें</string>
+	<string name="password_set">पासवर्ड सेटिंग</string>
+	<string name="password_switch">पासवर्ड स्विच</string>
+	<string name="change_password">पासवर्ड बदलें</string>
+	<string name="input_now_password">वर्तमान पासवर्ड दर्ज करें</string>
+	<string name="input_new_password">नया पासवर्ड दर्ज करें</string>
+	<string name="input_new_password_repeat">नया पासवर्ड दोबारा दर्ज करें</string>
+	<string name="reboot_useful">रीस्टार्ट के बाद प्रभावी होगा</string>
+	<string name="password_error3">वर्तमान पासवर्ड सत्यापन विफल, कृपया पुनः दर्ज करें</string>
+	<string name="password_error4">दोनों नए पासवर्ड मेल नहीं खाते, कृपया पुनः दर्ज करें</string>
+	<string name="password_reboot_useful">नया पासवर्ड सफलतापूर्वक सेट हो गया, रीस्टार्ट के बाद प्रभावी होगा</string>
+	<string name="email_title">बिक्री के बाद सेवा ईमेल</string>
+	<string name="wifi_connect_success">कनेक्शन सफल:</string>
+	<string name="wifi_ssid_not_found">इस Wi-Fi से कनेक्ट नहीं हो सका, कृपया जाँचें कि नेटवर्क मौजूद है या नहीं</string>
 </resources>
