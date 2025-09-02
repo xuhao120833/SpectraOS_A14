@@ -121,16 +121,14 @@ public class AccountSyncDialog extends BaseDialog implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.enter:
-                ContentResolver.setMasterSyncAutomaticallyAsUser(sync, myUserHandle.getIdentifier());
-                dismiss();
-                accountCallBack.setSwitch(sync);
-                break;
-            case R.id.cancel:
-                ContentResolver.setMasterSyncAutomaticallyAsUser(sync, myUserHandle.getIdentifier());
-                dismiss();
-                break;
+        int id = v.getId();
+        if (id == R.id.enter) {
+            ContentResolver.setMasterSyncAutomaticallyAsUser(sync, myUserHandle.getIdentifier());
+            dismiss();
+            accountCallBack.setSwitch(sync);
+        } else if (id == R.id.cancel) {
+            ContentResolver.setMasterSyncAutomaticallyAsUser(sync, myUserHandle.getIdentifier());
+            dismiss();
         }
     }
 

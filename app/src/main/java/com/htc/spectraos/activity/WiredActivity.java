@@ -70,35 +70,28 @@ public class WiredActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rl_ip_setting:
-                if (mIpConfiguration.getIpAssignment() == IpConfiguration.IpAssignment.STATIC) {
-                    mIpConfiguration.setIpAssignment(IpConfiguration.IpAssignment.DHCP);
-                    mIpConfiguration.setStaticIpConfiguration(null);
-                    mEthManager.setConfiguration(mInterfaceName,mIpConfiguration);
-                    updateEthernetStatus();
-                }else {
+        int id = v.getId();
+        if (id == R.id.rl_ip_setting) {
+            if (mIpConfiguration.getIpAssignment() == IpConfiguration.IpAssignment.STATIC) {
+                mIpConfiguration.setIpAssignment(IpConfiguration.IpAssignment.DHCP);
+                mIpConfiguration.setStaticIpConfiguration(null);
+                mEthManager.setConfiguration(mInterfaceName, mIpConfiguration);
+                updateEthernetStatus();
+            } else {
                     /*mIpConfiguration.setIpAssignment(IpConfiguration.IpAssignment.STATIC);
                     mEthManager.setConfiguration(mInterfaceName,mIpConfiguration);*/
-                    StaticConfigDialog staticConfigDialog = new StaticConfigDialog(WiredActivity.this,R.style.DialogTheme);
-                    staticConfigDialog.setIpConfiguration(mIpConfiguration);
-                    staticConfigDialog.setConfigData(getConfigData());
-                    staticConfigDialog.setStaticConfigCallBack(staticConfigCallBack);
-                    staticConfigDialog.show();
-                }
-                break;
-            case R.id.rl_ip_address:
-            case R.id.rl_gateway:
-            case R.id.rl_dns:
-            case R.id.rl_dns2:
-            case R.id.rl_subnet_mask:
-                StaticConfigDialog staticConfigDialog = new StaticConfigDialog(WiredActivity.this,R.style.DialogTheme);
+                StaticConfigDialog staticConfigDialog = new StaticConfigDialog(WiredActivity.this, R.style.DialogTheme);
                 staticConfigDialog.setIpConfiguration(mIpConfiguration);
                 staticConfigDialog.setConfigData(getConfigData());
                 staticConfigDialog.setStaticConfigCallBack(staticConfigCallBack);
                 staticConfigDialog.show();
-                break;
-
+            }
+        } else if (id == R.id.rl_ip_address || id == R.id.rl_gateway || id == R.id.rl_dns || id == R.id.rl_dns2 || id == R.id.rl_subnet_mask) {
+            StaticConfigDialog staticConfigDialog = new StaticConfigDialog(WiredActivity.this, R.style.DialogTheme);
+            staticConfigDialog.setIpConfiguration(mIpConfiguration);
+            staticConfigDialog.setConfigData(getConfigData());
+            staticConfigDialog.setStaticConfigCallBack(staticConfigCallBack);
+            staticConfigDialog.show();
         }
     }
 

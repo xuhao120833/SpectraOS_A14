@@ -53,18 +53,15 @@ public class AppDetailDialog extends BaseDialog implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.clear_cache:
-
-                if (mcallback!=null)
-                    mcallback.onClear_cache(info.packageName);
-                dismiss();
-                break;
-            case R.id.uninstall:
-                if (mcallback!=null)
-                    mcallback.onUninstall(info.packageName);
-                dismiss();
-                break;
+        int id = v.getId();
+        if (id == R.id.clear_cache) {
+            if (mcallback != null)
+                mcallback.onClear_cache(info.packageName);
+            dismiss();
+        } else if (id == R.id.uninstall) {
+            if (mcallback != null)
+                mcallback.onUninstall(info.packageName);
+            dismiss();
         }
     }
 

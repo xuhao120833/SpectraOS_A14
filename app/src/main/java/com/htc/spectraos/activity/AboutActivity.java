@@ -153,34 +153,31 @@ public class AboutActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl_device_model:
-                if (!isDebug) {
-                    if (mPosition == 0) {
-                        sp.edit().putBoolean(Contants.KEY_DEVELOPER_MODE, true).apply();
-                        isDebug = true;
-                        mPosition = 5;
-                        ToastUtil.showShortToast(this,
-                                getString(R.string.developer_mode_on));
-                    }
-                    mPosition--;
-                } else {
-                    if (mPosition == 0) {
-                        sp.edit().putBoolean(Contants.KEY_DEVELOPER_MODE, false).apply();
-                        isDebug = false;
-                        mPosition = 5;
-                        ToastUtil.showShortToast(this,
-                                getString(R.string.developer_mode_off));
-                    }
-                    mPosition--;
+        int id = v.getId();
+        if (id == R.id.rl_device_model) {
+            if (!isDebug) {
+                if (mPosition == 0) {
+                    sp.edit().putBoolean(Contants.KEY_DEVELOPER_MODE, true).apply();
+                    isDebug = true;
+                    mPosition = 5;
+                    ToastUtil.showShortToast(this,
+                            getString(R.string.developer_mode_on));
                 }
-                break;
-            case R.id.rl_update_firmware:
-                goFindUpgradeFile();
-                break;
-            case R.id.rl_online_update:
-                AppUtils.startNewApp(this, "com.htc.htcotaupdate");
-                break;
+                mPosition--;
+            } else {
+                if (mPosition == 0) {
+                    sp.edit().putBoolean(Contants.KEY_DEVELOPER_MODE, false).apply();
+                    isDebug = false;
+                    mPosition = 5;
+                    ToastUtil.showShortToast(this,
+                            getString(R.string.developer_mode_off));
+                }
+                mPosition--;
+            }
+        } else if (id == R.id.rl_update_firmware) {
+            goFindUpgradeFile();
+        } else if (id == R.id.rl_online_update) {
+            AppUtils.startNewApp(this, "com.htc.htcotaupdate");
         }
         super.onClick(v);
     }

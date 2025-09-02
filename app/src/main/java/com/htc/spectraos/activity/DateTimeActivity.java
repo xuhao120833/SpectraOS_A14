@@ -155,46 +155,37 @@ public class DateTimeActivity extends BaseActivity implements View.OnKeyListener
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rl_auto:
-            case R.id.auto_switch:
-                dateTimeBinding.autoSwitch.setChecked(!dateTimeBinding.autoSwitch.isChecked());
-                setAutoTime(dateTimeBinding.autoSwitch.isChecked());
-                break;
-            case R.id.rl_date:
-                if (dateTimeBinding.autoSwitch.isChecked()){
-                    ToastUtil.showShortToast(this,getString(R.string.auto_time_hint));
-                    break;
-                }
+        int id = v.getId();
+        if (id == R.id.rl_auto || id == R.id.auto_switch) {
+            dateTimeBinding.autoSwitch.setChecked(!dateTimeBinding.autoSwitch.isChecked());
+            setAutoTime(dateTimeBinding.autoSwitch.isChecked());
+        } else if (id == R.id.rl_date) {
+            if (dateTimeBinding.autoSwitch.isChecked()) {
+                ToastUtil.showShortToast(this, getString(R.string.auto_time_hint));
+                return;
+            }
 
-                showDateDialog();
-                break;
-            case R.id.rl_time:
-                if (dateTimeBinding.autoSwitch.isChecked()){
-                    ToastUtil.showShortToast(this,getString(R.string.auto_time_hint));
-                    break;
-                }
+            showDateDialog();
+        } else if (id == R.id.rl_time) {
+            if (dateTimeBinding.autoSwitch.isChecked()) {
+                ToastUtil.showShortToast(this, getString(R.string.auto_time_hint));
+                return;
+            }
 
-                showTimeDialog();
-                break;
-            case R.id.rl_auto_timezone:
-            case R.id.auto_timezone_switch:
-                dateTimeBinding.autoTimezoneSwitch.setChecked(!dateTimeBinding.autoTimezoneSwitch.isChecked());
-                setAutoTimeZone(dateTimeBinding.autoTimezoneSwitch.isChecked());
-                break;
-            case R.id.rl_timezone:
-               /* if (dateTimeBinding.autoTimezoneSwitch.isChecked()){
+            showTimeDialog();
+        } else if (id == R.id.rl_auto_timezone || id == R.id.auto_timezone_switch) {
+            dateTimeBinding.autoTimezoneSwitch.setChecked(!dateTimeBinding.autoTimezoneSwitch.isChecked());
+            setAutoTimeZone(dateTimeBinding.autoTimezoneSwitch.isChecked());
+        } else if (id == R.id.rl_timezone) {/* if (dateTimeBinding.autoTimezoneSwitch.isChecked()){
                     ToastUtil.showShortToast(this,getString(R.string.auto_time_zone_hint));
                     break;
                 }*/
 
-                TimezoneDialog timezoneDialog = new TimezoneDialog(DateTimeActivity.this,R.style.DialogTheme);
-                timezoneDialog.show();
-                break;
-            case R.id.rl_time_format:
-                UpdateTimeDispaly(is24HourFormat);
-                initData();
-                break;
+            TimezoneDialog timezoneDialog = new TimezoneDialog(DateTimeActivity.this, R.style.DialogTheme);
+            timezoneDialog.show();
+        } else if (id == R.id.rl_time_format) {
+            UpdateTimeDispaly(is24HourFormat);
+            initData();
         }
     }
 
@@ -458,21 +449,16 @@ public class DateTimeActivity extends BaseActivity implements View.OnKeyListener
         }
 
         if (keyCode==KeyEvent.KEYCODE_DPAD_LEFT && event.getAction() ==KeyEvent.ACTION_UP){
-            switch (v.getId()){
-                case R.id.rl_time_format:
-                    UpdateTimeDispaly(is24HourFormat);
-                    initData();
-                    Constants.playSoundEffect(this);
-                    break;
-
+            if (v.getId() == R.id.rl_time_format) {
+                UpdateTimeDispaly(is24HourFormat);
+                initData();
+                Constants.playSoundEffect(this);
             }
         }else if (keyCode==KeyEvent.KEYCODE_DPAD_RIGHT && event.getAction() ==KeyEvent.ACTION_UP){
-            switch (v.getId()){
-                case R.id.rl_time_format:
-                    UpdateTimeDispaly(is24HourFormat);
-                    initData();
-                    Constants.playSoundEffect(this);
-                    break;
+            if (v.getId() == R.id.rl_time_format) {
+                UpdateTimeDispaly(is24HourFormat);
+                initData();
+                Constants.playSoundEffect(this);
             }
         }
         return false;

@@ -107,23 +107,19 @@ public class SetPasswordDialog extends BaseDialog implements View.OnClickListene
     @SuppressLint("ShowToast")
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl_password_switch:
-                PasswordUtils.setPasswordSwitchEnabled(!setPasswordBinding.passwordSwitch.isChecked());
-                setPasswordBinding.passwordSwitch.setChecked(!setPasswordBinding.passwordSwitch.isChecked());
-                Toast.makeText(getContext(),mContext.getText(R.string.reboot_useful),Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.password_switch:
-                PasswordUtils.setPasswordSwitchEnabled(!setPasswordBinding.passwordSwitch.isChecked());
-                setPasswordBinding.passwordSwitch.setChecked(!setPasswordBinding.passwordSwitch.isChecked());
-                Toast.makeText(getContext(),mContext.getText(R.string.reboot_useful),Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.rl_change_password:
-                startChangePasswordDialog();
-                break;
-            case R.id.change_password_right:
-                startChangePasswordDialog();
-                break;
+        int id = v.getId();
+        if (id == R.id.rl_password_switch) {
+            PasswordUtils.setPasswordSwitchEnabled(!setPasswordBinding.passwordSwitch.isChecked());
+            setPasswordBinding.passwordSwitch.setChecked(!setPasswordBinding.passwordSwitch.isChecked());
+            Toast.makeText(getContext(), mContext.getText(R.string.reboot_useful), Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.password_switch) {
+            PasswordUtils.setPasswordSwitchEnabled(!setPasswordBinding.passwordSwitch.isChecked());
+            setPasswordBinding.passwordSwitch.setChecked(!setPasswordBinding.passwordSwitch.isChecked());
+            Toast.makeText(getContext(), mContext.getText(R.string.reboot_useful), Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.rl_change_password) {
+            startChangePasswordDialog();
+        } else if (id == R.id.change_password_right) {
+            startChangePasswordDialog();
         }
     }
 

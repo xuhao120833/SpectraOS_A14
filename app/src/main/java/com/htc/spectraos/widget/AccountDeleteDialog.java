@@ -94,14 +94,12 @@ public class AccountDeleteDialog extends BaseDialog implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.enter:
-                AccountManager.get(mContext).removeAccountAsUser(account, (AccountActivity) mContext,callback, null, mUserHandle);
-                dismiss();
-                break;
-            case R.id.cancel:
-                dismiss();
-                break;
+        int id = v.getId();
+        if (id == R.id.enter) {
+            AccountManager.get(mContext).removeAccountAsUser(account, (AccountActivity) mContext, callback, null, mUserHandle);
+            dismiss();
+        } else if (id == R.id.cancel) {
+            dismiss();
         }
     }
 

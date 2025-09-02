@@ -224,106 +224,81 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl_button_sound:
-            case R.id.button_sound_switch:
-                otherSettingsBinding.buttonSoundSwitch.setChecked(!otherSettingsBinding.buttonSoundSwitch.isChecked());
-                setButtonSound(otherSettingsBinding.buttonSoundSwitch.isChecked());
-                break;
-            case R.id.rl_reset_factory:
-                FactoryResetDialog factoryResetDialog = new FactoryResetDialog(this, R.style.DialogTheme);
-                factoryResetDialog.show();
-                break;
+        int id = v.getId();
+        if (id == R.id.rl_button_sound || id == R.id.button_sound_switch) {
+            otherSettingsBinding.buttonSoundSwitch.setChecked(!otherSettingsBinding.buttonSoundSwitch.isChecked());
+            setButtonSound(otherSettingsBinding.buttonSoundSwitch.isChecked());
+        } else if (id == R.id.rl_reset_factory) {
+            FactoryResetDialog factoryResetDialog = new FactoryResetDialog(this, R.style.DialogTheme);
+            factoryResetDialog.show();
+        } else if (id == R.id.rl_audio_mode || id == R.id.audio_mode_right) {
+            if (sound_mode == soundMode_name.length - 1)
+                sound_mode = 0;
+            else
+                sound_mode++;
+            updateAudioMode(sound_mode);
+        } else if (id == R.id.audio_mode_left) {
+            if (sound_mode == 0)
+                sound_mode = soundMode_name.length - 1;
+            else
+                sound_mode--;
+            updateAudioMode(sound_mode);
+        } else if (id == R.id.rl_screen_saver || id == R.id.screen_saver_right) {
+            if (cur_screen_saver_index == screen_saver_title.length - 1)
+                cur_screen_saver_index = 0;
+            else
+                cur_screen_saver_index++;
+            updateScreenSaver(cur_screen_saver_index);
+        } else if (id == R.id.screen_saver_left) {
+            if (cur_screen_saver_index == 0)
+                cur_screen_saver_index = screen_saver_title.length - 1;
+            else
+                cur_screen_saver_index--;
+            updateScreenSaver(cur_screen_saver_index);
+        } else if (id == R.id.rl_timer_off || id == R.id.timer_off_right) {
+            if (cur_time_off_index == time_off_title.length - 1)
+                cur_time_off_index = 0;
+            else
+                cur_time_off_index++;
 
-            case R.id.rl_audio_mode:
-            case R.id.audio_mode_right:
-                if (sound_mode == soundMode_name.length - 1)
-                    sound_mode = 0;
-                else
-                    sound_mode++;
-                updateAudioMode(sound_mode);
-                break;
-            case R.id.audio_mode_left:
+            setTimeOff(cur_time_off_index);
+        } else if (id == R.id.timer_off_left) {
+            if (cur_time_off_index == 0)
+                cur_time_off_index = time_off_title.length - 1;
+            else
+                cur_time_off_index--;
 
-                if (sound_mode == 0)
-                    sound_mode = soundMode_name.length - 1;
-                else
-                    sound_mode--;
-                updateAudioMode(sound_mode);
-                break;
-            case R.id.rl_screen_saver:
-            case R.id.screen_saver_right:
-                if (cur_screen_saver_index == screen_saver_title.length - 1)
-                    cur_screen_saver_index = 0;
-                else
-                    cur_screen_saver_index++;
-                updateScreenSaver(cur_screen_saver_index);
-                break;
-            case R.id.screen_saver_left:
+            setTimeOff(cur_time_off_index);
+        } else if (id == R.id.rl_boot_input || id == R.id.boot_input_right) {
+            if (boot_source_index == boot_source_name.length - 1)
+                boot_source_index = 0;
+            else
+                boot_source_index++;
 
-                if (cur_screen_saver_index == 0)
-                    cur_screen_saver_index = screen_saver_title.length - 1;
-                else
-                    cur_screen_saver_index--;
-                updateScreenSaver(cur_screen_saver_index);
-                break;
-            case R.id.rl_timer_off:
-            case R.id.timer_off_right:
-                if (cur_time_off_index == time_off_title.length - 1)
-                    cur_time_off_index = 0;
-                else
-                    cur_time_off_index++;
+            otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
+            set_power_signal(boot_source_value[boot_source_index]);
+        } else if (id == R.id.boot_input_left) {
+            if (boot_source_index == 0)
+                boot_source_index = boot_source_name.length - 1;
+            else
+                boot_source_index--;
 
-                setTimeOff(cur_time_off_index);
-                break;
-            case R.id.timer_off_left:
-                if (cur_time_off_index == 0)
-                    cur_time_off_index = time_off_title.length - 1;
-                else
-                    cur_time_off_index--;
-
-                setTimeOff(cur_time_off_index);
-                break;
-            case R.id.rl_boot_input:
-            case R.id.boot_input_right:
-                if (boot_source_index == boot_source_name.length - 1)
-                    boot_source_index = 0;
-                else
-                    boot_source_index++;
-
-                otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
-                set_power_signal(boot_source_value[boot_source_index]);
-                break;
-            case R.id.boot_input_left:
-                if (boot_source_index == 0)
-                    boot_source_index = boot_source_name.length - 1;
-                else
-                    boot_source_index--;
-
-                otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
-                set_power_signal(boot_source_value[boot_source_index]);
-                break;
-            case R.id.rl_power_mode:
-            case R.id.power_mode_right:
-                curPowerMode = curPowerMode == 1 ? 0 : 1;
-                otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
-                mAwTvSystemManager.setPowerOnMode(curPowerMode == 1 ?
-                        AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT : AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_STANDBY);
-                break;
-
-            case R.id.rl_developer:
-                startNewActivity(DeveloperModeActivity.class);
-                break;
-            case R.id.rl_account:
-//                Intent intent = new Intent("android.settings.SYNC_SETTINGS");
+            otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
+            set_power_signal(boot_source_value[boot_source_index]);
+        } else if (id == R.id.rl_power_mode || id == R.id.power_mode_right) {
+            curPowerMode = curPowerMode == 1 ? 0 : 1;
+            otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
+            mAwTvSystemManager.setPowerOnMode(curPowerMode == 1 ?
+                    AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT : AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_STANDBY);
+        } else if (id == R.id.rl_developer) {
+            startNewActivity(DeveloperModeActivity.class);
+        } else if (id == R.id.rl_account) {//                Intent intent = new Intent("android.settings.SYNC_SETTINGS");
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                startActivity(intent);
-                startNewActivity(AccountActivity.class);
-                break;
-            case R.id.rl_set_password:
-                SetPasswordDialog passwordDialog = new SetPasswordDialog(this);
-                passwordDialog.show();
-                break;
+            startNewActivity(AccountActivity.class);
+        } else if (id == R.id.rl_set_password) {
+            SetPasswordDialog passwordDialog = new SetPasswordDialog(this);
+            passwordDialog.show();
         }
     }
 
@@ -345,89 +320,75 @@ public class OtherSettingsActivity extends BaseActivity implements View.OnKeyLis
         }
 
         if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT && event.getAction() == KeyEvent.ACTION_UP) {
-            switch (v.getId()) {
-                case R.id.rl_screen_saver:
-                    if (cur_screen_saver_index == 0)
-                        cur_screen_saver_index = screen_saver_title.length - 1;
-                    else
-                        cur_screen_saver_index--;
-                    updateScreenSaver(cur_screen_saver_index);
-                    break;
-                case R.id.rl_timer_off:
-                    if (cur_time_off_index == 0)
-                        cur_time_off_index = time_off_title.length - 1;
-                    else
-                        cur_time_off_index--;
+            int id = v.getId();
+            if (id == R.id.rl_screen_saver) {
+                if (cur_screen_saver_index == 0)
+                    cur_screen_saver_index = screen_saver_title.length - 1;
+                else
+                    cur_screen_saver_index--;
+                updateScreenSaver(cur_screen_saver_index);
+            } else if (id == R.id.rl_timer_off) {
+                if (cur_time_off_index == 0)
+                    cur_time_off_index = time_off_title.length - 1;
+                else
+                    cur_time_off_index--;
 
-                    setTimeOff(cur_time_off_index);
-                    break;
+                setTimeOff(cur_time_off_index);
+            } else if (id == R.id.rl_boot_input) {
+                if (boot_source_index == 0)
+                    boot_source_index = boot_source_name.length - 1;
+                else
+                    boot_source_index--;
 
-                case R.id.rl_boot_input:
-                    if (boot_source_index == 0)
-                        boot_source_index = boot_source_name.length - 1;
-                    else
-                        boot_source_index--;
-
-                    otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
-                    set_power_signal(boot_source_value[boot_source_index]);
-                    break;
-                case R.id.rl_power_mode:
-                    curPowerMode = curPowerMode == 1 ? 0 : 1;
-                    otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
-                    mAwTvSystemManager.setPowerOnMode(curPowerMode == 1 ?
-                            AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT : AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_STANDBY);
-                    break;
-                case R.id.rl_audio_mode:
-                    if (sound_mode == 0)
-                        sound_mode = soundMode_name.length - 1;
-                    else
-                        sound_mode--;
-                    updateAudioMode(sound_mode);
-                    break;
-
+                otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
+                set_power_signal(boot_source_value[boot_source_index]);
+            } else if (id == R.id.rl_power_mode) {
+                curPowerMode = curPowerMode == 1 ? 0 : 1;
+                otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
+                mAwTvSystemManager.setPowerOnMode(curPowerMode == 1 ?
+                        AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT : AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_STANDBY);
+            } else if (id == R.id.rl_audio_mode) {
+                if (sound_mode == 0)
+                    sound_mode = soundMode_name.length - 1;
+                else
+                    sound_mode--;
+                updateAudioMode(sound_mode);
             }
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT && event.getAction() == KeyEvent.ACTION_UP) {
-            switch (v.getId()) {
-                case R.id.rl_screen_saver:
-                    if (cur_screen_saver_index == screen_saver_title.length - 1)
-                        cur_screen_saver_index = 0;
-                    else
-                        cur_screen_saver_index++;
-                    updateScreenSaver(cur_screen_saver_index);
-                    break;
-                case R.id.rl_timer_off:
-                    if (cur_time_off_index == time_off_title.length - 1)
-                        cur_time_off_index = 0;
-                    else
-                        cur_time_off_index++;
+            int id = v.getId();
+            if (id == R.id.rl_screen_saver) {
+                if (cur_screen_saver_index == screen_saver_title.length - 1)
+                    cur_screen_saver_index = 0;
+                else
+                    cur_screen_saver_index++;
+                updateScreenSaver(cur_screen_saver_index);
+            } else if (id == R.id.rl_timer_off) {
+                if (cur_time_off_index == time_off_title.length - 1)
+                    cur_time_off_index = 0;
+                else
+                    cur_time_off_index++;
 
-                    setTimeOff(cur_time_off_index);
-                    break;
-                case R.id.rl_boot_input:
-                    if (boot_source_index == boot_source_name.length - 1)
-                        boot_source_index = 0;
-                    else
-                        boot_source_index++;
+                setTimeOff(cur_time_off_index);
+            } else if (id == R.id.rl_boot_input) {
+                if (boot_source_index == boot_source_name.length - 1)
+                    boot_source_index = 0;
+                else
+                    boot_source_index++;
 
-                    otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
-                    set_power_signal(boot_source_value[boot_source_index]);
-                    break;
-                case R.id.rl_power_mode:
-                    curPowerMode = curPowerMode == 1 ? 0 : 1;
-                    otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
-                    mAwTvSystemManager.setPowerOnMode(curPowerMode == 1 ?
-                            AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT : AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_STANDBY);
-                    break;
-                case R.id.rl_audio_mode:
-                    if (sound_mode == soundMode_name.length - 1)
-                        sound_mode = 0;
-                    else
-                        sound_mode++;
-                    updateAudioMode(sound_mode);
-                    break;
-
-
+                otherSettingsBinding.bootInputTv.setText(boot_source_name[boot_source_index]);
+                set_power_signal(boot_source_value[boot_source_index]);
+            } else if (id == R.id.rl_power_mode) {
+                curPowerMode = curPowerMode == 1 ? 0 : 1;
+                otherSettingsBinding.powerModeTv.setText(powerModes[curPowerMode]);
+                mAwTvSystemManager.setPowerOnMode(curPowerMode == 1 ?
+                        AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_DIRECT : AwTvSystemTypes.EnumPowerMode.E_AW_POWER_MODE_STANDBY);
+            } else if (id == R.id.rl_audio_mode) {
+                if (sound_mode == soundMode_name.length - 1)
+                    sound_mode = 0;
+                else
+                    sound_mode++;
+                updateAudioMode(sound_mode);
             }
             return true;
         }

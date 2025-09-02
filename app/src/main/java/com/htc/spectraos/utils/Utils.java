@@ -25,6 +25,7 @@ public class Utils {
     public static ArrayList<Object> drawables = new ArrayList<>();
 
     public static final int REQUEST_CODE_PICK_IMAGE = 1;
+    public static boolean btAnim = false;
 
     //一个全局的特定IP APP信息
 

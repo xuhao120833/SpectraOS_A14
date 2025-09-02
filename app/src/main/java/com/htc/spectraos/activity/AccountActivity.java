@@ -115,21 +115,17 @@ public class AccountActivity extends BaseActivity implements AccountSyncDialog.A
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
-        switch (viewId) {
-            case R.id.rl_sync_switch:
-                showDialog();
-                break;
-            case R.id.sync_switch:
-                showDialog();
-                break;
-            case R.id.rl_account_add:
-                Log.d(TAG, " 添加谷歌账号");
+        if (viewId == R.id.rl_sync_switch) {
+            showDialog();
+        } else if (viewId == R.id.sync_switch) {
+            showDialog();
+        } else if (viewId == R.id.rl_account_add) {
+            Log.d(TAG, " 添加谷歌账号");
 //                String[] mAuthorities = new String[]{"com.google"};
-                Intent intent = new Intent(ACTION_ADD_ACCOUNT);
+            Intent intent = new Intent(ACTION_ADD_ACCOUNT);
 //                intent.putExtra(EXTRA_USER, myUserHandle);
 //                intent.putExtra(EXTRA_AUTHORITIES, mAuthorities);
-                startActivity(intent);
-                break;
+            startActivity(intent);
         }
     }
 

@@ -667,68 +667,51 @@ public class MainActivity extends BaseMainActivity implements BluetoothCallBcak,
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.rl_wallpapers:
-                startNewActivity(WallPaperActivity.class);
-                break;
-            case R.id.rl_Google:
-                AppUtils.startNewApp(MainActivity.this, "com.htc.storeos");
-                break;
-            case R.id.rl_apps:
-                startNewActivity(AppsActivity.class);
-                break;
-            case R.id.rl_settings:
-
-                if (MyApplication.config.setting.equals("")) {
-                    startNewActivity(MainSettingActivity.class);
-                } else {
-                    String[] act = MyApplication.config.setting.split("/");
-                    AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
-                }
-
-                break;
-            case R.id.rl_usb:
-                AppUtils.startNewApp(MainActivity.this, "com.softwinner.TvdFileManager");
-                break;
-            case R.id.rl_av:
-                startSource("CVBS1");
-                break;
-            case R.id.rl_hdmi1:
-                startSource("HDMI1");
-                break;
-            case R.id.rl_hdmi2:
-                startSource("HDMI2");
-                break;
-            case R.id.rl_vga:
-                startSource("VGA");
-                break;
-            case R.id.rl_manual:
-                ManualQrDialog manualQrDialog = new ManualQrDialog(this, R.style.DialogTheme);
-                manualQrDialog.show();
-                break;
-            case R.id.rl_wifi:
-                if (MyApplication.config.barWifi.equals("")) {
-                    startNewActivity(WifiActivity.class);
-                } else {
-                    String[] act = MyApplication.config.barWifi.split("/");
-                    AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
-                }
-                break;
-            case R.id.rl_bluetooth:
-                if (MyApplication.config.barBluetooth.equals("")) {
-                    startNewActivity(BluetoothActivity.class);
-                } else {
-                    String[] act = MyApplication.config.barBluetooth.split("/");
-                    AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
-                }
-                break;
-            case R.id.rl_ethernet:
-                startNewActivity(WiredActivity.class);
-                break;
-            case R.id.rl_clear:
-                AppUtils.startNewApp(this, "com.htc.clearmemory");
-                break;
+        int id = v.getId();
+        if (id == R.id.rl_wallpapers) {
+            startNewActivity(WallPaperActivity.class);
+        } else if (id == R.id.rl_Google) {
+            AppUtils.startNewApp(MainActivity.this, "com.htc.storeos");
+        } else if (id == R.id.rl_apps) {
+            startNewActivity(AppsActivity.class);
+        } else if (id == R.id.rl_settings) {
+            if (MyApplication.config.setting.equals("")) {
+                startNewActivity(MainSettingActivity.class);
+            } else {
+                String[] act = MyApplication.config.setting.split("/");
+                AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
+            }
+        } else if (id == R.id.rl_usb) {
+            AppUtils.startNewApp(MainActivity.this, "com.softwinner.TvdFileManager");
+        } else if (id == R.id.rl_av) {
+            startSource("CVBS1");
+        } else if (id == R.id.rl_hdmi1) {
+            startSource("HDMI1");
+        } else if (id == R.id.rl_hdmi2) {
+            startSource("HDMI2");
+        } else if (id == R.id.rl_vga) {
+            startSource("VGA");
+        } else if (id == R.id.rl_manual) {
+            ManualQrDialog manualQrDialog = new ManualQrDialog(this, R.style.DialogTheme);
+            manualQrDialog.show();
+        } else if (id == R.id.rl_wifi) {
+            if (MyApplication.config.barWifi.equals("")) {
+                startNewActivity(WifiActivity.class);
+            } else {
+                String[] act = MyApplication.config.barWifi.split("/");
+                AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
+            }
+        } else if (id == R.id.rl_bluetooth) {
+            if (MyApplication.config.barBluetooth.equals("")) {
+                startNewActivity(BluetoothActivity.class);
+            } else {
+                String[] act = MyApplication.config.barBluetooth.split("/");
+                AppUtils.startNewApp(this, act[0], act[1].replace(".", act[0]));
+            }
+        } else if (id == R.id.rl_ethernet) {
+            startNewActivity(WiredActivity.class);
+        } else if (id == R.id.rl_clear) {
+            AppUtils.startNewApp(this, "com.htc.clearmemory");
         }
 
     }

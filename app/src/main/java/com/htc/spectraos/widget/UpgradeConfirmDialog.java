@@ -32,16 +32,13 @@ public class UpgradeConfirmDialog extends BaseDialog implements View.OnClickList
     @Override
     public void onClick(View v) {
         Log.d("hzj","onclick");
-        switch (v.getId()){
-            case R.id.enter:
-
-                if (mcallback!=null)
-                    mcallback.confirm(path);
-                dismiss();
-                break;
-            case R.id.cancel:
-                dismiss();
-                break;
+        int id = v.getId();
+        if (id == R.id.enter) {
+            if (mcallback != null)
+                mcallback.confirm(path);
+            dismiss();
+        } else if (id == R.id.cancel) {
+            dismiss();
         }
     }
 

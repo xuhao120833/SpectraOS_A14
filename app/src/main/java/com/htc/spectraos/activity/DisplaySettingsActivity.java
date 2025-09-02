@@ -182,9 +182,8 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
     @Override
     public void onClick(View v) {
 
-    switch (v.getId()){
-        case R.id.rl_picture_mode:
-        case R.id.picture_mode_right:
+        int id = v.getId();
+        if (id == R.id.rl_picture_mode || id == R.id.picture_mode_right) {
             if (curPosition == picture_mode_values.length - 1) {
                 curPosition = 0;
             } else {
@@ -193,8 +192,7 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
             pqControl.setPictureMode(picture_mode_values[curPosition]);
             updatePictureMode();
             displaySettingsBinding.pictureModeTv.setText(picture_mode_choices[curPosition]);
-            break;
-        case R.id.picture_mode_left:
+        } else if (id == R.id.picture_mode_left) {
             if (curPosition == 0) {
                 curPosition = picture_mode_values.length - 1;
             } else {
@@ -203,157 +201,133 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
             pqControl.setPictureMode(picture_mode_values[curPosition]);
             updatePictureMode();
             displaySettingsBinding.pictureModeTv.setText(picture_mode_choices[curPosition]);
-            break;
-        case R.id.rl_audio_mode:
-        case R.id.audio_mode_right:
-            if (sound_mode==soundMode_name.length-1){
+        } else if (id == R.id.rl_audio_mode || id == R.id.audio_mode_right) {
+            if (sound_mode == soundMode_name.length - 1) {
                 sound_mode = 0;
-            }else {
-                sound_mode+=1;
+            } else {
+                sound_mode += 1;
             }
             tvAudioControl.setAudioMode(sound_mode);
             displaySettingsBinding.audioModeTv.setText(soundMode_name[sound_mode]);
-            break;
-        case R.id.audio_mode_left:
-            if (sound_mode==0){
-                sound_mode = soundMode_name.length-1;
-            }else {
-                sound_mode-=1;
+        } else if (id == R.id.audio_mode_left) {
+            if (sound_mode == 0) {
+                sound_mode = soundMode_name.length - 1;
+            } else {
+                sound_mode -= 1;
             }
             tvAudioControl.setAudioMode(sound_mode);
             displaySettingsBinding.audioModeTv.setText(soundMode_name[sound_mode]);
-            break;
-        case R.id.rl_brightness:
-        case R.id.brightness_right:
+        } else if (id == R.id.rl_brightness || id == R.id.brightness_right) {
             if (brightness == MyApplication.config.brightnessLevel)
-                break;
+                return;
 
             brightness += 1;
             if (brightness > MyApplication.config.brightnessLevel) {
                 brightness = MyApplication.config.brightnessLevel;
             }
             updateBrightness(true);
-            break;
-        case R.id.brightness_left:
+        } else if (id == R.id.brightness_left) {
             if (brightness_system == 1)
-                break;
+                return;
 
             brightness_system -= 1;
             if (brightness_system <= 1) {
                 brightness_system = 1;
             }
             updateBrightness(true);
-            break;
-        case R.id.rl_brightness_system:
-        case R.id.brightness_system_right:
-            if (brightness_system==100)
-                break;
+        } else if (id == R.id.rl_brightness_system || id == R.id.brightness_system_right) {
+            if (brightness_system == 100)
+                return;
 
-            brightness_system+=1;
-            if (brightness_system>100)
-                brightness_system=100;
+            brightness_system += 1;
+            if (brightness_system > 100)
+                brightness_system = 100;
 
             updateBrightnessSystem(true);
-            break;
-        case R.id.brightness_system_left:
-            if (brightness_system==1)
-                break;
+        } else if (id == R.id.brightness_system_left) {
+            if (brightness_system == 1)
+                return;
 
-            brightness_system-=1;
-            if (brightness_system<1)
-                brightness_system=1;
+            brightness_system -= 1;
+            if (brightness_system < 1)
+                brightness_system = 1;
 
             updateBrightnessSystem(true);
-            break;
-        case R.id.rl_contrast:
-        case R.id.contrast_right:
+        } else if (id == R.id.rl_contrast || id == R.id.contrast_right) {
             if (mCurContrast == 100)
-                break;
+                return;
 
             mCurContrast += 1;
             if (mCurContrast > 100)
                 mCurContrast = 100;
 
             updateContrast(true);
-            break;
-        case R.id.contrast_left:
+        } else if (id == R.id.contrast_left) {
             if (mCurContrast == 1)
-                break;
+                return;
 
             mCurContrast -= 1;
             if (mCurContrast < 1)
                 mCurContrast = 1;
 
             updateContrast(true);
-            break;
-        case R.id.rl_hue:
-        case R.id.hue_right:
+        } else if (id == R.id.rl_hue || id == R.id.hue_right) {
             if (mCurHue == 100)
-                break;
+                return;
 
             mCurHue += 1;
             if (mCurHue > 100)
                 mCurHue = 100;
 
             updateHue(true);
-            break;
-        case R.id.hue_left:
+        } else if (id == R.id.hue_left) {
             if (mCurHue == 1)
-                break;
+                return;
 
             mCurHue -= 1;
             if (mCurHue < 1)
                 mCurHue = 1;
 
             updateHue(true);
-            break;
-        case R.id.rl_saturation:
-        case R.id.saturation_right:
+        } else if (id == R.id.rl_saturation || id == R.id.saturation_right) {
             if (mCurSaturation == 100)
-                break;
+                return;
 
             mCurSaturation += 1;
             if (mCurSaturation > 100)
                 mCurSaturation = 100;
 
             updateSaturation(true);
-            break;
-        case R.id.saturation_left:
+        } else if (id == R.id.saturation_left) {
             if (mCurSaturation == 1)
-                break;
+                return;
 
             mCurSaturation -= 1;
             if (mCurSaturation < 1)
                 mCurSaturation = 1;
 
             updateSaturation(true);
-            break;
-
-        case R.id.rl_sharpness:
-        case R.id.sharpness_right:
+        } else if (id == R.id.rl_sharpness || id == R.id.sharpness_right) {
             if (mSharpness == 100)
-                break;
+                return;
 
             mSharpness += 1;
             if (mSharpness > 100)
                 mSharpness = 100;
 
             updateSharpness(true);
-            break;
-        case R.id.sharpness_left:
+        } else if (id == R.id.sharpness_left) {
             if (mSharpness == 1)
-                break;
+                return;
 
             mSharpness -= 1;
             if (mSharpness < 1)
                 mSharpness = 1;
 
             updateSharpness(true);
-            break;
-        case R.id.rl_red:
-        case R.id.red_right:
+        } else if (id == R.id.rl_red || id == R.id.red_right) {
             if (mR == 1023)
-                break;
+                return;
 
             mR += 5;
 
@@ -361,10 +335,9 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
                 mR = 1023;
 
             updateR(true);
-            break;
-        case R.id.red_left:
+        } else if (id == R.id.red_left) {
             if (mR == 1)
-                break;
+                return;
 
             mR -= 5;
 
@@ -372,11 +345,9 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
                 mR = 1;
 
             updateR(true);
-            break;
-        case R.id.rl_green:
-        case R.id.green_right:
+        } else if (id == R.id.rl_green || id == R.id.green_right) {
             if (mG == 1023)
-                break;
+                return;
 
             mG += 5;
 
@@ -384,10 +355,9 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
                 mG = 1023;
 
             updateG(true);
-            break;
-        case R.id.green_left:
+        } else if (id == R.id.green_left) {
             if (mG == 1)
-                break;
+                return;
 
             mG -= 5;
 
@@ -395,11 +365,9 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
                 mG = 1;
 
             updateG(true);
-            break;
-        case R.id.rl_blue:
-        case R.id.blue_right:
+        } else if (id == R.id.rl_blue || id == R.id.blue_right) {
             if (mB == 1023)
-                break;
+                return;
 
 
             mB += 5;
@@ -409,10 +377,9 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
                 mB = 1023;
 
             updateB(true);
-            break;
-        case R.id.blue_left:
+        } else if (id == R.id.blue_left) {
             if (mB == 1)
-                break;
+                return;
 
             mB -= 5;
 
@@ -420,7 +387,6 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
                 mB = 1;
 
             updateB(true);
-            break;
         }
     }
 
@@ -429,273 +395,241 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
     public boolean onKey(View v, int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT && event.getAction() == KeyEvent.ACTION_DOWN) {
-            switch (v.getId()) {
-                case R.id.rl_brightness:
+            int id = v.getId();
+            if (id == R.id.rl_brightness) {
+                if (brightness == 0)
+                    return true;
 
-                    if (brightness == 0)
-                        break;
+                brightness -= 1;
+                if (brightness < 0) {
+                    brightness = 0;
+                }
+                updateBrightness(true);
+            } else if (id == R.id.rl_brightness_system) {
+                if (brightness_system == 1)
+                    return true;
 
-                    brightness -= 1;
-                    if (brightness < 0) {
-                        brightness = 0;
-                    }
-                    updateBrightness(true);
-                    break;
-                case R.id.rl_brightness_system:
-                    if (brightness_system == 1)
-                        break;
+                brightness_system -= 1;
+                if (brightness_system <= 1) {
+                    brightness_system = 1;
+                }
 
-                    brightness_system -= 1;
-                    if (brightness_system <= 1) {
-                        brightness_system = 1;
-                    }
+                updateBrightnessSystem(true);
+            } else if (id == R.id.rl_contrast) {
+                if (mCurContrast == 1)
+                    return true;
 
-                    updateBrightnessSystem(true);
-                    break;
-                case R.id.rl_contrast:
-                    if (mCurContrast == 1)
-                        break;
+                mCurContrast -= 1;
+                if (mCurContrast < 1)
+                    mCurContrast = 1;
+                updateContrast(true);
+            } else if (id == R.id.rl_hue) {
+                if (mCurHue == 1)
+                    return true;
 
-                    mCurContrast -= 1;
-                    if (mCurContrast < 1)
-                        mCurContrast = 1;
-                    updateContrast(true);
-                    break;
-                case R.id.rl_hue:
-                    if (mCurHue == 1)
-                        break;
+                mCurHue -= 1;
+                if (mCurHue < 1)
+                    mCurHue = 1;
 
-                    mCurHue -= 1;
-                    if (mCurHue < 1)
-                        mCurHue = 1;
+                updateHue(true);
+            } else if (id == R.id.rl_saturation) {
+                if (mCurSaturation == 1)
+                    return true;
 
-                    updateHue(true);
-                    break;
-                case R.id.rl_saturation:
-                    if (mCurSaturation == 1)
-                        break;
+                mCurSaturation -= 1;
+                if (mCurSaturation < 1)
+                    mCurSaturation = 1;
 
-                    mCurSaturation -= 1;
-                    if (mCurSaturation < 1)
-                        mCurSaturation = 1;
+                updateSaturation(true);
+            } else if (id == R.id.rl_sharpness) {
+                if (mSharpness == 1)
+                    return true;
 
-                    updateSaturation(true);
-                    break;
-                case R.id.rl_sharpness:
-                    if (mSharpness == 1)
-                        break;
+                mSharpness -= 1;
+                if (mSharpness < 1)
+                    mSharpness = 1;
 
-                    mSharpness -= 1;
-                    if (mSharpness < 1)
-                        mSharpness = 1;
+                updateSharpness(true);
+            } else if (id == R.id.rl_red) {
+                if (mR == 1)
+                    return true;
 
-                    updateSharpness(true);
-                    break;
+                if (event.getRepeatCount() == 0)
+                    mR -= 1;
+                else
+                    mR -= 5;
 
-                case R.id.rl_red:
-                    if (mR == 1)
-                        break;
+                if (mR < 1)
+                    mR = 1;
 
-                    if (event.getRepeatCount()==0)
-                        mR -= 1;
-                    else
-                        mR -= 5;
+                updateR(true);
+            } else if (id == R.id.rl_green) {
+                if (mG == 1)
+                    return true;
 
-                    if (mR < 1)
-                        mR = 1;
+                if (event.getRepeatCount() == 0)
+                    mG -= 1;
+                else
+                    mG -= 5;
 
-                    updateR(true);
-                    break;
+                if (mG < 1)
+                    mG = 1;
 
-                case R.id.rl_green:
-                    if (mG == 1)
-                        break;
+                updateG(true);
+            } else if (id == R.id.rl_blue) {
+                if (mB == 1)
+                    return true;
 
-                    if (event.getRepeatCount()==0)
-                        mG -= 1;
-                    else
-                        mG -= 5;
+                if (event.getRepeatCount() == 0)
+                    mB -= 1;
+                else
+                    mB -= 5;
 
-                    if (mG < 1)
-                        mG = 1;
+                if (mB < 1)
+                    mB = 1;
 
-                    updateG(true);
-                    break;
-
-                case R.id.rl_blue:
-                    if (mB == 1)
-                        break;
-
-                    if (event.getRepeatCount()==0)
-                        mB -= 1;
-                    else
-                        mB -= 5;
-
-                    if (mB < 1)
-                        mB = 1;
-
-                    updateB(true);
-                    break;
-
-                case R.id.rl_picture_mode:
-                    if (curPosition == 0) {
-                        curPosition = picture_mode_values.length - 1;
-                    } else {
-                        curPosition -= 1;
-                    }
-                    pqControl.setPictureMode(picture_mode_values[curPosition]);
-                    updatePictureMode();
-                    displaySettingsBinding.pictureModeTv.setText(picture_mode_choices[curPosition]);
-                    break;
-                case R.id.rl_audio_mode:
-                    if (sound_mode==0){
-                        sound_mode = soundMode_name.length-1;
-                    }else {
-                        sound_mode-=1;
-                    }
-                    tvAudioControl.setAudioMode(sound_mode);
-                    displaySettingsBinding.audioModeTv.setText(soundMode_name[sound_mode]);
-                    break;
-
+                updateB(true);
+            } else if (id == R.id.rl_picture_mode) {
+                if (curPosition == 0) {
+                    curPosition = picture_mode_values.length - 1;
+                } else {
+                    curPosition -= 1;
+                }
+                pqControl.setPictureMode(picture_mode_values[curPosition]);
+                updatePictureMode();
+                displaySettingsBinding.pictureModeTv.setText(picture_mode_choices[curPosition]);
+            } else if (id == R.id.rl_audio_mode) {
+                if (sound_mode == 0) {
+                    sound_mode = soundMode_name.length - 1;
+                } else {
+                    sound_mode -= 1;
+                }
+                tvAudioControl.setAudioMode(sound_mode);
+                displaySettingsBinding.audioModeTv.setText(soundMode_name[sound_mode]);
             }
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT && event.getAction() == KeyEvent.ACTION_DOWN) {
-            switch (v.getId()) {
-                case R.id.rl_brightness:
-                    // if (brightness==100)
-                    //     break;
-                    //
-                    // brightness+=5;
-                    // if (brightness>100)
-                    //     brightness=100;
-                    //
-                    // updateBrightness();
-                    if (brightness == MyApplication.config.brightnessLevel)
-                        break;
+            int id = v.getId();
+            if (id == R.id.rl_brightness) {// if (brightness==100)
+                //     break;
+                //
+                // brightness+=5;
+                // if (brightness>100)
+                //     brightness=100;
+                //
+                // updateBrightness();
+                if (brightness == MyApplication.config.brightnessLevel)
+                    return true;
 
-                    brightness += 1;
-                    if (brightness > MyApplication.config.brightnessLevel) {
-                        brightness = MyApplication.config.brightnessLevel;
-                    }
-                    updateBrightness(true);
-                    break;
-                case R.id.rl_brightness_system:
-                    if (brightness_system==100)
-                        break;
+                brightness += 1;
+                if (brightness > MyApplication.config.brightnessLevel) {
+                    brightness = MyApplication.config.brightnessLevel;
+                }
+                updateBrightness(true);
+            } else if (id == R.id.rl_brightness_system) {
+                if (brightness_system == 100)
+                    return true;
 
-                    brightness_system+=1;
-                    if (brightness_system>100)
-                        brightness_system=100;
+                brightness_system += 1;
+                if (brightness_system > 100)
+                    brightness_system = 100;
 
-                    updateBrightnessSystem(true);
+                updateBrightnessSystem(true);
+            } else if (id == R.id.rl_contrast) {
+                if (mCurContrast == 100)
+                    return true;
 
-                    break;
-                case R.id.rl_contrast:
-                    if (mCurContrast == 100)
-                        break;
+                mCurContrast += 1;
+                if (mCurContrast > 100)
+                    mCurContrast = 100;
 
-                    mCurContrast += 1;
-                    if (mCurContrast > 100)
-                        mCurContrast = 100;
+                updateContrast(true);
+            } else if (id == R.id.rl_hue) {
+                if (mCurHue == 100)
+                    return true;
 
-                    updateContrast(true);
-                    break;
-                case R.id.rl_hue:
-                    if (mCurHue == 100)
-                        break;
+                mCurHue += 1;
+                if (mCurHue > 100)
+                    mCurHue = 100;
 
-                    mCurHue += 1;
-                    if (mCurHue > 100)
-                        mCurHue = 100;
+                updateHue(true);
+            } else if (id == R.id.rl_saturation) {
+                if (mCurSaturation == 100)
+                    return true;
 
-                    updateHue(true);
-                    break;
-                case R.id.rl_saturation:
-                    if (mCurSaturation == 100)
-                        break;
+                mCurSaturation += 1;
+                if (mCurSaturation > 100)
+                    mCurSaturation = 100;
 
-                    mCurSaturation += 1;
-                    if (mCurSaturation > 100)
-                        mCurSaturation = 100;
+                updateSaturation(true);
+            } else if (id == R.id.rl_sharpness) {
+                if (mSharpness == 100)
+                    return true;
 
-                    updateSaturation(true);
-                    break;
-                case R.id.rl_sharpness:
-                    if (mSharpness == 100)
-                        break;
+                mSharpness += 1;
+                if (mSharpness > 100)
+                    mSharpness = 100;
 
-                    mSharpness += 1;
-                    if (mSharpness > 100)
-                        mSharpness = 100;
+                updateSharpness(true);
+            } else if (id == R.id.rl_red) {
+                if (mR == 1023)
+                    return true;
 
-                    updateSharpness(true);
-                    break;
-                case R.id.rl_red:
-                    if (mR == 1023)
-                        break;
-
-                    if (event.getRepeatCount()==0)
-                        mR += 1;
-                    else
-                        mR += 5;
+                if (event.getRepeatCount() == 0)
+                    mR += 1;
+                else
+                    mR += 5;
 
 
-                    if (mR > 1023)
-                        mR = 1023;
+                if (mR > 1023)
+                    mR = 1023;
 
-                    updateR(true);
-                    break;
+                updateR(true);
+            } else if (id == R.id.rl_green) {
+                if (mG == 1023)
+                    return true;
 
-                case R.id.rl_green:
-                    if (mG == 1023)
-                        break;
-
-                    if (event.getRepeatCount()==0)
-                        mG += 1;
-                    else
-                        mG += 5;
+                if (event.getRepeatCount() == 0)
+                    mG += 1;
+                else
+                    mG += 5;
 
 
-                    if (mG > 1023)
-                        mG = 1023;
+                if (mG > 1023)
+                    mG = 1023;
 
-                    updateG(true);
-                    break;
+                updateG(true);
+            } else if (id == R.id.rl_blue) {
+                if (mB == 1023)
+                    return true;
 
-                case R.id.rl_blue:
-                    if (mB == 1023)
-                        break;
-
-                    if (event.getRepeatCount()==0)
-                        mB += 1;
-                    else
-                        mB += 5;
+                if (event.getRepeatCount() == 0)
+                    mB += 1;
+                else
+                    mB += 5;
 
 
-                    if (mB > 1023)
-                        mB = 1023;
+                if (mB > 1023)
+                    mB = 1023;
 
-                    updateB(true);
-                    break;
-                case R.id.rl_picture_mode:
-                    if (curPosition == picture_mode_values.length - 1) {
-                        curPosition = 0;
-                    } else {
-                        curPosition += 1;
-                    }
-                    pqControl.setPictureMode(picture_mode_values[curPosition]);
-                    updatePictureMode();
-                    displaySettingsBinding.pictureModeTv.setText(picture_mode_choices[curPosition]);
-                    break;
-                case R.id.rl_audio_mode:
-                    if (sound_mode==soundMode_name.length-1){
-                        sound_mode = 0;
-                    }else {
-                        sound_mode+=1;
-                    }
-                    tvAudioControl.setAudioMode(sound_mode);
-                    displaySettingsBinding.audioModeTv.setText(soundMode_name[sound_mode]);
-                    break;
+                updateB(true);
+            } else if (id == R.id.rl_picture_mode) {
+                if (curPosition == picture_mode_values.length - 1) {
+                    curPosition = 0;
+                } else {
+                    curPosition += 1;
+                }
+                pqControl.setPictureMode(picture_mode_values[curPosition]);
+                updatePictureMode();
+                displaySettingsBinding.pictureModeTv.setText(picture_mode_choices[curPosition]);
+            } else if (id == R.id.rl_audio_mode) {
+                if (sound_mode == soundMode_name.length - 1) {
+                    sound_mode = 0;
+                } else {
+                    sound_mode += 1;
+                }
+                tvAudioControl.setAudioMode(sound_mode);
+                displaySettingsBinding.audioModeTv.setText(soundMode_name[sound_mode]);
             }
             return true;
         }

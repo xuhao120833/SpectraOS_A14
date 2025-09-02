@@ -163,48 +163,43 @@ public class ChangePasswordDialog extends BaseDialog implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl_eye1:
-                if (changePasswordBinding.password.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
-                    // 显示密码
-                    changePasswordBinding.password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    changePasswordBinding.eye1.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
-                } else {
-                    // 隐藏密码
-                    changePasswordBinding.password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    changePasswordBinding.eye1.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
-                }
-                break;
-            case R.id.rl_eye2:
-                if (changePasswordBinding.newPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
-                    // 显示密码
-                    changePasswordBinding.newPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    changePasswordBinding.eye2.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
-                } else {
-                    // 隐藏密码
-                    changePasswordBinding.newPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    changePasswordBinding.eye2.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
-                }
-                break;
-            case R.id.rl_eye3:
-                if (changePasswordBinding.newPasswordRepeat.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
-                    // 显示密码
-                    changePasswordBinding.newPasswordRepeat.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    changePasswordBinding.eye3.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
-                } else {
-                    // 隐藏密码
-                    changePasswordBinding.newPasswordRepeat.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    changePasswordBinding.eye3.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
-                }
-                break;
-            case R.id.enter:
-                check();
-                break;
-            case R.id.cancel:
-                changePasswordBinding.password.setText("");
-                changePasswordBinding.newPassword.setText("");
-                changePasswordBinding.newPasswordRepeat.setText("");
-                break;
+        int id = v.getId();
+        if (id == R.id.rl_eye1) {
+            if (changePasswordBinding.password.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                // 显示密码
+                changePasswordBinding.password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                changePasswordBinding.eye1.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
+            } else {
+                // 隐藏密码
+                changePasswordBinding.password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                changePasswordBinding.eye1.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
+            }
+        } else if (id == R.id.rl_eye2) {
+            if (changePasswordBinding.newPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                // 显示密码
+                changePasswordBinding.newPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                changePasswordBinding.eye2.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
+            } else {
+                // 隐藏密码
+                changePasswordBinding.newPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                changePasswordBinding.eye2.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
+            }
+        } else if (id == R.id.rl_eye3) {
+            if (changePasswordBinding.newPasswordRepeat.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                // 显示密码
+                changePasswordBinding.newPasswordRepeat.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                changePasswordBinding.eye3.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
+            } else {
+                // 隐藏密码
+                changePasswordBinding.newPasswordRepeat.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                changePasswordBinding.eye3.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
+            }
+        } else if (id == R.id.enter) {
+            check();
+        } else if (id == R.id.cancel) {
+            changePasswordBinding.password.setText("");
+            changePasswordBinding.newPassword.setText("");
+            changePasswordBinding.newPasswordRepeat.setText("");
         }
     }
 
@@ -237,16 +232,12 @@ public class ChangePasswordDialog extends BaseDialog implements View.OnClickList
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         int id = v.getId();
-        switch (id) {
-            case R.id.password:
-                changePasswordBinding.password.setHint("");
-                break;
-            case R.id.new_password:
-                changePasswordBinding.newPassword.setHint("");
-                break;
-            case R.id.new_password_repeat:
-                changePasswordBinding.newPasswordRepeat.setHint("");
-                break;
+        if (id == R.id.password) {
+            changePasswordBinding.password.setHint("");
+        } else if (id == R.id.new_password) {
+            changePasswordBinding.newPassword.setHint("");
+        } else if (id == R.id.new_password_repeat) {
+            changePasswordBinding.newPasswordRepeat.setHint("");
         }
     }
 }

@@ -135,22 +135,18 @@ public class WifiActivity extends BaseActivity  implements WifiEnabledReceiver.W
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rl_wifi_switch:
-            case R.id.wifi_switch:
-                wifiBinding.wifiSwitch.setChecked(!wifiBinding.wifiSwitch.isChecked());
-                break;
-            case R.id.rl_add_network:
-                AddNetWorkDialog addNetWorkDialog = new AddNetWorkDialog(this,R.style.DialogTheme);
-                addNetWorkDialog.show();
-                break;
-            case R.id.rl_search_wifi:
-                if (isStartAnim)
-                    return;
-                searchAnim();
-                mWifiManager.startScan();
-                handler.sendEmptyMessageDelayed(2, 5000);
-                break;
+        int id = v.getId();
+        if (id == R.id.rl_wifi_switch || id == R.id.wifi_switch) {
+            wifiBinding.wifiSwitch.setChecked(!wifiBinding.wifiSwitch.isChecked());
+        } else if (id == R.id.rl_add_network) {
+            AddNetWorkDialog addNetWorkDialog = new AddNetWorkDialog(this, R.style.DialogTheme);
+            addNetWorkDialog.show();
+        } else if (id == R.id.rl_search_wifi) {
+            if (isStartAnim)
+                return;
+            searchAnim();
+            mWifiManager.startScan();
+            handler.sendEmptyMessageDelayed(2, 5000);
         }
     }
 

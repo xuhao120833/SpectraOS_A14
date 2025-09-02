@@ -98,38 +98,34 @@ public class PasswordVerifyActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.cancel:
-                passwordVerifyBinding.Password1.setText("");
-                passwordVerifyBinding.Password2.setText("");
-                break;
-            case R.id.enter:
-                checkPassword();
-                break;
-            case R.id.rl_eye1:
-                Log.d(TAG," wifiConnectDialogBinding.etPassword.getInputType() "+passwordVerifyBinding.Password1.getInputType());
-                if (passwordVerifyBinding.Password1.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
-                    // 显示密码
-                    passwordVerifyBinding.Password1.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    passwordVerifyBinding.eye1.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
-                } else {
-                    // 隐藏密码
-                    passwordVerifyBinding.Password1.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    passwordVerifyBinding.eye1.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
-                }
-                break;
-            case R.id.rl_eye2:
-                Log.d(TAG," wifiConnectDialogBinding.etPassword.getInputType() "+passwordVerifyBinding.Password2.getInputType());
-                if (passwordVerifyBinding.Password2.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
-                    // 显示密码
-                    passwordVerifyBinding.Password2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    passwordVerifyBinding.eye2.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
-                } else {
-                    // 隐藏密码
-                    passwordVerifyBinding.Password2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    passwordVerifyBinding.eye2.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
-                }
-                break;
+        int id = v.getId();
+        if (id == R.id.cancel) {
+            passwordVerifyBinding.Password1.setText("");
+            passwordVerifyBinding.Password2.setText("");
+        } else if (id == R.id.enter) {
+            checkPassword();
+        } else if (id == R.id.rl_eye1) {
+            Log.d(TAG, " wifiConnectDialogBinding.etPassword.getInputType() " + passwordVerifyBinding.Password1.getInputType());
+            if (passwordVerifyBinding.Password1.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                // 显示密码
+                passwordVerifyBinding.Password1.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                passwordVerifyBinding.eye1.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
+            } else {
+                // 隐藏密码
+                passwordVerifyBinding.Password1.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                passwordVerifyBinding.eye1.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
+            }
+        } else if (id == R.id.rl_eye2) {
+            Log.d(TAG, " wifiConnectDialogBinding.etPassword.getInputType() " + passwordVerifyBinding.Password2.getInputType());
+            if (passwordVerifyBinding.Password2.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                // 显示密码
+                passwordVerifyBinding.Password2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                passwordVerifyBinding.eye2.setImageResource(R.drawable.password_eye); // 替换为显示密码的图标
+            } else {
+                // 隐藏密码
+                passwordVerifyBinding.Password2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                passwordVerifyBinding.eye2.setImageResource(R.drawable.password_eye_off); // 替换为隐藏密码的图标
+            }
         }
     }
 
@@ -156,13 +152,10 @@ public class PasswordVerifyActivity extends AppCompatActivity implements View.On
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         int id = v.getId();
-        switch (id) {
-            case R.id.Password1:
-                passwordVerifyBinding.Password1.setHint("");
-                break;
-            case R.id.Password2:
-                passwordVerifyBinding.Password2.setHint("");
-                break;
+        if (id == R.id.Password1) {
+            passwordVerifyBinding.Password1.setHint("");
+        } else if (id == R.id.Password2) {
+            passwordVerifyBinding.Password2.setHint("");
         }
 
     }
