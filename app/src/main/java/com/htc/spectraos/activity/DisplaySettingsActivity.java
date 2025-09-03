@@ -13,7 +13,6 @@ import com.htc.spectraos.utils.ReflectUtil;
 import com.softwinner.PQControl;
 import com.softwinner.TvAudioControl;
 import com.softwinner.tv.AwTvAudioManager;
-import com.softwinner.tv.common.AwTvAudioTypes;
 
 public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyListener {
 
@@ -759,7 +758,7 @@ public class DisplaySettingsActivity extends BaseActivity implements View.OnKeyL
         mCurHue = pqControl.getBasicControl(PQControl.PQ_BASIC_HUE);
         mSharpness = pqControl.getBasicControl(PQControl.PQ_BASIC_SHARPNESS);
 
-         mColorTemp = pqControl.getColorTemperature();
+        mColorTemp = pqControl.getColorTemperature();
         int[] mRGBInfo = pqControl.factoryGetWBInfo(mColorTemp);
         mR = mRGBInfo[PQControl.GAIN_R];
         mG = mRGBInfo[PQControl.GAIN_G];
